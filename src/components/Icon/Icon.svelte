@@ -28,7 +28,7 @@
         { name: 'moon',         component: Moon         }
     ];
 
-    let selected = icons.find(icon => icon.name === name);
+    $: selected = icons.find(icon => icon.name === name);
 </script>
 
 {#if selected && selected.component}

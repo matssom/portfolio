@@ -7,10 +7,9 @@
     import Stack from "../Stack/Stack.svelte";
     import Clickable from "../Clickable/Clickable.svelte";
     import Icon from "../Icon/Icon.svelte";
+    import ThemeControl from "../../store/ThemeControl.svelte";
 
     import { onMount } from 'svelte';
-    import { elements } from '../../assets/components/footer/config.js';
-
     import { watchResize } from 'svelte-watch-resize';
 
     let mobile = false;
@@ -46,7 +45,7 @@
                     <div class:mobile class="footer" bind:this={nav}>
                         <p class="legal"><Icon name="copyright"/> Mats Sommervold, 2020</p>
                         <div class="footer">
-                            <Clickable type="button" text="Dark Theme" icon="moon"/>
+                            <ThemeControl />
                             <Clickable type="button" text="Norwegian" icon="language"/>
                         </div>
                     </div>

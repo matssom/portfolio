@@ -10,7 +10,7 @@
     h1 {
         font-size: 3.8rem;
         letter-spacing: .02em;
-        color: var(--primary-color-3);
+        color: var(--primary-heading-color);
     }
 
     .center {
