@@ -1,0 +1,68 @@
+:root {
+
+	/* --primary-color: #0B3948; */
+	--primary-color: #FF540A;
+	--primary-color-2: #E04300;
+	--secondary-color: #036168;
+	--secondary-color-2: #023C40;
+	--text-color: #ffffff;
+	--text-color-2: #1f1f1f;
+	--back-color: #F7F8F8;
+	--back-color-2: white;
+	--border-color: #eee;
+	--back-hover: rgba(0,0,0,0.1);
+	
+	--box-shadow: 0 2px 4px rgba(14,30,37,.12);
+
+}
+
+
+html, body {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6, 
+p {
+	margin: 0;
+}
+
+/* h1::before, 
+h2::before, 
+h3::before, 
+h4::before, 
+h5::before,
+h6::before, 
+p::before {
+
+} */
+
+a {
+	color: rgb(0,100,200);
+	text-decoration: none;
+}
+
+label {
+	display: block;
+}
+
+input, button, select, textarea {
+	font-family: inherit;
+	font-size: inherit;
+	-webkit-padding: 0.4em 0;
+	padding: 0.4em;
+	margin: 0 0 0.5em 0;
+	box-sizing: border-box;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+}
+
+input:disabled {
+	color: #ccc;
+}
