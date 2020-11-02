@@ -7,13 +7,11 @@
 
 <Card padding>
     <nav class="flex" role="navigation">
-        <p>Logo</p>
+        <p>logo</p>
         <ul class="list">
-            {#each elements as { type, external, name, to, action, icon, style } (name)}
+            {#each elements as element (element.id)}
                 <li class="item">
-                    <Clickable style={style} type={type} external={external} to={to} action={action} icon={icon}>
-                        {name}
-                    </Clickable>
+                    <Clickable {...element} />
                 </li>
             {/each}
         </ul>
@@ -35,6 +33,7 @@
         margin: 0;
         padding: 0;
         list-style: none;
+        align-items: center;
     }
 
     .item {

@@ -31,6 +31,10 @@
 	--link-color-hover: 	#00438b;
 	--link-color-active: 	#003268;
 
+	--icon-color: var(--text-color);
+	--icon-color-2: var(--text-color-2);
+	--icon-color-3: var(--text-color-3);
+
 	--gap-large: 2.8rem;
 	--gap-medium: 1.4rem;
 	--gap-small: 1rem;
