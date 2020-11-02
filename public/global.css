@@ -42,8 +42,13 @@
 	--border-radius-button: .3rem;
 	--border-radius-card: .5rem;
 	
+	--transition: all .1s linear;
 	--box-shadow: 0 2px 4px rgba(14,30,37,.12);
 
+}
+
+* {
+	font-family: 'Overpass';
 }
 
 
@@ -61,33 +66,5 @@ h5,
 h6, 
 p {
 	margin: 0;
-}
-
-/* h1::before, 
-h2::before, 
-h3::before, 
-h4::before, 
-h5::before,
-h6::before, 
-p::before {
-
-} */
-
-label {
-	display: block;
-}
-
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
-
-input:disabled {
-	color: #ccc;
+	margin-bottom: -.5rem;
 }

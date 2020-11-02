@@ -35,7 +35,7 @@
             <Icon name={icon}/>
         {/if}
         {#if text}
-            <div>{text}</div>
+            <p>{text}</p>
         {/if}
         {#if icon !== '' && order == 'reverse'}
             <Icon name={icon}/>
@@ -48,7 +48,7 @@
                 <Icon name={icon}/>
             {/if}
             {#if text}
-                <div>{text}</div>
+                <p>{text}</p>
             {/if}
             {#if icon !== '' && order == 'reverse'}
                 <Icon name={icon}/>
@@ -61,7 +61,7 @@
             <Icon name={icon}/>
         {/if}
         {#if text}
-            <div>{text}</div>
+            <p>{text}</p>
         {/if}
         {#if icon !== '' && order === 'reverse'}
             <Icon name={icon}/>
@@ -268,6 +268,13 @@
     {
         background-color: var(--shade);
         color: var(--link-color);
+    }
+
+    .clickable.link.invisible.selected > :global(svg),
+    .clickable.button.invisible.selected > :global(svg),
+    .clickable.route.invisible.selected > :global(a) > :global(svg) 
+    {
+        fill: var(--link-color);
     }
 
     .clickable.link.primary.selected,

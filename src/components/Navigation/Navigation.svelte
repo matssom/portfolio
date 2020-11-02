@@ -1,14 +1,15 @@
 <script>
     import Card from '../Card/Card.svelte';
     import Clickable from '../Clickable/Clickable.svelte';
+    import Logo from '../Logo/Logo.svelte';
 
-    import { elements } from '../../assets/components/navigation/config.js';
+    import { elements } from '../../assets/components/navigation/config.js'
 
 </script>
 
 <Card padding>
     <nav class="flex" role="navigation">
-        <p>logo</p>
+        <Logo />
         <ul class="list">
             {#each elements as element (element.id)}
                 <li class="item">

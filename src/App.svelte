@@ -1,7 +1,4 @@
 <script>
-	import 'amidst/amidst.css';
-	import 'amidst/amidst.js';
-
 	import { Router, Route } from 'svelte-routing';
 	import Navigation from './components/Navigation/Navigation.svelte';
 	import Container from './components/Container/Container.svelte';
@@ -12,10 +9,6 @@
 
 	export let url = "";
 </script>
-
-<svelte:head>
-	
-</svelte:head>
 
 <Router url={url}>
 	<header>
