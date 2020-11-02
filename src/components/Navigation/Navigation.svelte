@@ -8,7 +8,7 @@
 
 <Card padding>
     <nav class="flex" role="navigation">
-        <p>logo</p>
+        <h3>Under Construction</h3>
         <ul class="list">
             {#each elements as element (element.id)}
                 <li class="item">
