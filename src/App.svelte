@@ -1,4 +1,6 @@
 <script>
+	import 'amidst/amidst.css';
+	import 'amidst/amidst';
 	import { Router, Route } from 'svelte-routing';
 	import Navigation from './components/Navigation/Navigation.svelte';
 	import Container from './components/Container/Container.svelte';
