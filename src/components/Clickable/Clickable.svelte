@@ -1,6 +1,5 @@
 <script>
-    import { Link, Route } from 'svelte-routing';
-    import Location from '../Location/Location.svelte';
+    import { Link } from 'svelte-routing';
     import Icon from '../Icon/Icon.svelte';
 
     export let  action = '',
