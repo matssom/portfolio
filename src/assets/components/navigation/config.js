@@ -1,5 +1,12 @@
 export const elements = [
     { 
+        id: 0,
+        text: 'Home', 
+        type: 'route',
+        style: 'invisible',
+        to: '/'
+    },
+    { 
         id: 1,
         text: 'Work', 
         type: 'route',

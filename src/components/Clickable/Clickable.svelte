@@ -24,8 +24,8 @@
     $: currentPath = false;
     $: select = currentlySelected || currentPath ? 'selected' : '';
 
-    const updatePath = (path) => {
-        currentPath = path === to;
+    const updatePath = ({ location }) => {
+        currentPath = location.pathname === to;
     }
 
 </script>
@@ -44,8 +44,7 @@
     </button>
 {:else if type === 'route'}
     <div class="route clickable {style} {order} {onlyIcon} {select}">
-        <Route path="{to}" component={Location} update={updatePath}/>
-        <Link to={to}>
+        <Link to={to} getProps={updatePath}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
             {/if}
@@ -139,7 +138,6 @@
 
     /* Link || Route ============================================= */
     .link:link, .route > :global(a:link) {
-        /* display: inline-block; */
         text-decoration: none;
         color: var(--link-color);
     }
