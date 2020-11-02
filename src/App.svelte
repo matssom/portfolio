@@ -9,7 +9,7 @@
 	import Work from './routes/Work/Work.svelte';
 	import Projects from './routes/Projects/Projects.svelte';
 	import Developer from './routes/Developer/Developer.svelte';
-
+	
 	export let url = "";
 </script>
 
