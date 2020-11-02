@@ -1,19 +1,54 @@
 :root {
 
 	/* --primary-color: #0B3948; */
-	--primary-color: #FF540A;
-	--primary-color-2: #E04300;
-	--secondary-color: #036168;
-	--secondary-color-2: #023C40;
+	--primary-color: #0678F4;
+	--primary-color-2: #0053ac;
+	--primary-color-3: #083769;
+
+	--secondary-color: #EFF1F3;
+	--secondary-color-2: #cad4dd;
+	--secondary-color-3: #919ca7;
+
 	--text-color: #ffffff;
-	--text-color-2: #1f1f1f;
-	--back-color: #F7F8F8;
-	--back-color-2: white;
+	--text-color-2: #6b6b6b;
+	--text-color-3: #1f1f1f;
+
+	--back-color: white;
+	--back-color-2: #F7F8F8;
+	--back-color-3: #6e6e6e;
+	--back-color-4: #2b2b2b;
+
 	--border-color: #eee;
-	--back-hover: rgba(0,0,0,0.1);
+
+	--shade: rgba(0,0,0,0.1);
+	--shade-2: rgba(0,0,0,0.2);
+
+	--button-color:			var(--secondary-color);
+	--button-color-hover:	var(--secondary-color-2);	
+	--button-color-active:	var(--secondary-color-3);
+
+	--link-color:			#0053ac;
+	--link-color-hover: 	#00438b;
+	--link-color-active: 	#003268;
+
+	--icon-color: var(--text-color);
+	--icon-color-2: var(--text-color-2);
+	--icon-color-3: var(--text-color-3);
+
+	--gap-large: 2.8rem;
+	--gap-medium: 1.4rem;
+	--gap-small: 1rem;
+
+	--border-radius-button: .3rem;
+	--border-radius-card: .5rem;
 	
+	--transition: all .1s linear;
 	--box-shadow: 0 2px 4px rgba(14,30,37,.12);
 
+}
+
+* {
+	font-family: 'Overpass';
 }
 
 
@@ -31,38 +66,5 @@ h5,
 h6, 
 p {
 	margin: 0;
-}
-
-/* h1::before, 
-h2::before, 
-h3::before, 
-h4::before, 
-h5::before,
-h6::before, 
-p::before {
-
-} */
-
-a {
-	color: rgb(0,100,200);
-	text-decoration: none;
-}
-
-label {
-	display: block;
-}
-
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
-}
-
-input:disabled {
-	color: #ccc;
+	margin-bottom: -.5rem;
 }

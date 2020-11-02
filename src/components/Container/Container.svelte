@@ -1,5 +1,5 @@
 <script>
-    export let padding;
+    export let padding = false;
 </script>
 
 <div class="container" class:padding>

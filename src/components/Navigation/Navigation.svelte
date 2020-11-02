@@ -1,19 +1,23 @@
 <script>
     import Card from '../Card/Card.svelte';
+    import Clickable from '../Clickable/Clickable.svelte';
+    import Logo from '../Logo/Logo.svelte';
 
-    import config from '../../assets/components/navigation/config.js';
-    let links = config.links;
+    import { elements } from '../../assets/components/navigation/config.js'
+
 </script>
 
 <Card padding>
-    <div class="flex">
-        <p>logo</p>
-        <nav>
-            <!-- {#each links as link (link.name)}
-                
-            {/each} -->
-        </nav>
-    </div>
+    <nav class="flex" role="navigation">
+        <Logo />
+        <ul class="list">
+            {#each elements as element (element.id)}
+                <li class="item">
+                    <Clickable {...element}/>
+                </li>
+            {/each}
+        </ul>
+    </nav>
 </Card>
 
 <style>
@@ -21,6 +25,20 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        gap: 2rem;
+        align-items: center;
+        gap: var(--gap-large);
+    }
+
+    .list {
+        display: flex;
+        gap: var(--gap-small);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        align-items: center;
+    }
+
+    .item {
+        display: inline-block;
     }
 </style>
