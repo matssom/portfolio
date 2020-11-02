@@ -1,5 +1,6 @@
 <script>
-    import { Link } from 'svelte-routing';
+    import { Link, Route } from 'svelte-routing';
+    import Location from '../Location/Location.svelte';
     import Icon from '../Icon/Icon.svelte';
 
     export let  action = '',
@@ -10,16 +11,27 @@
                 text = '',
                 id = 1,
                 external = false,
-                style = '';
+                style = '',
+                selected = false;
+
+    id = id;
 
     let target = external ? '_blank' : '';
     let rel = external ? 'noopener noreferrer' : '';
-    id = id;
-    let onlyIcon = text ? '' : 'only-icon';
+    let onlyIcon = text && icon ? '' : 'only-icon';
+
+    $: currentlySelected = selected;
+    $: currentPath = false;
+    $: select = currentlySelected || currentPath ? 'selected' : '';
+
+    const updatePath = (path) => {
+        currentPath = path === to;
+    }
+
 </script>
 
 {#if type === 'button'}
-    <button on:click={action} class="button clickable {style} {order} {onlyIcon}">
+    <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}">
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}
@@ -31,7 +43,8 @@
         {/if}
     </button>
 {:else if type === 'route'}
-    <div class="route clickable {style} {order} {onlyIcon}">
+    <div class="route clickable {style} {order} {onlyIcon} {select}">
+        <Route path="{to}" component={Location} update={updatePath}/>
         <Link to={to}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
@@ -45,7 +58,7 @@
         </Link>
     </div>
 {:else}
-    <a href={to} class="link clickable {style} {order} {onlyIcon}" target="{target}" rel={rel}>
+    <a href={to} class="link clickable {style} {order} {onlyIcon} {select}" target="{target}" rel={rel}>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}
@@ -66,7 +79,7 @@
         display: flex;
         flex-direction: row;
         gap: var(--gap-small);
-        align-items: flex-end;
+        align-items: center;
         height: 3.95rem;
     }
 
@@ -112,9 +125,11 @@
         background-color: transparent;
         border: none;
         padding: 1rem;
+        color: var(--text-color-3);
     }
 
     .button.invisible:hover {
+        color: var(--link-color);
         background-color: var(--shade);
     }
 
@@ -195,21 +210,20 @@
         background-color: var(--shade-2);
     }
 
-    /* Handeling icons */
-    .clickable.regular.link, .clickable.regular.button, .clickable.regular > :global(a) {
-        padding-left: 1.5rem;
+    .clickable.regular:not(.only-icon) > :global(svg), .clickable.regular:not(.only-icon) > :global(a) > :global(svg) {
+        margin-left: -.5rem;
     }
 
-    .clickable.reverse.link, .clickable.regular.button, .clickable.reverse > :global(a) {
-        padding-right: 1.5rem;
+    .clickable.reverse:not(.only-icon) > :global(svg), .clickable.reverse:not(.only-icon) > :global(a) > :global(svg) {
+        margin-right: -.5rem;
     }
 
-    .clickable.regular.link.only-icon, .clickable.regular.button.only-icon, .clickable.reverse.only-icon > :global(a) {
-        padding-left: 1rem;
+    .clickable.regular.invisible > :global(svg), .clickable.regular.invisible > :global(a) > :global(svg) {
+        margin-left: 0;
     }
 
-    .clickable.reverse.link.only-icon, .clickable.reverse.button.only-icon, .clickable.reverse.only-icon > :global(a) {
-        padding-right: 1rem;
+    .clickable.reverse.invisible > :global(svg), .clickable.reverse.invisible > :global(a) > :global(svg) {
+        margin-right: 0;
     }
 
     .clickable > :global(svg), .clickable > :global(a) > :global(svg) {
@@ -233,5 +247,37 @@
         fill: var(--icon-color);
         width: 1.1em;
         height: 1.1em;
+    }
+
+    .clickable.button.selected {
+        background-color: var(--secondary-color-2);
+    }
+
+    .clickable.link.selected,
+    .clickable.route.selected > :global(a) 
+    {
+        color: var(--link-color-2);
+    }
+
+    .clickable.link.secondary.selected,
+    .clickable.route.secondary.selected > :global(a) 
+    {
+        background-color: var(--secondary-color-2);
+    }
+
+    .clickable.link.invisible.selected,
+    .clickable.button.invisible.selected,
+    .clickable.route.invisible.selected > :global(a) 
+    {
+        background-color: var(--shade);
+        color: var(--link-color);
+    }
+
+    .clickable.link.primary.selected,
+    .clickable.button.primary.selected,
+    .clickable.route.primary.selected > :global(a) 
+    {
+        background-color: var(--primary-color-2);
+        color: var(--text-color);
     }
 </style>

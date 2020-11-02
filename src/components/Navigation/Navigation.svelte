@@ -3,6 +3,7 @@
     import Clickable from '../Clickable/Clickable.svelte';
 
     import { elements } from '../../assets/components/navigation/config.js';
+
 </script>
 
 <Card padding>
@@ -11,7 +12,7 @@
         <ul class="list">
             {#each elements as element (element.id)}
                 <li class="item">
-                    <Clickable {...element} />
+                    <Clickable {...element}/>
                 </li>
             {/each}
         </ul>

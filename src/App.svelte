@@ -7,6 +7,8 @@
 	import Container from './components/Container/Container.svelte';
 	import Home from './routes/Home/Home.svelte';
 	import Work from './routes/Work/Work.svelte';
+	import Projects from './routes/Projects/Projects.svelte';
+	import Developer from './routes/Developer/developer.svelte';
 
 	export let url = "";
 </script>
@@ -25,6 +27,8 @@
 	<main>
 		<Container>
 			<Route path="/work" component={ Work }/>
+			<Route path="/projects" component={ Projects }/>
+			<Route path="/developer" component={ Developer }/>
 			<Route path="/"><Home /></Route>
 		</Container>
 	</main>
