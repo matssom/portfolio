@@ -22,12 +22,14 @@
     .header {
         display: grid;
         align-items: center;
-        grid-template-rows: repeat(2, 30rem);
-        grid-template-columns: max(50rem) 1fr;
+        grid-template-rows: repeat(2, fit-content);
+        grid-template-columns: fit-content(50rem) 1fr;
+        padding: 10rem 0;
     }
 
     @media (min-width: 62.5em) {
         .header {
+            padding: 0;
             min-height: 50rem;
             grid-template-rows: none;
             grid-template-columns: repeat(2, 1fr);

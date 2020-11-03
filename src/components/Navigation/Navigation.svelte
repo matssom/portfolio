@@ -2,25 +2,45 @@
     import Card from '../Card/Card.svelte';
     import Clickable from '../Clickable/Clickable.svelte';
     import Logo from '../Logo/Logo.svelte';
-
+    import { onMount } from 'svelte';
     import { elements } from '../../assets/components/navigation/config.js'
+
+    import { watchResize } from 'svelte-watch-resize';
+
+    let mobile = false;
+    let nav;
+    let acceptableWidth = 0;
+
+    onMount(() => {
+        for (let i = 0; i < nav.children.length; i++) {
+            acceptableWidth += nav.children[i].clientWidth;
+        }
+        acceptableWidth += 50;
+    });
+
+    const handleResize = (node) => {
+        mobile = node.clientWidth <= acceptableWidth;
+    }
 
 </script>
 
 <Card padding>
-    <nav class="flex" role="navigation">
-        <Logo />
-        <ul class="list">
-            {#each elements as element (element.id)}
-                <li class="item">
-                    <Clickable {...element}/>
-                </li>
-            {/each}
-        </ul>
-    </nav>
+    <div use:watchResize={handleResize}>
+        <nav class="flex" role="navigation" bind:this={nav}>
+            <Logo />
+            <ul class="list" class:mobile>
+                {#each elements as element (element.id)}
+                    <li class="item">
+                        <Clickable {...element}/>
+                    </li>
+                {/each}
+            </ul>
+        </nav>
+    </div>
 </Card>
 
 <style>
+
     .flex {
         display: flex;
         flex-wrap: wrap;
@@ -40,5 +60,9 @@
 
     .item {
         display: inline-block;
+    }
+
+    .mobile {
+        display: none;
     }
 </style>
