@@ -13,7 +13,6 @@
 
 <style>
     .logo > :global(a) {
-        padding: 0 1rem;
         display: flex;
         align-items: center;
         gap: var(--gap-small);

@@ -14,18 +14,16 @@
 
 <Router url={url}>
 	<header>
-		<Container padding>
+		<Container padding horizontal>
 			<Navigation/>
 		</Container>
 	</header>
 	
 	<main>
-		<Container>
-			<Route path="/work" component={ Work }/>
-			<Route path="/projects" component={ Projects }/>
-			<Route path="/developer" component={ Developer }/>
-			<Route path="/"><Home /></Route>
-		</Container>
+		<Route path="/work" component={ Work }/>
+		<Route path="/projects" component={ Projects }/>
+		<Route path="/developer" component={ Developer }/>
+		<Route path="/"><Home /></Route>
 	</main>
 	
 	<footer>

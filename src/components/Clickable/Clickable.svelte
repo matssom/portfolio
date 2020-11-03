@@ -79,6 +79,7 @@
         gap: var(--gap-small);
         align-items: center;
         height: 3.95rem;
+        font-size: 1.6rem;
     }
 
     .link.clickable {

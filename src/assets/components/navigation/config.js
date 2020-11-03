@@ -38,8 +38,8 @@ export const elements = [
         id: 6,
         type: 'link',
         style: 'invisible',
-        to: 'https://instagram.com/mats_som',
-        icon: 'instagram'
+        to: 'https://twitter.com/matssommer',
+        icon: 'twitter'
     }
 ]
 // A link can include name, type, to, action, external, reverse style and an icon.

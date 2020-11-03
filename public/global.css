@@ -35,6 +35,7 @@
 	--icon-color-2: var(--text-color-2);
 	--icon-color-3: var(--text-color-3);
 
+	--gap-huge: 5.5rem;
 	--gap-large: 2.8rem;
 	--gap-medium: 1.4rem;
 	--gap-small: 1rem;
@@ -47,15 +48,16 @@
 
 }
 
-* {
-	font-family: 'Overpass';
-}
-
-
 html, body {
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+
+body {
+	padding-top: var(--gap-small);
+	font-family: 'Overpass';
+	color: var(--text-color-3);
 }
 
 h1, 
