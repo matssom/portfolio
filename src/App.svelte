@@ -8,6 +8,7 @@
 	import Work from './routes/Work/Work.svelte';
 	import Projects from './routes/Projects/Projects.svelte';
 	import Developer from './routes/Developer/Developer.svelte';
+	import Footer from './components/Footer/Footer.svelte';
 
 	export let url = "";
 </script>
@@ -27,7 +28,7 @@
 	</main>
 	
 	<footer>
-	
+		<Footer />
 	</footer>
 </Router>
 

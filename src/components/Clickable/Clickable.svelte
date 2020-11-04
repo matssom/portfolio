@@ -74,7 +74,7 @@
     /* Clickable ============================================= */
     .clickable, .clickable:hover, .clickable > :global(a) {
         transition: all linear .1s;
-        display: flex;
+        display: inline-flex;
         flex-direction: row;
         gap: var(--gap-small);
         align-items: center;
@@ -84,6 +84,8 @@
 
     .link.clickable {
         height: initial;
+        font-size: inherit;
+        gap: .5rem;
     }
 
     /* Button ============================================= */
@@ -108,7 +110,7 @@
 
     .button.primary {
         background-color: var(--primary-color);
-        color: var(--text-color);
+        color: var(--text-color-0);
         border: none;
     }
 
@@ -176,7 +178,7 @@
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
         background-color: var(--primary-color);
-        color: var(--text-color);
+        color: var(--text-color-0);
     }
 
     .link.primary:hover, .route.primary > :global(a:hover) {
@@ -233,6 +235,12 @@
         fill: var(--icon-color-2);
     }
 
+    .clickable.link:not(.invisible):not(.primary):not(.secondary) > :global(svg) {
+        width: 1.1em;
+        height: 1.1em;
+        margin: .2rem;
+    }
+
     .clickable.invisible:hover > :global(svg), .clickable.invisible:hover > :global(a) > :global(svg) {
         fill: var(--link-color);
     }
@@ -283,6 +291,6 @@
     .clickable.route.primary.selected > :global(a) 
     {
         background-color: var(--primary-color-2);
-        color: var(--text-color);
+        color: var(--text-color-0);
     }
 </style>

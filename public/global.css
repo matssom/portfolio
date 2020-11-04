@@ -9,14 +9,16 @@
 	--secondary-color-2: #cad4dd;
 	--secondary-color-3: #919ca7;
 
-	--text-color: #ffffff;
-	--text-color-2: #6b6b6b;
+	--text-color-0: #ffffff;
+	--text-color: #dadada;
+	--text-color-2: #494949;
 	--text-color-3: #1f1f1f;
 
 	--back-color: white;
 	--back-color-2: #F7F8F8;
-	--back-color-3: #6e6e6e;
+	--back-color-3: #494d52;
 	--back-color-4: #2b2b2b;
+	--back-color-5: linear-gradient(50deg, rgba(36,109,139,1) 0%, rgba(68,174,185,1) 100%);
 
 	--border-color: #eee;
 
@@ -56,8 +58,14 @@ html, body {
 
 body {
 	padding-top: var(--gap-small);
-	font-family: 'Overpass';
+	font-family: 'Inter';
 	color: var(--text-color-3);
+	background-color: var(--back-color);
+}
+
+h1 {
+	font-family: 'Overpass';
+	margin-bottom: -.5rem;
 }
 
 h1, 
@@ -68,5 +76,4 @@ h5,
 h6, 
 p {
 	margin: 0;
-	margin-bottom: -.5rem;
 }
