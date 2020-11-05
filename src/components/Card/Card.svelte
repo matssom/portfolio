@@ -1,10 +1,11 @@
 <script>
     export let  shadow = false,
                 border = false,
-                padding = false;
+                padding = false,
+                background = '';
 </script>
 
-<div class="card" class:shadow class:border class:padding>
+<div class="card {background}" class:shadow class:border class:padding>
     <slot />
 </div>
 
@@ -16,7 +17,7 @@
 
     .shadow {
         box-shadow: var(--box-shadow);
-        background-color: transparent;
+        background-color: var(--back-color);
     }
 
     .border {
@@ -25,5 +26,21 @@
 
     .padding {
         padding: 1.4rem;
+    }
+
+    .back-color-2 {
+        background-color: var(--back-color-2);
+    }
+
+    .back-color-3 {
+        background-color: var(--back-color-3);
+    }
+
+    .back-color-4 {
+        background-color: var(--back-color-4);
+    }
+
+    .back-color-5 {
+        background: var(--back-color-5);
     }
 </style>

@@ -1,19 +1,25 @@
 <script>
+    export let oposite = false, light = false;
     import { Link } from 'svelte-routing';
     import logo from '../../assets/components/logo/config.js';
     import Icon from '../../assets/icons/logo.svelte'
+
+    export let text = true;
+
+    let iconStyle = oposite ? 'flat' : '';
 </script>
 
-<div class="logo">
+<div class="logo" class:oposite>
     <Link to="/">
-        <Icon />
-        <h1 class="headline">{logo.headline}</h1>
+        <Icon style="{iconStyle}" />
+        {#if text}
+            <h1 class="headline" class:light>{logo.headline}</h1>
+        {/if}
     </Link>
 </div>
 
 <style>
     .logo > :global(a) {
-        padding: 0 1rem;
         display: flex;
         align-items: center;
         gap: var(--gap-small);
@@ -48,5 +54,17 @@
     .headline {
         font-size: 2rem;
         font-weight: bold;
+    }
+
+    .logo.oposite .headline  {
+        color: var(--text-color);
+    }
+
+    .logo.oposite > :global(a) > :global(svg) {
+        fill: var(--back-color);
+    }
+
+    .light {
+        font-weight: 400;
     }
 </style>

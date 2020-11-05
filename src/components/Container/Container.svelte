@@ -1,18 +1,40 @@
 <script>
-    export let padding = false;
+    export let padding = false, size = 'medium', vertical = false, horizontal = false;
 </script>
 
-<div class="container" class:padding>
+<div class="container {size}" class:padding class:vertical class:horizontal>
     <slot/>
 </div>
 
 <style>
     .container {
-        max-width: 100rem;
+        max-width: 115rem;
         margin: 0 auto;
     }
 
-    .padding {
-        padding: 1.4rem;
+    .padding.small {
+        padding: var(--gap-small);
+    }
+
+    .padding.medium {
+        padding: var(--gap-medium);
+    }
+
+    .padding.large {
+        padding: var(--gap-large);
+    }
+
+    .padding.huge {
+        padding: var(--gap-huge);
+    }
+
+    .padding.vertical {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .padding.horizontal {
+        padding-top: 0;
+        padding-bottom: 0;
     }
 </style>
