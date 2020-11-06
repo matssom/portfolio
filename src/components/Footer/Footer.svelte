@@ -9,9 +9,11 @@
     import Icon from "../Icon/Icon.svelte";
     import ThemeControl from "../../store/ThemeControl.svelte";
 
+    import { lang } from '../../assets/components/footer/config';
+    import { language } from '../../store/language';
     import { onMount } from 'svelte';
     import { watchResize } from 'svelte-watch-resize';
-import LanguageControl from "../../store/LanguageControl.svelte";
+    import LanguageControl from "../../store/LanguageControl.svelte";
 
     let mobile = false;
     let nav;
@@ -34,8 +36,8 @@ import LanguageControl from "../../store/LanguageControl.svelte";
     <Section divider="both">
         <Container padding horizontal>
             <Stack>
-                <H1>Contact</H1>
-                <P>You can find my code on <Clickable to="https://github.com/matssom" text="GitHub" type="link"/>, my intrests on <Clickable to="https://twitter.com/matssommer" text="Twitter" type="link" /> and you can reach me on <Clickable to="https://linkedin.com/in/mats-sommervold" type="link" text="LinkedIn" /> or by email at <Clickable to="mailto:mats@sommervold.net" text="mats@sommervold.net" type="link" />.</P>
+                <H1>{lang[$language.code].contact.title}</H1>
+                <P>{lang[$language.code].contact.contents[0]}<Clickable to="https://github.com/matssom" text="GitHub" type="link"/>, {lang[$language.code].contact.contents[1]} <Clickable to="https://twitter.com/matssommer" text="Twitter" type="link" /> {lang[$language.code].contact.contents[2]} <Clickable to="https://linkedin.com/in/mats-sommervold" type="link" text="LinkedIn" /> {lang[$language.code].contact.contents[3]} <Clickable to="mailto:mats@sommervold.net" text="mats@sommervold.net" type="link" />.</P>
             </Stack>
         </Container>
     </Section>
