@@ -20,29 +20,29 @@ export const lang = {
     en: {
         header: {
             headline: 'Building software is like playing with Lego.',
-            tagline: 'I am a data engineer student based in Oslo, Norway. I want to build Lego for your bussiness.'
-        },
-        actions: [
-            {
-                text: 'Check out my latest projects',
-            },
-            {
-                text: 'Technologies',
-            }
-        ]
+            tagline: 'I am a data engineer student based in Oslo, Norway. I want to build Lego for your bussiness.',
+            actions: [
+                {
+                    text: 'Check out my latest projects',
+                },
+                {
+                    text: 'Technologies',
+                }
+            ]
+        }
     },
     no: {
         header: {
             headline: 'Å bygge programvare er som å bygge Lego.',
-            tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg ønsker å bygge Lego for din bedrift.'
-        },
-        actions: [
-            {
-                text: 'Mine siste prosjekter'
-            },
-            {
-                text: 'Teknologier'
-            }
-        ]
+            tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg ønsker å bygge Lego for din bedrift.',
+            actions: [
+                {
+                    text: 'Mine siste prosjekter'
+                },
+                {
+                    text: 'Teknologier'
+                }
+            ]
+        }
     }
 }
