@@ -25,6 +25,9 @@
 	--shade: rgba(0,0,0,0.1);
 	--shade-2: rgba(0,0,0,0.2);
 
+	--primary-heading-color: var(--primary-color-3);
+	--primary-button-text: white;
+
 	--button-color:			var(--secondary-color);
 	--button-color-hover:	var(--secondary-color-2);	
 	--button-color-active:	var(--secondary-color-3);
@@ -32,6 +35,9 @@
 	--link-color:			#0053ac;
 	--link-color-hover: 	#00438b;
 	--link-color-active: 	#003268;
+
+	--card-color: var(--back-color-2);
+	--card-color-2: var(--back-color);
 
 	--icon-color: var(--text-color);
 	--icon-color-2: var(--text-color-2);
@@ -57,7 +63,7 @@ html, body {
 }
 
 body {
-	padding-top: var(--gap-small);
+	/* padding-top: var(--gap-small); */
 	font-family: 'Inter';
 	color: var(--text-color-3);
 	background-color: var(--back-color);

@@ -90,7 +90,7 @@
 
     /* Button ============================================= */
     .button {
-        border: 1px solid #eee;
+        border: 1px solid var(--border-color);
         background-color: var(--secondary-color);
         margin: 0;
         padding: 1rem 2rem;
@@ -110,7 +110,7 @@
 
     .button.primary {
         background-color: var(--primary-color);
-        color: var(--text-color-0);
+        color: var(--primary-button-text);
         border: none;
     }
 
@@ -178,7 +178,7 @@
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
         background-color: var(--primary-color);
-        color: var(--text-color-0);
+        color: var(--primary-button-text);
     }
 
     .link.primary:hover, .route.primary > :global(a:hover) {
@@ -291,6 +291,6 @@
     .clickable.route.primary.selected > :global(a) 
     {
         background-color: var(--primary-color-2);
-        color: var(--text-color-0);
+        color: var(--primary-button-text);
     }
 </style>

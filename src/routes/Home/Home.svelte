@@ -1,25 +1,27 @@
 <script>
     import Container from '../../components/Container/Container.svelte';
     import Stack from '../../components/Stack/Stack.svelte';
-
-    import home from '../../assets/routes/config';
     import H1 from '../../components/Type/H1.svelte';
     import Sub from '../../components/Type/Sub.svelte';
     import Clickable from '../../components/Clickable/Clickable.svelte';
     import Card from '../../components/Card/Card.svelte';
-import P from '../../components/Type/P.svelte';
-import Flow from '../../components/Flow/Flow.svelte';
-import Section from '../../components/Section.svelte';
+    import P from '../../components/Type/P.svelte';
+    import Flow from '../../components/Flow/Flow.svelte';
+    import Section from '../../components/Section.svelte';
+
+    import { lang } from '../../assets/routes/home/config';
+    import { language } from '../../store/language';
 </script>
 
 <Container padding horizontal>
     <div class="header">
         <Stack size="large">
-            <H1>{home.headline}</H1>
-            <Sub>{home.tagline}</Sub>
+            <H1>{lang[$language.code].header.headline}</H1>
+            <Sub>{lang[$language.code].header.tagline}</Sub>
             <Flow>
-                <Clickable order="reverse" icon="arrow-right" type="route" style="primary" to="{home.callToAction.path}" text="{home.callToAction.text}"/>
-                <Clickable order="reverse" style="secondary" icon="code" type="route" to="{home.secondaryAction.path}" text="{home.secondaryAction.text}"/>
+                {#each lang.base.header.actions as action (action.index)}
+                    <Clickable order="reverse" icon="{action.icon}" type="route" style="{action.style}" to="{action.path}" text="{lang[$language.code].header.actions[action.index].text}"/>
+                {/each}
             </Flow>
         </Stack>
     </div>
@@ -27,11 +29,11 @@ import Section from '../../components/Section.svelte';
 
 <Container padding horizontal>
     <Section>
-        <Card shadow border background="back-color-5">
+        <Card shadow border>
             <Container padding size="huge">
                 <Stack size="large">
-                    <H1 oposite>Who am I?</H1>
-                    <P oposite>I am a data engineer student based in Oslo, Norway, with an enduring passion for creation.For me, software development is an endless playing field where the only thing stopping you is imagination (and budget :P). My mission is to blur the lines between technology and art. In the end, technology keeps us alive, while art is what we live for.</P>
+                    <H1>Who am I?</H1>
+                    <P>I am a data engineer student based in Oslo, Norway, with an enduring passion for creation.For me, software development is an endless playing field where the only thing stopping you is imagination (and budget :P). My mission is to blur the lines between technology and art. In the end, technology keeps us alive, while art is what we live for.</P>
                 </Stack>
             </Container>
         </Card>
