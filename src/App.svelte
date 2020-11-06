@@ -77,6 +77,9 @@
 		--link-color-hover: 	#bed7f1;
 		--link-color-active: 	#ffffff;
 
+		--card-color: var(--back-color-2);
+		--card-color-2: var(--back-color-2);
+
 		--icon-color: var(--text-color-3);
 		--icon-color-2: var(--text-color-2);
 		--icon-color-3: var(--text-color-3);

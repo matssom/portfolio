@@ -12,12 +12,12 @@
 <style>
     .card {
         border-radius: .5rem;
-        background-color: var(--back-color-2);
+        background-color: var(--card-color);
     }
 
     .shadow {
         box-shadow: var(--box-shadow);
-        background-color: var(--back-color);
+        background-color: var(--card-color-2);
     }
 
     .border {
