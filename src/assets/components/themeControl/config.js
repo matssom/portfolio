@@ -23,4 +23,13 @@ export const themes = [
             }
         }
     },
-]
+];
+
+export const lang = {
+    en: {
+        theme: 'theme'
+    },
+    no: {
+        theme: 'tema'
+    }
+}

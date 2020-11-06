@@ -11,6 +11,7 @@
 
     import { onMount } from 'svelte';
     import { watchResize } from 'svelte-watch-resize';
+import LanguageControl from "../../store/LanguageControl.svelte";
 
     let mobile = false;
     let nav;
@@ -46,7 +47,7 @@
                         <p class="legal"><Icon name="copyright"/> Mats Sommervold, 2020</p>
                         <div class="footer">
                             <ThemeControl />
-                            <Clickable type="button" text="Norwegian" icon="language"/>
+                            <LanguageControl />
                         </div>
                     </div>
                 </div>
