@@ -27,7 +27,7 @@
     </div>
 </Container>
 
-<Container padding horizontal>
+<!-- <Container padding horizontal>
     <Section>
         <Card shadow border>
             <Container padding size="huge">
@@ -38,7 +38,7 @@
             </Container>
         </Card>
     </Section>
-</Container> 
+</Container>  -->
 
 <style>
     .header {

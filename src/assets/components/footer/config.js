@@ -22,7 +22,7 @@ export let lang = {
         },
         statement: {
             title: 'Uttalelse om Originalitet',
-            content: 'Denne porteføljen er utarbeidet av Mats Sommervold. Vær så snill å ikke kopier uten tillatelse. Noe av det presenterte arbeidet er eiendom av organisasjonen som er nevnt ved materialet. Hver organisasjon har gitt tillatelse til at dette arbeidet kan brukes for å vise fram mitt arbeid.'
+            content: 'Denne porteføljen er utarbeidet av Mats Sommervold. Vær så snill å ikke kopier uten tillatelse. Noe av det presenterte arbeidet er eiendom av organisasjonen som er nevnt ved materialet. Hver organisasjon har gitt tillatelse til at dette materialet kan brukes for å vise fram mitt arbeid.'
         }
     }
 }

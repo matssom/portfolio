@@ -19,8 +19,8 @@ export const lang = {
     },
     en: {
         header: {
-            headline: 'Building software is like playing with Lego.',
-            tagline: 'I am a data engineer student based in Oslo, Norway. I want to build Lego for your bussiness.',
+            headline: 'Mats Sommervold',
+            tagline: 'I am a data engineer student based in Oslo, Norway. I spend my time creating software experiences.',
             actions: [
                 {
                     text: 'Check out my latest projects',
@@ -34,7 +34,7 @@ export const lang = {
     no: {
         header: {
             headline: 'Å bygge programvare er som å bygge Lego.',
-            tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg ønsker å bygge Lego for din bedrift.',
+            tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg bruker tiden min på å skape programmvare opplevelser.',
             actions: [
                 {
                     text: 'Mine siste prosjekter'

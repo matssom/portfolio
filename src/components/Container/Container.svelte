@@ -28,6 +28,20 @@
         padding: var(--gap-huge);
     }
 
+    @media (max-width: 37.5em) {
+        .padding.medium {
+            padding: var(--gap-small);
+        }
+
+        .padding.large {
+            padding: var(--gap-medium);
+        }
+
+        .padding.huge {
+            padding: var(--gap-large);
+        }
+    }
+
     .padding.vertical {
         padding-left: 0;
         padding-right: 0;
