@@ -11,6 +11,7 @@
     import Language from '../../assets/icons/language.svelte';
     import Sun from '../../assets/icons/sun.svelte';
     import Moon from '../../assets/icons/moon.svelte';
+    import Send from '../../assets/icons/send.svelte';
 
     export let name = 'logo';
 
@@ -25,7 +26,8 @@
         { name: 'copyright',    component: Copyright    },
         { name: 'language',     component: Language     },
         { name: 'sun',          component: Sun          },
-        { name: 'moon',         component: Moon         }
+        { name: 'moon',         component: Moon         },
+        { name: 'send',         component: Send         }
     ];
 
     $: selected = icons.find(icon => icon.name === name);
