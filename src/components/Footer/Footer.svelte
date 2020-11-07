@@ -40,8 +40,8 @@ import H3 from "../Type/H3.svelte";
             <Split col="2">
                 <Container padding horizontal>
                     <Stack>
-                        <H3>Statement of Originality</H3>
-                        <P size="small">This portfolio is the work of Mats Sommervold. Please do not copy without permission. Some of the exhibits, work samples, and/or service samples are the proprietary property of the organization whose name appears on the document. Each has granted permission for this product to be used as a demonstration of my work.</P>
+                        <H3>{lang[$language.code].statement.title}</H3>
+                        <P size="small">{lang[$language.code].statement.content}</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
