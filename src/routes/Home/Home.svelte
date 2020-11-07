@@ -11,6 +11,7 @@
 
     import { lang } from '../../assets/routes/home/config';
     import { language } from '../../store/language';
+    import Quote from '../../components/Quote.svelte';
 </script>
 
 <Container padding horizontal>
@@ -27,18 +28,17 @@
     </div>
 </Container>
 
-<!-- <Container padding horizontal>
-    <Section>
-        <Card shadow border>
-            <Container padding size="huge">
-                <Stack size="large">
-                    <H1>Who am I?</H1>
-                    <P>I am a data engineer student based in Oslo, Norway, with an enduring passion for creation.For me, software development is an endless playing field where the only thing stopping you is imagination (and budget :P). My mission is to blur the lines between technology and art. In the end, technology keeps us alive, while art is what we live for.</P>
-                </Stack>
-            </Container>
-        </Card>
+<Container padding horizontal>
+    <Section divider="top">
+        <div class="quote">
+            <Quote>
+                <img slot="image" alt="profile" src="./assets/quote/mats.jpg"/>
+                <h4 slot="quote">In the end, technology keeps us alive, while art is what we live for.</h4>
+                <p slot="author">Mats Somervold</p>
+            </Quote>
+        </div>
     </Section>
-</Container>  -->
+</Container> 
 
 <style>
     .header {
@@ -56,5 +56,10 @@
             grid-template-rows: none;
             grid-template-columns: repeat(2, 1fr);
         }
+    }
+
+    .quote {
+        display: flex;
+        justify-content: space-around;
     }
 </style>

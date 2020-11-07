@@ -10,6 +10,7 @@
     h3 {
         font-size: 2.3rem;
         letter-spacing: .02em;
+        font-family: 'Overpass';
         color: var(--text-color-3);
     }
 

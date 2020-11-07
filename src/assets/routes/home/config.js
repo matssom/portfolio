@@ -33,7 +33,7 @@ export const lang = {
     },
     no: {
         header: {
-            headline: 'Å bygge programvare er som å bygge Lego.',
+            headline: 'Mats Sommervold',
             tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg bruker tiden min på å skape programmvare opplevelser.',
             actions: [
                 {
