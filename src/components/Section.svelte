@@ -15,6 +15,14 @@
         background-color: var(--back-color);
     }
 
+    .back-color-2 {
+        background: var(--back-color-2);
+    }
+
+    .back-color-3 {
+        background: var(--back-color-3);
+    }
+
     .back-color-4 {
         background: var(--back-color-4);
     }
@@ -25,6 +33,10 @@
 
     .small {
         padding: var(--gap-large) 0;
+    }
+
+    .large {
+        padding: calc(var(--gap-huge) * 2) 0;
     }
 
     .both {
