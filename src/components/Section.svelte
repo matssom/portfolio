@@ -35,6 +35,10 @@
         padding: var(--gap-large) 0;
     }
 
+    .large {
+        padding: calc(var(--gap-huge) * 2) 0;
+    }
+
     .both {
         border-top: 1px solid var(--border-color);
         border-bottom: 1px solid var(--border-color);

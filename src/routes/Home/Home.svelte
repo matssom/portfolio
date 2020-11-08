@@ -6,11 +6,14 @@
     import Clickable from '../../components/Clickable/Clickable.svelte';
     import Flow from '../../components/Flow/Flow.svelte';
     import Section from '../../components/Section.svelte';
+    import Card from '../../components/Card/Card.svelte';
 
     import { lang } from '../../assets/routes/home/config';
     import { language } from '../../store/language';
     import Quote from '../../components/Quote.svelte';
     import CodeImage from '../../assets/components/home/code.svelte';
+import P from '../../components/Type/P.svelte';
+import Split from '../../components/Split.svelte';
 </script>
 
 <Container padding horizontal>
@@ -32,8 +35,17 @@
     </div>
 </Container>
 
+<Section size="large">
+    <Container padding horizontal narrow>
+        <Stack>
+            <H1 center>About me</H1>
+            <P center>For me, software development is an endless playing field where the only thing stopping you is imagination (and budget :P). My mission is to blur the lines between technology and art. In the end, technology keeps us alive, while art is what we live for.</P>
+        </Stack>
+    </Container>
+</Section>
+
 <Section divider="top" background="back-color-2">
-    <Container>
+    <Container padding horizontal>
         <div class="quote">
             <Quote>
                 <img slot="image" alt="profile" src="./assets/quote/mats.jpg"/>
