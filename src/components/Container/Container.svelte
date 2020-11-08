@@ -1,8 +1,8 @@
 <script>
-    export let padding = false, size = 'medium', vertical = false, horizontal = false, narrow = false;
+    export let padding = false, size = 'medium', vertical = false, horizontal = false, narrow = false, center = false;
 </script>
 
-<div class="container {size}" class:narrow class:padding class:vertical class:horizontal>
+<div class="container {size}" class:narrow class:padding class:vertical class:horizontal class:center>
     <slot/>
 </div>
 
@@ -14,6 +14,12 @@
 
     .container.narrow {
         max-width: 90rem;
+    }
+
+    .center {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .padding.small {
