@@ -12,8 +12,8 @@
     import Sun from '../../assets/icons/sun.svelte';
     import Moon from '../../assets/icons/moon.svelte';
     import Send from '../../assets/icons/send.svelte';
-    import Message from '../../assets/icons/Message.svelte';
-    import Quote from '../../assets/icons/Quote.svelte';
+    import Message from '../../assets/icons/message.svelte';
+    import Quote from '../../assets/icons/quote.svelte';
 
     export let name = 'logo';
 
