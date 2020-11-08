@@ -37,10 +37,12 @@ import P from './Type/P.svelte';
     .quote :global(*) {
         font-size: 2rem;
         font-weight: 400;
+        color: var(--text-color-3);
     }
 
     .quote :global(p) {
         font-size: 1.6rem;
+        color: var(--text-color-2);
     }
 
     .image {

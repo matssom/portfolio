@@ -4,32 +4,36 @@
     import H1 from '../../components/Type/H1.svelte';
     import Sub from '../../components/Type/Sub.svelte';
     import Clickable from '../../components/Clickable/Clickable.svelte';
-    import Card from '../../components/Card/Card.svelte';
-    import P from '../../components/Type/P.svelte';
     import Flow from '../../components/Flow/Flow.svelte';
     import Section from '../../components/Section.svelte';
 
     import { lang } from '../../assets/routes/home/config';
     import { language } from '../../store/language';
     import Quote from '../../components/Quote.svelte';
+    import CodeImage from '../../assets/components/home/code.svelte';
 </script>
 
 <Container padding horizontal>
     <div class="header">
-        <Stack size="large">
-            <H1>{lang[$language.code].header.headline}</H1>
-            <Sub>{lang[$language.code].header.tagline}</Sub>
-            <Flow>
-                {#each lang.base.header.actions as action (action.index)}
-                    <Clickable order="reverse" icon="{action.icon}" type="route" style="{action.style}" to="{action.path}" text="{lang[$language.code].header.actions[action.index].text}"/>
-                {/each}
-            </Flow>
-        </Stack>
+        <div class="header__image">
+            <CodeImage />
+        </div>
+        <div class="header__text">
+            <Stack size="large">
+                <H1>{lang[$language.code].header.headline}</H1>
+                <Sub>{lang[$language.code].header.tagline}</Sub>
+                <Flow>
+                    {#each lang.base.header.actions as action (action.index)}
+                        <Clickable order="reverse" icon="{action.icon}" type="route" style="{action.style}" to="{action.path}" text="{lang[$language.code].header.actions[action.index].text}"/>
+                    {/each}
+                </Flow>
+            </Stack>
+        </div>
     </div>
 </Container>
 
-<Container padding horizontal>
-    <Section divider="top">
+<Section divider="top" background="back-color-2">
+    <Container>
         <div class="quote">
             <Quote>
                 <img slot="image" alt="profile" src="./assets/quote/mats.jpg"/>
@@ -37,24 +41,55 @@
                 <p slot="author">Mats Somervold</p>
             </Quote>
         </div>
-    </Section>
-</Container> 
+    </Container>
+</Section>
 
 <style>
     .header {
-        display: grid;
+        display: flex;
         align-items: center;
-        grid-template-rows: repeat(2, fit-content);
-        grid-template-columns: fit-content(50rem) 1fr;
-        padding: 10rem 0;
+        justify-content: space-between;
+        padding: 3rem 0 5rem 0;
+        gap: var(--gap-large);
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header__text {
+        flex: 1;
+        max-width: 50rem;
+    }
+
+    .header__image {
+        flex: 1;
+        text-align: right;
+    }
+
+    .header__image > :global(svg) {
+        height: 25rem;
+    }
+
+    .header__text :global(div.flow) {
+        justify-content: center;
     }
 
     @media (min-width: 62.5em) {
         .header {
-            padding: 0;
-            min-height: 50rem;
-            grid-template-rows: none;
-            grid-template-columns: repeat(2, 1fr);
+            padding: 8rem 0;
+            flex-direction: row-reverse;
+            text-align: left;
+        }
+
+        .header__text {
+            max-width: initial;
+        }
+
+        .header__text :global(div.flow) {
+            justify-content: initial;
+        }
+
+        .header__image > :global(svg) {
+            height: 40rem;
         }
     }
 

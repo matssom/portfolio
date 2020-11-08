@@ -13,7 +13,4 @@
         stroke: var(--text-color-2);
         fill: var(--text-color-2);
     }
-    .quote-right {
-        /* width: 0.9287109375em; */
-    }
 </style>

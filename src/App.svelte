@@ -56,7 +56,7 @@
 		--text-color-3: #fff;
 
 		--back-color: #2b2b2b;
-		--back-color-2: #494d52;
+		--back-color-2: #38393b;
 		--back-color-3: #F7F8F8;
 		--back-color-4: white;
 		--back-color-5: linear-gradient(50deg, rgb(148, 219, 247) 0%, rgb(223, 238, 240) 100%);

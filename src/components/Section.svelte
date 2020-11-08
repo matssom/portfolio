@@ -15,6 +15,14 @@
         background-color: var(--back-color);
     }
 
+    .back-color-2 {
+        background: var(--back-color-2);
+    }
+
+    .back-color-3 {
+        background: var(--back-color-3);
+    }
+
     .back-color-4 {
         background: var(--back-color-4);
     }
