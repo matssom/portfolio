@@ -12,9 +12,18 @@
     const commands = {
         clear: () => elements = [],
         history: () => { 
-            let str = ''
+            let str = '';
             for (let part of history) str = `${str}<br>${part}`;
-            print(str);
+            println(str);
+        },
+        help: () => {
+            println('Commands you can use:', Output, false, "rgb(103, 255, 230)");
+            let str = '';
+            Object.keys(commands).forEach((key) => {
+                console.log(key);
+                str = `${str}<br>${key}`;
+            });
+            println(str);
         }
     }
 
@@ -23,17 +32,27 @@
     });
 
     const init = () => {
-        print('', Input);
+        println('Welcomt to my CLI. Navigate to get information about me.');
+        print('Type ')
+        print('`help`', Output, false, "rgb(103, 255, 230)");
+        print(' to get started.')
+        println('', Input);
     }
 
-    const print = (content = '', component = Output, editable = true) => {
+    const print = (content = '', component = Output, editable = true, color = "#ffffff", inline = true) => {
         elements = [...elements, {
             id: elements.length,
             component: component,
             content: content,
             focus: false,
-            editable: editable
+            editable: editable,
+            inline: inline,
+            color: color
         }]
+    }
+
+    const println = (content, component, editable, color) => {
+        print(content, component, editable, color, false);
     }
 
     const selectFocus = () => {
@@ -51,7 +70,8 @@
             commands[split[0]](split);
             history.push(command);
         } catch (e) {
-            print('Error: Command not found');
+            print('(⊙_☉)', Output, false, "rgb(103, 255, 230)")
+            print(' - Error: Command not found');
         }
     }
 
@@ -60,9 +80,9 @@
             event.preventDefault();
             let last = lastElement();
             elements.pop();
-            print(last.content, Input, false);
+            println(last.content, Input, false);
             execute(last.content);
-            print('', Input);
+            println('', Input);
             selectFocus();
         }
     }
@@ -86,7 +106,9 @@
                 this={element.component} 
                 bind:currentValue={element.content} 
                 editable={element.editable} 
-                bind:focus={element.focus}>
+                bind:focus={element.focus}
+                inline={element.inline}
+                color={element.color}>
             </svelte:component>
         {/each}
     </div>
@@ -158,9 +180,10 @@
     .terminal {
         height: calc(100% - 3rem);
         overflow-y: scroll;
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
         padding: 1rem;
+    }
+
+    .terminal > :global(*) {
+        padding-bottom: 1.5rem;
     }
 </style>

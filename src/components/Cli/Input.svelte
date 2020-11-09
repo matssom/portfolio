@@ -50,10 +50,13 @@
     .dir-element {
         display: flex;
         align-items: center;
+        /* color: rgb(103, 255, 230); */
+        color: #fcba03;
     }
 
     .dir-element > :global(svg) {
-        fill: darkcyan;
+        /* fill: rgb(250, 44, 44); */
+        fill: #ff772e;
         height: 1.4em;
         width: 1.4em;
     }
@@ -65,7 +68,8 @@
 
     .type.focusable:focus {
         outline: none;
-        border: 1px solid white;
+        /* border: 1px solid white; */
+        
         border-radius: .2rem;
     }
 </style>

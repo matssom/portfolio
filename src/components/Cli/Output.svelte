@@ -1,10 +1,17 @@
 <script>
-    export let currentValue = '';
+    import { onMount } from 'svelte';
+    export let currentValue = '', inline = false, color = "#ffffff";
 
     let split = currentValue.split('<br>');
+    let text;
+
+    onMount(() => { 
+        text.style.color = color;
+    });
+
 </script>
 
-<div>
+<div class:inline bind:this={text}>
     {#each split as value}
         {#if value != ''}
             <p>{value}</p>
@@ -14,6 +21,11 @@
 
 <style>
     p {
-        color: white;
+        line-height: 1.3em;
+        white-space: pre;
+    }
+
+    .inline {
+        display: inline-block;
     }
 </style>
