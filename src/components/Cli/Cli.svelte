@@ -28,24 +28,38 @@
         },
         cd: (commands) => {
             if (commands.length === 2) {
-                console.log("Dir before", $dir)
-                let next = nextDir(commands[1]);
-                if (next) $path = next;
-                else {
-                    switch(commands[1]) {
-                        case '..':
-                            if ($path.length > 1) $path = $path.slice(0, -1);
-                            break;
-                        default:
-                            print(`Error: `, Output, false, '#ff772e');
-                            print(`\`${commands[1]}\``, Output, false, 'rgb(103, 255, 230)');
-                            print(` is not a valid path`, Output, false, '#ff772e');
+                let paths = commands[1].split('/').filter(p => p !== '');
+                console.log(paths);
+                let oldPath = $path;
+                for (let p of paths) {
+                    let next = nextDir(p);
+                    if (next) {
+                        $path = next;
+                    } else if (p === '..') {
+                        if ($path.length > 1) $path = $path.slice(0, -1);
+                    } else {
+                        print(`Error: `, Output, false, '#ff772e');
+                        print(`\`${commands[1]}\``, Output, false, 'rgb(103, 255, 230)');
+                        print(` is not a valid path`, Output, false, '#ff772e');
+                        $path = oldPath;
+                        break;
                     }
                 }
-                console.log("Dir after:", $dir)
             } else {
                 print('Current path: ', Output, false, 'rgb(103, 255, 230)');
-                print($path.toString().replace(',','/'));
+                print($path.toString().replaceAll(',','/'));
+            }
+        },
+        ls: () => {
+            if ($dir.dir) {
+                Object.keys($dir.dir).forEach(key => {
+                    print(`${key}    `);
+                } );
+            }
+            if ($dir.file) {
+                for(let file of $dir.file) {
+                    print(`${file}    `);
+                }
             }
         }
     }
