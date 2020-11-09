@@ -1,9 +1,13 @@
 <script>
     import { onMount } from 'svelte';
-    export let currentValue = '', inline = false, color = "#ffffff";
+    export let currentValue = '', inline = false, color = "#ffffff", focus = false, editable = false, path = false;
 
     let split = currentValue.split('<br>');
     let text;
+
+    focus = focus;
+    editable = editable;
+    path = path;
 
     onMount(() => { 
         text.style.color = color;

@@ -2,21 +2,27 @@
     import { onMount } from 'svelte';
     import Bracket from '../../assets/icons/right-bracket.svelte';
 
-    export let handleSubmit, editable = true, currentValue = '', focus = false;
+    export let editable = true, currentValue = '', focus = false, path = ['root'], inline = false, color = false;
 
-    let path = ['root', 'users'];
-    let type;
+    let type, cPath = ['root'];
+
+    inline = inline;
+    color = color;
 
     $: if (focus && type) {
         type.focus();
         focus = false;
     }
 
+    onMount(() => {
+        cPath = $path;
+    });
+
 </script>
 
 <div class="input">
     <ul class="dir">
-        {#each path as p (p)}
+        {#each cPath as p (p)}
             <li class="dir-element">
                 <span>{p}</span>
                 <Bracket />

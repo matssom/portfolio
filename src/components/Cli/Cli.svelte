@@ -4,6 +4,8 @@
     import Input from "./Input.svelte";
     import Output from './Output.svelte';
 
+    import { path, fs, dir } from '../../store/cli.js';
+
     let expanded = false;
     let elements = [];
     let history = [];
@@ -23,7 +25,36 @@
                 str = `${str}<br>${key}`;
             });
             println(str);
+        },
+        cd: (commands) => {
+            if (commands.length === 2) {
+                console.log("Dir before", $dir)
+                let next = nextDir(commands[1]);
+                if (next) $path = next;
+                else {
+                    switch(commands[1]) {
+                        case '..':
+                            if ($path.length > 1) $path = $path.slice(0, -1);
+                            break;
+                        default:
+                            print(`Error: `, Output, false, '#ff772e');
+                            print(`\`${commands[1]}\``, Output, false, 'rgb(103, 255, 230)');
+                            print(` is not a valid path`, Output, false, '#ff772e');
+                    }
+                }
+                console.log("Dir after:", $dir)
+            } else {
+                print('Current path: ', Output, false, 'rgb(103, 255, 230)');
+                print($path.toString().replace(',','/'));
+            }
         }
+    }
+
+    const nextDir = (nextDir) => {
+        if ($dir.dir && $dir.dir[nextDir]) {
+            return [...$path, nextDir];
+        }
+        return false;
     }
 
     onMount(() => {
@@ -77,12 +108,13 @@
 
     const execute = (command = '') => {
         let split = command.split(' ');
+        split = split.map(e => e.trim());
         try {
             commands[split[0]](split);
             history.push(command);
         } catch (e) {
-            print('(⊙_☉)', Output, false, "rgb(103, 255, 230)")
-            print(' - Error: Command not found');
+            console.log(e);
+            print('(⊙_☉) - Error: Command not found', Output, false, "#ff772e");
         }
     }
 
@@ -100,9 +132,7 @@
 
 </script>
 
-<svelte:window on:keydown={handleKeydown}/>
-
-<div class="cli" class:expanded>
+<div class="cli" class:expanded on:keydown={handleKeydown}>
     <div class="header">
         <div class="control">
             <button class="size" on:click={toggleExpand}>
@@ -119,7 +149,8 @@
                 editable={element.editable} 
                 bind:focus={element.focus}
                 inline={element.inline}
-                color={element.color} 
+                color={element.color}
+                path={path}
             />
         {/each}
     </div>
@@ -196,5 +227,22 @@
 
     .terminal > :global(*) {
         padding-bottom: 1.5rem;
+    }
+
+    .terminal::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        background-color: #F5F5F5;
+    }
+
+    .terminal::-webkit-scrollbar
+    {
+        width: 6px;
+        background-color: #F5F5F5;
+    }
+
+    .terminal::-webkit-scrollbar-thumb
+    {
+        background-color: #52748d;
     }
 </style>
