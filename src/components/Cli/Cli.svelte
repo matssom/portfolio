@@ -29,7 +29,6 @@
         cd: (commands) => {
             if (commands.length === 2) {
                 let paths = commands[1].split('/').filter(p => p !== '');
-                console.log(paths);
                 let oldPath = $path;
                 for (let p of paths) {
                     let next = nextDir(p);
@@ -53,7 +52,7 @@
         ls: () => {
             if ($dir.dir) {
                 Object.keys($dir.dir).forEach(key => {
-                    print(`${key}    `);
+                    print(`${key}    `, Output, false, "rgb(103, 255, 230)");
                 } );
             }
             if ($dir.file) {
@@ -76,7 +75,7 @@
     });
 
     const init = () => {
-        println('Welcomt to my CLI. Navigate to get information about me.');
+        println('Welcome to my CLI. Navigate to get information about me.');
         print('Type ')
         print('`help`', Output, false, "rgb(103, 255, 230)");
         print(' to get started.')
