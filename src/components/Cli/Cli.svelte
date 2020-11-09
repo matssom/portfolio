@@ -6,8 +6,17 @@
 
     let expanded = false;
     let elements = [];
+    let history = [];
 
     const toggleExpand = () => expanded = !expanded;
+    const commands = {
+        clear: () => elements = [],
+        history: () => { 
+            let str = ''
+            for (let part of history) str = `${str}<br>${part}`;
+            print(str);
+        }
+    }
 
     onMount(() => {
         init();
@@ -36,13 +45,23 @@
 
     const lastElement = () => elements[elements.length - 1];
 
+    const execute = (command = '') => {
+        let split = command.split(' ');
+        try {
+            commands[split[0]](split);
+            history.push(command);
+        } catch (e) {
+            print('Error: Command not found');
+        }
+    }
+
     const handleKeydown = (event) => {
         if (event.keyCode === 13) {
             event.preventDefault();
             let last = lastElement();
             elements.pop();
             print(last.content, Input, false);
-            print('Hello world');
+            execute(last.content);
             print('', Input);
             selectFocus();
         }
@@ -85,6 +104,7 @@
         box-shadow: var(--box-shadow-2);
         transition: all .5s ease-in-out;
         font-family: 'Consolas';
+        font-size: 1.4rem;
     }
 
     div.expanded {
@@ -136,7 +156,11 @@
     }
 
     .terminal {
-        height: 100%;
+        height: calc(100% - 3rem);
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         padding: 1rem;
     }
 </style>

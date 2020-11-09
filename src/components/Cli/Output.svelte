@@ -1,8 +1,16 @@
 <script>
     export let currentValue = '';
+
+    let split = currentValue.split('<br>');
 </script>
 
-<p>{currentValue}</p>
+<div>
+    {#each split as value}
+        {#if value != ''}
+            <p>{value}</p>
+        {/if}
+    {/each}
+</div>
 
 <style>
     p {
