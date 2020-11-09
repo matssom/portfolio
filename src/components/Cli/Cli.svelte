@@ -20,7 +20,6 @@
             println('Commands you can use:', Output, false, "rgb(103, 255, 230)");
             let str = '';
             Object.keys(commands).forEach((key) => {
-                console.log(key);
                 str = `${str}<br>${key}`;
             });
             println(str);
@@ -40,6 +39,17 @@
     }
 
     const print = (content = '', component = Output, editable = true, color = "#ffffff", inline = true) => {
+        let props = {
+            currentValue: content
+        };
+        if (component == Input) {
+            props.focus = false;
+            props.editable = editable;
+        } else if (component == Output) {
+            props.inline = inline;
+            props.color = color;
+        }
+        
         elements = [...elements, {
             id: elements.length,
             component: component,
@@ -47,7 +57,8 @@
             focus: false,
             editable: editable,
             inline: inline,
-            color: color
+            color: color,
+            props: props
         }]
     }
 
@@ -108,8 +119,8 @@
                 editable={element.editable} 
                 bind:focus={element.focus}
                 inline={element.inline}
-                color={element.color}>
-            </svelte:component>
+                color={element.color} 
+            />
         {/each}
     </div>
 </div>
