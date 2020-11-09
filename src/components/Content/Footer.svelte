@@ -4,13 +4,13 @@
     import Section from "../Section.svelte";
     import H1 from "../Type/H1.svelte";
     import P from "../Type/P.svelte";
-    import Stack from "../Stack/Stack.svelte";
+    import Stack from "../Stack.svelte";
     import Clickable from "../Clickable/Clickable.svelte";
-    import Icon from "../Icon/Icon.svelte";
+    import Icon from "../Icon.svelte";
     import ThemeControl from "../../store/ThemeControl.svelte";
 
-    import { lang } from '../../assets/components/footer/config';
-    import { language } from '../../store/language';
+    import { lang } from '../../../assets/components/footer/config';
+    import { language } from '../../../store/language';
     import { onMount } from 'svelte';
     import { watchResize } from 'svelte-watch-resize';
     import LanguageControl from "../../store/LanguageControl.svelte";

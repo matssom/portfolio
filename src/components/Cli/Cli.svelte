@@ -1,6 +1,6 @@
 <script>
     import { onMount } from 'svelte';
-    import Icon from "../Icon/Icon.svelte";
+    import Icon from "../Icon.svelte";
     import Input from "./Input.svelte";
     import Output from './Output.svelte';
 
