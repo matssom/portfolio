@@ -60,7 +60,7 @@
 		--back-color-3: #F7F8F8;
 		--back-color-4: white;
 		--back-color-5: linear-gradient(50deg, rgb(148, 219, 247) 0%, rgb(223, 238, 240) 100%);
-
+		
 		--border-color: #272727;
 
 		--shade: rgba(0,0,0,0.1);

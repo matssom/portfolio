@@ -14,6 +14,8 @@
     import Send from '../../assets/icons/send.svelte';
     import Message from '../../assets/icons/message.svelte';
     import Quote from '../../assets/icons/quote.svelte';
+    import Maximize from '../../assets/icons/maximize.svelte';
+    import Minimize from '../../assets/icons/minimize.svelte';
 
     export let name = 'logo';
 
@@ -31,7 +33,9 @@
         { name: 'moon',         component: Moon         },
         { name: 'send',         component: Send         },
         { name: 'message',      component: Message      },
-        { name: 'quote',        component: Quote        }
+        { name: 'quote',        component: Quote        },
+        { name: 'maximize',     component: Maximize     },
+        { name: 'minimize',     component: Minimize     }
     ];
 
     $: selected = icons.find(icon => icon.name === name);

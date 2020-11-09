@@ -20,6 +20,9 @@
 	--back-color-4: #2b2b2b;
 	--back-color-5: linear-gradient(50deg, rgba(36,109,139,1) 0%, rgba(68,174,185,1) 100%);
 
+	--cli: #333333;
+	--cli-bar: #E0E8F0;
+
 	--border-color: #eee;
 
 	--shade: rgba(0,0,0,0.1);
@@ -53,6 +56,8 @@
 	
 	--transition: all .1s linear;
 	--box-shadow: 0 2px 4px rgba(14,30,37,.12);
+	--box-shadow-2: 0 4px 8px rgba(14,30,37,.12);
+
 
 }
 
