@@ -10,11 +10,8 @@
 	import Developer from './routes/Developer.svelte';
 	import Footer from './components/Content/Footer.svelte';
 	import { theme } from './store/theme';
-	import { Storable } from './store/storable';
 
 	export let url = "";
-
-	// const count = storable(0);
 
 
 </script>
@@ -26,8 +23,6 @@
 				<Navigation/>
 			</Container>
 		</header>
-
-		<!-- <h1>{$count}</h1> -->
 
 		<main>
 			<Route path="/work" component={ Work }/>

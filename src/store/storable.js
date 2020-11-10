@@ -1,44 +1,49 @@
 import { writable } from 'svelte/store';
 
-export class Storable {
+export class storable {
     id
     store
   
     constructor(id, data) {
         if(typeof id === 'undefined') throw new Error('Storables require a key to interact')
         this.id = id;
-        this.store = exists() ? writable(data()) : writable(data);
+        this.store = this.exists() ? writable(this.getData()) : writable(data);
     }
   
-    get exists() {
+    exists() {
         return !!localStorage.getItem(this.id)
     }
   
-    get data() {
+    getData() {
         const DATA = localStorage.getItem(this.id)
         return JSON.parse(DATA)
     }
   
-    set data(data) {
+    setData(data) {
         const DATA = JSON.stringify(data)
         localStorage.setItem(this.id, DATA)
     }
 
-    get() {
-        return store.get()
+    get = () => {
+        return this.store.get()
     }
 
-    set(data) {
-        data(data);
-        store.set(data);
+    set = (data) => {
+        this.setData(data);
+        this.store.set(data);
     }
 
-    update(callback) {
-        return store.update(callback);
+    update = (callback) => {
+        const update = (data) => {
+            const newData = callback(data);
+            this.setData(newData);
+            return newData;
+        }
+        this.store.update(update);
     }
 
-    subscribe(callback) {
-        return store.subscribe(callback);
+    subscribe = (callback) => {
+        return this.store.subscribe(callback);
     }
   
     remove() {
