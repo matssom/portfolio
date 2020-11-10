@@ -1,4 +1,5 @@
 import { writable, readable, derived, get } from 'svelte/store';
+import { Storable } from './storable';
 
 export let fs = readable({
     dir: {
@@ -33,3 +34,7 @@ export let dir = derived(
         return dir;
     }
 );
+
+export let history = writable([]);
+
+export let elements = writable([]);

@@ -1,6 +1,6 @@
 <script>
     import { Link } from 'svelte-routing';
-    import Icon from '../Type/Icon.svelte';
+    import Icon from './Icon.svelte';
 
     export let  action = '',
                 to = '',

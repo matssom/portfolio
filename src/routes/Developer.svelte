@@ -1,8 +1,7 @@
 <script>
 import Cli from "../components/Cli/Cli.svelte";
-import Container from "../components/Container.svelte";
-import Section from "../components/Section.svelte";
-import H1 from "../components/Type/H1.svelte";
+import Container from "../components/Layout/Container.svelte";
+import Section from "../components/Layout/Section.svelte";
 
     
 </script>

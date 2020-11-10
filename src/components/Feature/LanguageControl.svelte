@@ -1,6 +1,6 @@
 <script>
-    import Clickable from "../components/Clickable/Clickable.svelte";
-    import { language, nextLanguage } from '../store/language';
+    import Clickable from "./Clickable.svelte";
+    import { language, nextLanguage } from '../../store/language';
 
     export let text = 'name';
 

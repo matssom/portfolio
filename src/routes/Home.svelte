@@ -1,19 +1,17 @@
 <script>
-    import Container from '../components/Container.svelte';
-    import Stack from '../components/Stack.svelte';
+    import Container from '../components/Layout/Container.svelte';
+    import Stack from '../components/Layout/Stack.svelte';
     import H1 from '../components/Type/H1.svelte';
     import Sub from '../components/Type/Sub.svelte';
-    import Clickable from '../components/Clickable.svelte';
-    import Flow from '../components/Flow.svelte';
-    import Section from '../components/Section.svelte';
-    import Card from '../components/Card.svelte';
+    import Clickable from '../components/Feature/Clickable.svelte';
+    import Flow from '../components/Layout/Flow.svelte';
+    import Section from '../components/Layout/Section.svelte';
 
     import { lang } from '../assets/routes/home/config';
     import { language } from '../store/language';
-    import Quote from '../components/Quote.svelte';
+    import Quote from '../components/Feature/Quote.svelte';
     import CodeImage from '../assets/components/home/code.svelte';
-import P from '../components/Type/P.svelte';
-import Split from '../components/Split.svelte';
+    import P from '../components/Type/P.svelte';
 </script>
 
 <Container padding horizontal>

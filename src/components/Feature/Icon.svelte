@@ -1,21 +1,21 @@
 <script>
 
-    import Github from '../assets/icons/github.svelte';
-    import Instagram from '../assets/icons/instagram.svelte';
-    import Linkedin from '../assets/icons/linkedin.svelte';
-    import Logo from '../assets/icons/logo.svelte';
-    import Twitter from '../assets/icons/twitter.svelte';
-    import ArrowRight from '../assets/icons/arrow-right.svelte';
-    import Code from '../assets/icons/code.svelte';
-    import Copyright from '../assets/icons/copyright.svelte';
-    import Language from '../assets/icons/language.svelte';
-    import Sun from '../assets/icons/sun.svelte';
-    import Moon from '../assets/icons/moon.svelte';
-    import Send from '../assets/icons/send.svelte';
-    import Message from '../assets/icons/message.svelte';
-    import Quote from '../assets/icons/quote.svelte';
-    import Maximize from '../assets/icons/maximize.svelte';
-    import Minimize from '../assets/icons/minimize.svelte';
+    import Github from '../../assets/icons/github.svelte';
+    import Instagram from '../../assets/icons/instagram.svelte';
+    import Linkedin from '../../assets/icons/linkedin.svelte';
+    import Logo from '../../assets/icons/logo.svelte';
+    import Twitter from '../../assets/icons/twitter.svelte';
+    import ArrowRight from '../../assets/icons/arrow-right.svelte';
+    import Code from '../../assets/icons/code.svelte';
+    import Copyright from '../../assets/icons/copyright.svelte';
+    import Language from '../../assets/icons/language.svelte';
+    import Sun from '../../assets/icons/sun.svelte';
+    import Moon from '../../assets/icons/moon.svelte';
+    import Send from '../../assets/icons/send.svelte';
+    import Message from '../../assets/icons/message.svelte';
+    import Quote from '../../assets/icons/quote.svelte';
+    import Maximize from '../../assets/icons/maximize.svelte';
+    import Minimize from '../../assets/icons/minimize.svelte';
 
     export let name = 'logo';
 

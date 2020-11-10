@@ -1,21 +1,19 @@
 <script>
     import { onMount } from 'svelte';
-    import Icon from "../Icon.svelte";
+    import Icon from "../Feature/Icon.svelte";
     import Input from "./Input.svelte";
     import Output from './Output.svelte';
 
-    import { path, fs, dir } from '../../store/cli.js';
+    import { path, fs, dir, history, elements } from '../../store/cli.js';
 
     let expanded = false;
-    let elements = [];
-    let history = [];
 
     const toggleExpand = () => expanded = !expanded;
     const commands = {
-        clear: () => elements = [],
+        clear: () => $elements = [],
         history: () => { 
             let str = '';
-            for (let part of history) str = `${str}<br>${part}`;
+            for (let part of $history) str = `${str}<br>${part}`;
             println(str);
         },
         help: () => {
@@ -94,8 +92,8 @@
             props.color = color;
         }
         
-        elements = [...elements, {
-            id: elements.length,
+        $elements = [...$elements, {
+            id: $elements.length,
             component: component,
             content: content,
             focus: false,
@@ -112,19 +110,19 @@
 
     const selectFocus = () => {
         let last = lastElement();
-        elements.pop();
+        $elements.pop();
         last.focus = true;
-        elements = [...elements, last];
+        $elements = [...$elements, last];
     }
 
-    const lastElement = () => elements[elements.length - 1];
+    const lastElement = () => $elements[$elements.length - 1];
 
     const execute = (command = '') => {
         let split = command.split(' ');
         split = split.map(e => e.trim());
         try {
             commands[split[0]](split);
-            history.push(command);
+            $history.push(command);
         } catch (e) {
             console.log(e);
             print('(⊙_☉) - Error: Command not found', Output, false, "#ff772e");
@@ -135,7 +133,7 @@
         if (event.keyCode === 13) {
             event.preventDefault();
             let last = lastElement();
-            elements.pop();
+            $elements.pop();
             println(last.content, Input, false);
             execute(last.content);
             println('', Input);
@@ -155,7 +153,7 @@
         <p>matssom - cli</p>
     </div>
     <div class="terminal" on:click={selectFocus}>
-        {#each elements as element (element.id)}
+        {#each $elements as element (element.id)}
             <svelte:component 
                 this={element.component} 
                 bind:currentValue={element.content} 

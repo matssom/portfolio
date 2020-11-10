@@ -1,21 +1,20 @@
 <script>
-    import Card from "../Card/Card.svelte";
-    import Container from "../Container/Container.svelte";
-    import Section from "../Section.svelte";
-    import H1 from "../Type/H1.svelte";
+    import Card from "../Layout/Card.svelte";
+    import Container from "../Layout/Container.svelte";
+    import Section from "../Layout/Section.svelte";
     import P from "../Type/P.svelte";
-    import Stack from "../Stack.svelte";
-    import Clickable from "../Clickable/Clickable.svelte";
-    import Icon from "../Icon.svelte";
-    import ThemeControl from "../../store/ThemeControl.svelte";
+    import Stack from "../Layout/Stack.svelte";
+    import Clickable from "../Feature/Clickable.svelte";
+    import Icon from "../Feature/Icon.svelte";
+    import ThemeControl from "../Feature/ThemeControl.svelte";
 
-    import { lang } from '../../../assets/components/footer/config';
-    import { language } from '../../../store/language';
+    import { lang } from '../../assets/components/footer/config';
+    import { language } from '../../store/language.js';
     import { onMount } from 'svelte';
     import { watchResize } from 'svelte-watch-resize';
-    import LanguageControl from "../../store/LanguageControl.svelte";
-    import Split from "../Split.svelte";
-import H3 from "../Type/H3.svelte";
+    import LanguageControl from "../Feature/LanguageControl.svelte";
+    import Split from "../Layout/Split.svelte";
+    import H3 from "../Type/H3.svelte";
 
     let mobile = false;
     let nav;
