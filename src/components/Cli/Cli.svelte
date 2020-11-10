@@ -192,6 +192,8 @@
         border-radius: var(--border-radius-card);
         width: 70rem;
         height: 45rem;
+        max-width: 100%;
+        max-height: 100vh;
         overflow: hidden;
         box-shadow: var(--box-shadow-2);
         transition: all .5s ease-in-out;
@@ -199,17 +201,34 @@
         font-size: 1.4rem;
     }
 
-    div.expanded {
-        position: fixed;
-        margin-top: -14rem;
-        width: calc(100vw - 4rem);
-        height: calc(100vh - 4rem);
-        z-index: 10;
+    .size {
+        display: none;
     }
 
-    span.expanded {
-        height: 45rem;
-        width: 70rem;
+    @media (min-width: 40.625em) {
+        div.expanded {
+            position: fixed;
+            margin-top: -14rem;
+            width: calc(100vw - 4rem);
+            height: calc(100vh - 4rem);
+            z-index: 10;
+        }
+
+        span.expanded {
+            height: 45rem;
+            width: 70rem;
+        }
+
+        .size {
+            transition: var(--transition);
+            background-color: transparent;
+            height: 3rem;
+            width: 3.5rem;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     .header {
@@ -230,17 +249,6 @@
         position: absolute;
         top: 0;
         right: 0;
-    }
-
-    .size {
-        transition: var(--transition);
-        background-color: transparent;
-        height: 3rem;
-        width: 3.5rem;
-        border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .size:hover {
