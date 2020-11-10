@@ -15,7 +15,7 @@
     const toggleExpand = () => expanded = !expanded;
     const commands = {
         clear: (commands, next) => { $elements = []; next() },
-        start: () => { $elements = []; $path = ['root']; init(); selectFocus(); },
+        start: () => { $elements = []; $path = ['root']; $history = []; init(); selectFocus(); },
         history: (commands, next) => { 
             let str = '';
             for (let part of $history) str = `${str}<br>${part}`;
