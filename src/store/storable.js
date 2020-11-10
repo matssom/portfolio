@@ -28,7 +28,7 @@ export class storable {
         return this.store.get();
     }
 
-    set = (data) => {
+    set(data) {
         this.setData(data);
         this.store.set(data);
     }
