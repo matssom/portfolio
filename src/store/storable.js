@@ -24,8 +24,8 @@ export class storable {
         localStorage.setItem(this.id, DATA)
     }
 
-    get = () => {
-        return this.store.get()
+    get() {
+        return this.store.get();
     }
 
     set = (data) => {
@@ -33,7 +33,7 @@ export class storable {
         this.store.set(data);
     }
 
-    update = (callback) => {
+    update(callback) {
         const update = (data) => {
             const newData = callback(data);
             this.setData(newData);
@@ -42,7 +42,7 @@ export class storable {
         this.store.update(update);
     }
 
-    subscribe = (callback) => {
+    subscribe (callback) {
         return this.store.subscribe(callback);
     }
   

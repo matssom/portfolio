@@ -41,6 +41,9 @@
                         $path = next;
                     } else if (p === '..') {
                         if ($path.length > 1) $path = $path.slice(0, -1);
+                    } else if (p === '~') {
+                        $path = ['root'];
+                        break;
                     } else {
                         print(`Error: `, 'output', false, '#ff772e');
                         print(`\`${commands[1]}\``, 'output', false, 'rgb(103, 255, 230)');
