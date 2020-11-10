@@ -15,7 +15,7 @@
     const toggleExpand = () => expanded = !expanded;
     const commands = {
         clear: (commands, next) => { $elements = []; next() },
-        start: () => { $elements = []; init(); },
+        start: () => { $elements = []; $path = ['root']; init(); selectFocus(); },
         history: (commands, next) => { 
             let str = '';
             for (let part of $history) str = `${str}<br>${part}`;
@@ -78,17 +78,10 @@
     }
 
     onMount(() => {
-        console.log($elements)
         if ($elements.length <= 1) {
             $elements = [];
             init();
-        } else {
-            // println('', Input);
         }
-    });
-
-    onDestroy(() => {
-        // $elements = [];
     });
 
     const init = () => {
@@ -119,7 +112,8 @@
             editable: editable,
             inline: inline,
             color: color,
-            props: props
+            props: props,
+            path: [...$path]
         }]
     }
 
@@ -145,6 +139,7 @@
         } catch (e) {
             console.log(e);
             print('(⊙_☉) - Error: Command not found', 'output', false, "#ff772e");
+            next();
         }
     }
 
@@ -183,7 +178,7 @@
                 bind:focus={element.focus}
                 inline={element.inline}
                 color={element.color}
-                path={path}
+                path={element.path}
             />
         {/each}
     </div>

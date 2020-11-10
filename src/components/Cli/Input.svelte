@@ -15,7 +15,7 @@
     }
 
     onMount(() => {
-        cPath = $path;
+        cPath = path;
     });
 
 </script>
