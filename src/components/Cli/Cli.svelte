@@ -7,24 +7,31 @@
     import { path, fs, dir, history, elements } from '../../store/cli.js';
 
     let expanded = false;
+    
+    const getComponent = (type) => {
+        return type === 'input' ? Input : Output;
+    }
 
     const toggleExpand = () => expanded = !expanded;
     const commands = {
-        clear: () => $elements = [],
-        history: () => { 
+        clear: (commands, next) => { $elements = []; next() },
+        start: () => { $elements = []; init(); },
+        history: (commands, next) => { 
             let str = '';
             for (let part of $history) str = `${str}<br>${part}`;
             println(str);
+            next();
         },
-        help: () => {
-            println('Commands you can use:', Output, false, "rgb(103, 255, 230)");
+        help: (cmds, next) => {
+            println('Commands you can use:', 'output', false, "rgb(103, 255, 230)");
             let str = '';
             Object.keys(commands).forEach((key) => {
                 str = `${str}<br>${key}`;
             });
             println(str);
+            next();
         },
-        cd: (commands) => {
+        cd: (commands, next) => {
             if (commands.length === 2) {
                 let paths = commands[1].split('/').filter(p => p !== '');
                 let oldPath = $path;
@@ -35,22 +42,23 @@
                     } else if (p === '..') {
                         if ($path.length > 1) $path = $path.slice(0, -1);
                     } else {
-                        print(`Error: `, Output, false, '#ff772e');
-                        print(`\`${commands[1]}\``, Output, false, 'rgb(103, 255, 230)');
-                        print(` is not a valid path`, Output, false, '#ff772e');
+                        print(`Error: `, 'output', false, '#ff772e');
+                        print(`\`${commands[1]}\``, 'output', false, 'rgb(103, 255, 230)');
+                        print(` is not a valid path`, 'output', false, '#ff772e');
                         $path = oldPath;
                         break;
                     }
                 }
             } else {
-                print('Current path: ', Output, false, 'rgb(103, 255, 230)');
+                print('Current path: ', 'output', false, 'rgb(103, 255, 230)');
                 print($path.toString().replaceAll(',','/'));
             }
+            next();
         },
-        ls: () => {
+        ls: (commands, next) => {
             if ($dir.dir) {
                 Object.keys($dir.dir).forEach(key => {
-                    print(`${key}    `, Output, false, "rgb(103, 255, 230)");
+                    print(`${key}    `, 'output', false, "rgb(103, 255, 230)");
                 } );
             }
             if ($dir.file) {
@@ -58,6 +66,7 @@
                     print(`${file}    `);
                 }
             }
+            next();
         }
     }
 
@@ -69,29 +78,35 @@
     }
 
     onMount(() => {
-        init();
+        console.log($elements)
+        if ($elements.length <= 1) {
+            $elements = [];
+            init();
+        } else {
+            // println('', Input);
+        }
     });
 
     onDestroy(() => {
-        $elements = [];
+        // $elements = [];
     });
 
     const init = () => {
         println('Welcome to my CLI. Navigate to get information about me.');
         print('Type ')
-        print('`help`', Output, false, "rgb(103, 255, 230)");
+        print('`help`', 'output', false, "rgb(103, 255, 230)");
         print(' to get started.')
-        println('', Input);
+        println('', 'input');
     }
 
-    const print = (content = '', component = Output, editable = true, color = "#ffffff", inline = true) => {
+    const print = (content = '', component = 'output', editable = true, color = "#ffffff", inline = true) => {
         let props = {
             currentValue: content
         };
-        if (component == Input) {
+        if (component === 'input') {
             props.focus = false;
             props.editable = editable;
-        } else if (component == Output) {
+        } else if (component === 'output') {
             props.inline = inline;
             props.color = color;
         }
@@ -121,15 +136,15 @@
 
     const lastElement = () => $elements[$elements.length - 1];
 
-    const execute = (command = '') => {
+    const execute = (command = '', next) => {
         let split = command.split(' ');
         split = split.map(e => e.trim());
         try {
-            commands[split[0]](split);
+            commands[split[0]](split, next);
             $history = [...$history, command];
         } catch (e) {
             console.log(e);
-            print('(⊙_☉) - Error: Command not found', Output, false, "#ff772e");
+            print('(⊙_☉) - Error: Command not found', 'output', false, "#ff772e");
         }
     }
 
@@ -138,11 +153,14 @@
             event.preventDefault();
             let last = lastElement();
             $elements.pop();
-            println(last.content, Input, false);
-            execute(last.content);
-            println('', Input);
-            selectFocus();
+            println(last.content, 'input', false);
+            execute(last.content, addInput);
         }
+    }
+
+    const addInput = () => {
+        println('', 'input');
+        selectFocus();
     }
 
 </script>
@@ -159,7 +177,7 @@
     <div class="terminal" on:click={selectFocus}>
         {#each $elements as element (element.id)}
             <svelte:component 
-                this={element.component} 
+                this={getComponent(element.component)} 
                 bind:currentValue={element.content} 
                 editable={element.editable} 
                 bind:focus={element.focus}
