@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from 'svelte';
+    import { onMount, onDestroy } from 'svelte';
     import Icon from "../Feature/Icon.svelte";
     import Input from "./Input.svelte";
     import Output from './Output.svelte';
@@ -72,6 +72,10 @@
         init();
     });
 
+    onDestroy(() => {
+        $elements = [];
+    });
+
     const init = () => {
         println('Welcome to my CLI. Navigate to get information about me.');
         print('Type ')
@@ -122,7 +126,7 @@
         split = split.map(e => e.trim());
         try {
             commands[split[0]](split);
-            $history.push(command);
+            $history = [...$history, command];
         } catch (e) {
             console.log(e);
             print('(⊙_☉) - Error: Command not found', Output, false, "#ff772e");
