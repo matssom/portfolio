@@ -8,11 +8,9 @@
 
     let expanded = false;
     
-    const getComponent = (type) => {
-        return type === 'input' ? Input : Output;
-    }
-
+    const getComponent = (type) => { return type === 'input' ? Input : Output; }
     const toggleExpand = () => expanded = !expanded;
+    
     const commands = {
         clear: (commands, next) => { $elements = []; next() },
         start: () => { $elements = []; $path = ['root']; $history = []; init(); selectFocus(); },

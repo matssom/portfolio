@@ -1,7 +1,8 @@
-import { writable, derived } from 'svelte/store';
+import { derived } from 'svelte/store';
+import { storable } from 'svelte-storable';
 import { languages } from '../assets/components/languageControl/config';
 
-export const language = writable(languages[0]);
+export const language = storable('language', languages[0]);
 
 export const nextLanguage = derived(
     language,
