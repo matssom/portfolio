@@ -1,6 +1,6 @@
 <script>
-	import 'amidst/amidst.css';
-	import 'amidst/amidst';
+	import 'accessible-reset/accessible-reset.css';
+	import 'accessible-reset/accessible-reset.js';
 	import { Router, Route } from 'svelte-routing';
 	import Navigation from './components/Content/Navigation.svelte';
 	import Container from './components/Layout/Container.svelte';
