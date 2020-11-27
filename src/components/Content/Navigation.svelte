@@ -40,7 +40,6 @@
 </Card>
 
 <style>
-
     .flex {
         display: flex;
         flex-wrap: wrap;
