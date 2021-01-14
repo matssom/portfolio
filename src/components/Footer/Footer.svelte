@@ -15,7 +15,7 @@
     import { watchResize } from 'svelte-watch-resize';
     import LanguageControl from "../../store/LanguageControl.svelte";
     import Split from "../Split.svelte";
-import H3 from "../Type/H3.svelte";
+    import H3 from "../Type/H3.svelte";
 
     let mobile = false;
     let nav;

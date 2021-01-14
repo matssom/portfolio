@@ -31,6 +31,10 @@
         background: var(--back-color-5);
     }
 
+    .tiny {
+        padding: 2rem 0;
+    }
+
     .small {
         padding: var(--gap-large) 0;
     }
