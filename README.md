@@ -9,8 +9,6 @@ This is the repo for my portofolio website which showcases some of my work and e
 ### You can find the website at:
 
 [matssommervold.com](https://www.matssommervold.com) or
-[matssom.com](https://www.matssom.com) or
-[sommervold.dev](https://www.sommervold.dev) or 
-[sommervold.xyz](https://www.sommervold.xyz)
+[matssom.com](https://www.matssom.com)
 
 [website]: https://matssommervold.com
