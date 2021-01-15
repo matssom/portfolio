@@ -3,7 +3,6 @@
     import { lang } from '../assets/components/themeControl/config';
 
     import { theme, nextTheme } from '../store/theme';
-    import { language } from '../store/language';
 
     const changeTheme = () => {
         $theme = $nextTheme;
@@ -13,6 +12,6 @@
 
 <Clickable
     action={changeTheme} 
-    type="button" text="{$nextTheme.lang[$language.code].name} {lang[$language.code].theme}" 
+    type="button" text="{$nextTheme.lang["en"].name} {lang["en"].theme}" 
     icon="{$nextTheme.icon}"
 />

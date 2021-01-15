@@ -1,15 +1,7 @@
 <script>
-    import Clickable from "../components/Clickable/Clickable.svelte";
-    import { language, nextLanguage } from '../store/language';
-
-    export let text = 'name';
-
-    let key = text === 'name' ? 'name' : 'short';
-
-    const changeLanguage = () => {
-        $language = $nextLanguage;
-    }
+    import Clickable from "../components/Clickable/Clickable.svelte"
+    import { language } from './language.js'
 
 </script>
 
-<Clickable action={changeLanguage} type="button" text="{$nextLanguage[key]}" icon="language"/>
+<Clickable style="secondary" text="{$language[2]}" to="https://matssom.{$language[0]}" icon="language"/>
