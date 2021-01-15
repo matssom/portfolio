@@ -14,6 +14,8 @@
     import Send from '../../assets/icons/send.svelte';
     import Message from '../../assets/icons/message.svelte';
     import Quote from '../../assets/icons/quote.svelte';
+    import Work from '../../assets/icons/work.svelte';
+    import Expand from '../../assets/icons/expand.svelte';
 
     export let name = 'logo';
 
@@ -31,7 +33,9 @@
         { name: 'moon',         component: Moon         },
         { name: 'send',         component: Send         },
         { name: 'message',      component: Message      },
-        { name: 'quote',        component: Quote        }
+        { name: 'quote',        component: Quote        },
+        { name: 'work',         component: Work         },
+        { name: 'expand',       component: Expand       }
     ];
 
     $: selected = icons.find(icon => icon.name === name);
@@ -40,3 +44,7 @@
 {#if selected && selected.component}
     <svelte:component this={selected.component} />
 {/if}
+
+<style>
+    
+</style>

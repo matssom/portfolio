@@ -6,14 +6,19 @@
     import P from '../components/Type/P.svelte'
 import Card from '../components/Layout/Card.svelte'
 import H3 from '../components/Type/H3.svelte'
+import H1 from '../components/Type/H1.svelte'
 import Clickable from '../components/Feature/Clickable.svelte'
 </script>
 
 <Section>
     <Container padding horizontal narrow>
-        <Stack size="large">
-            <Card padding>
-                <div class="space">
+        <Stack size="huge">
+            <div>
+                <H1 center icon="work">Work Experiences</H1>
+            </div>
+
+            <Card>
+                <Container padding size="large">
                     <Stack size="medium">
                         <H3>Teacher Assistant | Oslo Metropolitan University</H3>
                         <Sub small>2020-Present</Sub>
@@ -22,20 +27,20 @@ import Clickable from '../components/Feature/Clickable.svelte'
                         <P>Last semesester I did the same jobe in a class that is the prerequisite to this course, "Universal design and development". This course foucused more on the basics of HTML and CSS</P>
                         <P>This job fits me well as it combines my to passions, which are coaching/teaching and programming. It gives me valuable experience in public speaking and general colaboration.</P>
                     </Stack>
-                </div>
+                </Container>
             </Card>
-            <Card padding>
-                <div class="space">
+            <Card>
+                <Container padding size="large">
                     <Stack size="medium">
                         <H3>Frontend Developer | Coness AS</H3>
                         <Sub small>2017-2019</Sub>
                         <P>Being a frontend developer for the consulting firm Coness AS was my first programming job. The work consisted of designing, developing and maintaining the website for Coness (<Clickable to="https://coness.no" text="Coness.no"/>). I worked with mostly HTML, CSS & javascript. The experience I got from this job continues to be valuable for me to this day.
                         </P>
                     </Stack>
-                </div>
+                </Container>
             </Card>
-            <Card padding>
-                <div class="space">
+            <Card>
+                <Container padding size="large">
                     <Stack size="medium">
                         <H3>Judo Coach | Ippon Judo Club</H3>
                         <Sub small>2016-Present</Sub>
@@ -47,14 +52,12 @@ import Clickable from '../components/Feature/Clickable.svelte'
                             <li>Traveling to competitions with kids and coaching them along the way.</li>
                         </ul>
                     </Stack>
-                </div>
+                </Container>
             </Card>
         </Stack>
     </Container>
 </Section>
 
 <style>
-    .space {
-        padding: 2rem 0;
-    }
+    
 </style>

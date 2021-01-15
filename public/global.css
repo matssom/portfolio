@@ -36,6 +36,10 @@
 	--link-color-hover: 	#00438b;
 	--link-color-active: 	#003268;
 
+	--expert-color: 		#fffdec;
+	--proficient-color: 	#dfd4e4;
+	--familiar-color:		#7befb2;
+
 	--card-color: var(--back-color-2);
 	--card-color-2: var(--back-color);
 

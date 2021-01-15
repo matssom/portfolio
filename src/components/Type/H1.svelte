@@ -1,10 +1,19 @@
 <script>
-    export let center = false, oposite = false;
+    import Icon from '../Feature/Icon.svelte';
+
+    export let center = false, oposite = false, icon;
 </script>
 
-<h1 class:center class:oposite>
-    <slot />
-</h1>
+<div class:center class="{icon ? 'show-icon' : ''}">
+    {#if icon}
+        <span class="icon-holder">
+            <Icon name="{icon}"/>
+        </span>
+    {/if}
+    <h1 class:oposite>
+        <slot />
+    </h1>
+</div>
 
 <style>
     h1 {
@@ -19,5 +28,20 @@
 
     .oposite {
         color: var(--text-color-0);
+    }
+
+    .show-icon {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: min-content max-content;
+    }
+
+    .show-icon.center {
+        display: block;
+    }
+
+    .icon-holder > :global(svg.icon) {
+        width: 4rem;
+        height: 4rem;
     }
 </style>

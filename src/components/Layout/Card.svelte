@@ -2,10 +2,11 @@
     export let  shadow = false,
                 border = false,
                 padding = false,
+                focus = false,
                 background = '';
 </script>
 
-<div class="card {background}" class:shadow class:border class:padding>
+<div class="card {background}" class:focus class:shadow class:border class:padding>
     <slot />
 </div>
 
@@ -13,6 +14,7 @@
     .card {
         border-radius: .5rem;
         background-color: var(--card-color);
+        transition: all .2s ease-out;
     }
 
     .shadow {
@@ -42,5 +44,9 @@
 
     .back-color-5 {
         background: var(--back-color-5);
+    }
+
+    .focus {
+        background-color: var(--proficient-color);
     }
 </style>
