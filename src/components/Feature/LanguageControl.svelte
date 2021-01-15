@@ -1,6 +1,6 @@
 <script>
-    import Clickable from "../components/Clickable/Clickable.svelte"
-    import { language } from './language.js'
+    import Clickable from "./Clickable.svelte"
+    import { language } from '../../store/language.js'
 
 </script>
 

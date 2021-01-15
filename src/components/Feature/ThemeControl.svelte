@@ -1,8 +1,8 @@
 <script>
-    import Clickable from "../components/Clickable/Clickable.svelte";
-    import { lang } from '../assets/components/themeControl/config';
+    import Clickable from "./Clickable.svelte";
+    import { lang } from '../../assets/components/themeControl/config';
 
-    import { theme, nextTheme } from '../store/theme';
+    import { theme, nextTheme } from '../../store/theme';
 
     const changeTheme = () => {
         $theme = $nextTheme;

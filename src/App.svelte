@@ -2,14 +2,14 @@
 	import 'amidst/amidst.css';
 	import 'amidst/amidst';
 	import { Router, Route } from 'svelte-routing';
-	import Navigation from './components/Navigation/Navigation.svelte';
-	import Container from './components/Container/Container.svelte';
-	import Home from './routes/Home/Home.svelte';
-	import Work from './routes/Work/Work.svelte';
-	import Projects from './routes/Projects/Projects.svelte';
-	import Developer from './routes/Developer/Developer.svelte';
-	import Footer from './components/Footer/Footer.svelte';
-	import { theme } from './store/theme';
+	import Navigation from './components/Content/Navigation.svelte';
+	import Container from './components/Layout/Container.svelte';
+	import Home from './routes/Home.svelte';
+	import Work from './routes/Work.svelte';
+	import Projects from './routes/Projects.svelte';
+	import Developer from './routes/Developer.svelte';
+	import Footer from './components/Content/Footer.svelte';
+	import { theme } from './store/theme.js';
 
 	export let url = "";
 

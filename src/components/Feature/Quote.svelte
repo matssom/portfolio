@@ -1,9 +1,8 @@
 <script>
-import Icon from './Icon/Icon.svelte';
-import Stack from './Stack/Stack.svelte';
+    import Icon from './Icon.svelte';
+    import Stack from '../Layout/Stack.svelte';
 
-    import H3 from './Type/H3.svelte';
-import P from './Type/P.svelte';
+    import P from '../Type/P.svelte';
 </script>
 
 <div class="quote">

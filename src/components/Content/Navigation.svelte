@@ -1,7 +1,7 @@
 <script>
-    import Card from '../Card/Card.svelte';
-    import Clickable from '../Clickable/Clickable.svelte';
-    import Logo from '../Logo/Logo.svelte';
+    import Card from '../Layout/Card.svelte';
+    import Clickable from '../Feature/Clickable.svelte';
+    import Logo from '../Feature/Logo.svelte';
     import { onMount } from 'svelte';
     import { elements } from '../../assets/components/navigation/config.js'
 
