@@ -1,9 +1,15 @@
-import { writable, derived } from 'svelte/store';
-import { languages } from '../assets/components/languageControl/config';
+import { readable } from 'svelte/store';
 
-export const language = writable(languages[0]);
+const getLanguage = () => {
+    let hostname = window.location.hostname
+    let split = hostname.split('.')
+    let top = split[split.length - 1]
+    if (top === 'com') {
+        return ['no', 'no', 'Norsk']
+    }
+    else {
+        return ['com', 'en', 'English']
+    }
+}
 
-export const nextLanguage = derived(
-    language,
-    $language => languages[(languages.findIndex(config => config.code === $language.code) + 1) % languages.length]
-);
+export const language = readable(getLanguage());

@@ -6,14 +6,16 @@
     import Clickable from '../../components/Clickable/Clickable.svelte';
     import Flow from '../../components/Flow/Flow.svelte';
     import Section from '../../components/Section.svelte';
-    import Card from '../../components/Card/Card.svelte';
+    import { language } from '../../store/language.js';
 
     import { lang } from '../../assets/routes/home/config';
-    import { language } from '../../store/language';
     import Quote from '../../components/Quote.svelte';
     import CodeImage from '../../assets/components/home/code.svelte';
-import P from '../../components/Type/P.svelte';
-import Split from '../../components/Split.svelte';
+    import P from '../../components/Type/P.svelte';
+
+    let header = lang[$language[1]].header;
+    
+
 </script>
 
 <Container padding horizontal>
@@ -23,11 +25,11 @@ import Split from '../../components/Split.svelte';
         </div>
         <div class="header__text">
             <Stack size="large">
-                <H1>{lang[$language.code].header.headline}</H1>
-                <Sub>{lang[$language.code].header.tagline}</Sub>
+                <H1>{header.headline}</H1>
+                <Sub>{header.tagline}</Sub>
                 <Flow>
                     {#each lang.base.header.actions as action (action.index)}
-                        <Clickable order="reverse" icon="{action.icon}" type="route" style="{action.style}" to="{action.path}" text="{lang[$language.code].header.actions[action.index].text}"/>
+                        <Clickable order="reverse" icon="{action.icon}" type="route" style="{action.style}" to="{action.path}" text="{header.actions[action.index].text}"/>
                     {/each}
                 </Flow>
             </Stack>

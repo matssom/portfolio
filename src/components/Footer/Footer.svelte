@@ -2,20 +2,19 @@
     import Card from "../Card/Card.svelte";
     import Container from "../Container/Container.svelte";
     import Section from "../Section.svelte";
-    import H1 from "../Type/H1.svelte";
     import P from "../Type/P.svelte";
     import Stack from "../Stack/Stack.svelte";
     import Clickable from "../Clickable/Clickable.svelte";
     import Icon from "../Icon/Icon.svelte";
     import ThemeControl from "../../store/ThemeControl.svelte";
+    import { language } from '../../store/language.js';
+    import { lang } from '../../assets/components/footer/config.js'
 
-    import { lang } from '../../assets/components/footer/config';
-    import { language } from '../../store/language';
     import { onMount } from 'svelte';
     import { watchResize } from 'svelte-watch-resize';
-    import LanguageControl from "../../store/LanguageControl.svelte";
     import Split from "../Split.svelte";
     import H3 from "../Type/H3.svelte";
+    import LanguageControl from "../../store/LanguageControl.svelte";
 
     let mobile = false;
     let nav;
@@ -32,6 +31,9 @@
         mobile = node.clientWidth <= acceptableWidth;
     }
 
+    let statement = lang[$language[1]].statement
+    let contact = lang[$language[1]].contact 
+
 </script>
 
 <div>
@@ -40,15 +42,15 @@
             <Split col="2">
                 <Container padding horizontal>
                     <Stack>
-                        <H3>{lang[$language.code].statement.title}</H3>
-                        <P size="small">{lang[$language.code].statement.content}</P>
+                        <H3>{statement.title}</H3>
+                        <P size="small">{statement.content}</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
-                        <H3>{lang[$language.code].contact.title}</H3>
-                        <P size="small">{lang[$language.code].contact.contents[0]}<Clickable to="https://github.com/matssom" text="GitHub" type="link"/>, {lang[$language.code].contact.contents[1]} <Clickable to="https://twitter.com/matssommer" text="Twitter" type="link" /> {lang[$language.code].contact.contents[2]} <Clickable to="https://linkedin.com/in/mats-sommervold" type="link" text="LinkedIn" /> {lang[$language.code].contact.contents[3]} <Clickable to="mailto:mats@sommervold.net" text="mats@sommervold.net" type="link" />.</P>
-                        <Clickable to="/contact" text="{lang[$language.code].contact.action.text}" icon="send" order="reverse" type="route" style="primary"/>
+                        <H3>{contact.title}</H3>
+                        <P size="small">{contact.contents[0]}<Clickable to="https://github.com/matssom" text="GitHub" type="link"/>, {contact.contents[1]}<Clickable to="https://twitter.com/matssommer" text="Twitter" type="link" /> {contact.contents[2]} <Clickable to="https://linkedin.com/in/mats-sommervold" type="link" text="LinkedIn" /> {contact.contents[3]}<Clickable to="mailto:mats@sommervold.net" text="mats@sommervold.net" type="link" />.</P>
+                        <Clickable to="/contact" text="{contact.action.text}" icon="send" order="reverse" type="route" style="primary"/>
                     </Stack>
                 </Container>
             </Split>
