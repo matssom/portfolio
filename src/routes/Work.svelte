@@ -1,12 +1,12 @@
 <script>
-    import Section from '../../components/Section.svelte'
-    import Container from '../../components/Container/Container.svelte'
-    import Stack from '../../components/Stack/Stack.svelte'
-    import Sub from '../../components/Type/Sub.svelte'
-    import P from '../../components/Type/P.svelte'
-import Card from '../../components/Card/Card.svelte'
-import H3 from '../../components/Type/H3.svelte'
-import Clickable from '../../components/Clickable/Clickable.svelte'
+    import Section from '../components/Layout/Section.svelte'
+    import Container from '../components/Layout/Container.svelte'
+    import Stack from '../components/Layout/Stack.svelte'
+    import Sub from '../components/Type/Sub.svelte'
+    import P from '../components/Type/P.svelte'
+import Card from '../components/Layout/Card.svelte'
+import H3 from '../components/Type/H3.svelte'
+import Clickable from '../components/Feature/Clickable.svelte'
 </script>
 
 <Section>

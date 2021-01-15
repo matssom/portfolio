@@ -1,17 +1,17 @@
 <script>
-    import Container from '../../components/Container/Container.svelte';
-    import Stack from '../../components/Stack/Stack.svelte';
-    import H1 from '../../components/Type/H1.svelte';
-    import Sub from '../../components/Type/Sub.svelte';
-    import Clickable from '../../components/Clickable/Clickable.svelte';
-    import Flow from '../../components/Flow/Flow.svelte';
-    import Section from '../../components/Section.svelte';
-    import { language } from '../../store/language.js';
+    import Container from '../components/Layout/Container.svelte';
+    import Stack from '../components/Layout/Stack.svelte';
+    import H1 from '../components/Type/H1.svelte';
+    import Sub from '../components/Type/Sub.svelte';
+    import Clickable from '../components/Feature/Clickable.svelte';
+    import Flow from '../components/Layout/Flow.svelte';
+    import Section from '../components/Layout/Section.svelte';
+    import { language } from '../store/language.js';
 
-    import { lang } from '../../assets/routes/home/config';
-    import Quote from '../../components/Quote.svelte';
-    import CodeImage from '../../assets/components/home/code.svelte';
-    import P from '../../components/Type/P.svelte';
+    import { lang } from '../assets/routes/home/config';
+    import Quote from '../components/Feature/Quote.svelte';
+    import CodeImage from '../assets/components/home/code.svelte';
+    import P from '../components/Type/P.svelte';
 
     let header = lang[$language[1]].header;
     
