@@ -16,8 +16,17 @@
     import Quote from '../../assets/icons/quote.svelte';
     import Work from '../../assets/icons/work.svelte';
     import Expand from '../../assets/icons/expand.svelte';
+    import Tools from '../../assets/icons/tools.svelte';
+    import OpenBook from '../../assets/icons/open-book.svelte';
+    import ArrowDown from '../../assets/icons/arrow-down.svelte';
+    import Npm from '../../assets/icons/npm.svelte';
+    import Education from '../../assets/icons/education.svelte';
+    import Book from '../../assets/icons/book.svelte';
+    import LifeBouy from '../../assets/icons/life-bouy.svelte';
+    import Handshake from '../../assets/icons/handshake.svelte';
+    import OslometLogo from '../../assets/icons/oslomet-logo.svelte';
 
-    export let name = 'logo';
+    export let name = 'logo', alt = '';
 
     const icons = [
         { name: 'github',       component: Github       },
@@ -35,7 +44,16 @@
         { name: 'message',      component: Message      },
         { name: 'quote',        component: Quote        },
         { name: 'work',         component: Work         },
-        { name: 'expand',       component: Expand       }
+        { name: 'expand',       component: Expand       },
+        { name: 'tools',        component: Tools        },
+        { name: 'open-book',    component: OpenBook     },
+        { name: 'arrow-down',   component: ArrowDown    },
+        { name: 'npm',          component: Npm          },
+        { name: 'education',    component: Education    },
+        { name: 'book',         component: Book         },
+        { name: 'life-bouy',    component: LifeBouy     },
+        { name: 'handshake',    component: Handshake    },
+        { name: 'oslomet-logo', component: OslometLogo  }
     ];
 
     $: selected = icons.find(icon => icon.name === name);
@@ -43,8 +61,13 @@
 
 {#if selected && selected.component}
     <svelte:component this={selected.component} />
+{:else}
+    <img src="{name}" alt={alt}>
 {/if}
 
 <style>
-    
+    img {
+        display: inline-block;
+        height: 1.1em;
+    }
 </style>

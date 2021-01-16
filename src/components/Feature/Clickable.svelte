@@ -1,6 +1,9 @@
 <script>
     import { Link } from 'svelte-routing';
     import Icon from '../Feature/Icon.svelte';
+    import Card from '../Layout/Card.svelte';
+    import Stack from '../Layout/Stack.svelte';
+    import { onMount, onDestroy } from 'svelte';
 
     export let  action = '',
                 to = '',
@@ -12,17 +15,52 @@
                 external = false,
                 style = '',
                 selected = false,
-                notab = false
+                notab = false,
+                dropdown = false
 
     id = id;
-
+    let element
     let target = external ? '_blank' : '';
     let rel = external ? 'noopener noreferrer' : '';
     let onlyIcon = text && icon ? '' : 'only-icon';
-
+    let dropdownOpen
+    
+    $: currentlyOpen = dropdownOpen
     $: currentlySelected = selected;
     $: currentPath = false;
     $: select = currentlySelected || currentPath ? 'selected' : '';
+
+    const addSelect = () => selected = true
+    const removeSelect = () => {
+        selected = false
+        dropdownOpen = false
+    }
+    const handleKeydown = (event) => {
+        if (event.keyCode === 40) {
+            if (!dropdownOpen) {
+                event.preventDefault()
+                dropdownOpen = true
+            }
+        }
+        else if (event.keyCode === 38) {
+            if (dropdownOpen) {
+                event.preventDefault()
+                dropdownOpen = false
+            }
+        }
+    }
+
+    onMount(() => {
+        element.addEventListener('focusin', addSelect)
+        element.addEventListener('focusout', removeSelect)
+        element.addEventListener('keydown', handleKeydown)
+    })
+
+    onDestroy(() => {
+        element.removeEventListener('keydown', handleKeydown)
+        element.removeEventListener('focusout', removeSelect)
+        element.removeEventListener('focusin', addSelect)
+    })
 
     const updatePath = ({ location }) => {
         currentPath = location.pathname === to;
@@ -30,6 +68,7 @@
 
 </script>
 
+<span class="element" bind:this={element}>
 {#if type === 'button'}
     <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}">
         {#if icon !== '' && order == 'regular'}
@@ -69,6 +108,14 @@
         {/if}
     </a>
 {/if}
+{#if dropdown}
+    <div class="dropdown-card {currentlyOpen ? 'dropdown-open' : ''}">
+        <Card padding size="small" shadow >
+            <slot />
+        </Card>
+    </div>
+{/if}
+</span>
 
 <style>
 
@@ -258,12 +305,14 @@
 
     .clickable.button.selected {
         background-color: var(--secondary-color-2);
+        outline: none;
     }
 
     .clickable.link.selected,
     .clickable.route.selected > :global(a) 
     {
         color: var(--link-color-2);
+        outline: none;
     }
 
     .clickable.link.secondary.selected,
@@ -294,4 +343,26 @@
         background-color: var(--primary-color-2);
         color: var(--primary-button-text);
     }
+
+    .element {
+        position: relative;
+    }
+
+    .dropdown-card {
+        position: absolute;
+        top: 4rem;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .2s ease-out;
+    }
+
+    .element:hover > .dropdown-card,
+    .dropdown-open  {
+        visibility: visible;
+        opacity: 1;
+    }
+
 </style>

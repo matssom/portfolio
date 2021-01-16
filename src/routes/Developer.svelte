@@ -80,7 +80,7 @@ import Expand from "../components/Feature/Expand.svelte";
 <Section>
     <Container padding horizontal center>
         <Stack size="section">
-            <H1 center icon="code">Tools & Languages</H1>
+            <H1 center icon="tools">Tools & Languages</H1>
             <section class="tool-group">
                 <div class="group-header">
                     <H3 center>Expert</H3>

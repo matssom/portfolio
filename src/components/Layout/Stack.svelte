@@ -12,7 +12,7 @@
         flex-direction: column;
     }
 
-    .medium {
+    .small {
         gap: var(--gap-small);
     }
 
