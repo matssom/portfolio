@@ -127,6 +127,10 @@ import Expand from "../components/Feature/Expand.svelte";
                         <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
                         <P>I even use javascript as my main scripting language over shellscript.</P>
                     </Expand>
+                    <Expand title="Redux" image="https://redux.js.org/img/redux.svg" alt="redux logo">
+                        <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
+                        <P>I even use javascript as my main scripting language over shellscript.</P>
+                    </Expand>
                     <Expand title="Mongo DB" image="https://img.icons8.com/color/452/mongodb.png" alt="mongo db logo">
                         <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
                         <P>I even use javascript as my main scripting language over shellscript.</P>
