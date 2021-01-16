@@ -31,6 +31,13 @@
         }
     }
 
+    const handleResize = () => {
+        if (expanded) {
+            console.log(height)
+            expand.style.height = `${height}px`
+        }
+    }
+
     const doExpand = () => {
         focus = true
         expand.style.height = `${height}px`
@@ -72,6 +79,8 @@
     }
 
 </script>
+
+<svelte:window on:resize={handleResize}/>
 
 <div class="hover-area" on:mousedown={unfocus} tabindex="0" bind:this={area}>
     <Card padding focus={focus}>

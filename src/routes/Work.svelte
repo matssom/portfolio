@@ -10,13 +10,15 @@ import H1 from '../components/Type/H1.svelte'
 import Clickable from '../components/Feature/Clickable.svelte'
 </script>
 
+<!-- <Section size="larger">
+    <Container padding horizontal narrow>
+        <H1 center icon="work">Work Experiences</H1>
+    </Container>
+</Section> -->
 <Section>
     <Container padding horizontal narrow>
         <Stack size="huge">
-            <div>
-                <H1 center icon="work">Work Experiences</H1>
-            </div>
-
+            <H1 center icon="work">Work Experiences</H1>
             <Card>
                 <Container padding size="large">
                     <Stack size="medium">

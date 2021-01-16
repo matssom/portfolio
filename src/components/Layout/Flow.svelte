@@ -28,4 +28,10 @@
     .center {
         justify-content: center;
     }
+
+    @media (max-width: 56em) {
+        .fixed > :global(*) {
+            max-width: 100%;
+        }
+    }
 </style>

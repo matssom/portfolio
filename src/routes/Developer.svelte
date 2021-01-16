@@ -14,8 +14,72 @@ import Expand from "../components/Feature/Expand.svelte";
 </script>
 
 <Section>
+    <Container padding horizontal>
+        <Stack size="large">
+            <H1 center>Skills</H1>
+            <Split col="3">
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Algorithms & Datastructures</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>API's</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Headless CMS's</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Npm development</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>User experience design (UX)</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Testing</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Cryptography</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>CI/CD</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Full stack development</H3>
+                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                    </Stack>
+                </Container>
+            </Split>
+        </Stack>
+    </Container>
+</Section>
+
+<Section>
     <Container padding horizontal center>
-        <Stack size="huge">
+        <Stack size="section">
             <H1 center icon="code">Tools & Languages</H1>
             <section class="tool-group">
                 <div class="group-header">
@@ -99,6 +163,10 @@ import Expand from "../components/Feature/Expand.svelte";
                         <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
                         <P>I even use javascript as my main scripting language over shellscript.</P>
                     </Expand>
+                    <Expand title="NPM" image="https://authy.com/wp-content/uploads/npm-logo.png" alt="npm logo">
+                        <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
+                        <P>I even use javascript as my main scripting language over shellscript.</P>
+                    </Expand>
                 </Flow>
             </section>
             <section class="tool-group">
@@ -134,6 +202,10 @@ import Expand from "../components/Feature/Expand.svelte";
                         <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
                         <P>I even use javascript as my main scripting language over shellscript.</P>
                     </Expand>
+                    <Expand title="Strapi" image="https://d2zv2ciw0ln4h1.cloudfront.net/uploads/hp-logo-hero_c94026101f.svg" alt="strapi logo">
+                        <P>javascript is the first scripting language and really the first proper programming language I learned. I started using javascript back when jQuery still was popular. My javascript knowledge has expanded together with me learning Node, React, Svelte and many more javascript based tools.</P>
+                        <P>I even use javascript as my main scripting language over shellscript.</P>
+                    </Expand>
                 </Flow>
             </section>
         </Stack>
@@ -141,9 +213,6 @@ import Expand from "../components/Feature/Expand.svelte";
 </Section>
 
 <style>
-
-    .tool-group {
-    }
 
     .group-header {
         margin-bottom: 3.5rem;

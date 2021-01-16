@@ -27,4 +27,8 @@
     .huge {
         gap: var(--gap-huge);
     }
+
+    .section {
+        gap: var(--gap-section);
+    }
 </style>
