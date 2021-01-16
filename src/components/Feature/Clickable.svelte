@@ -11,7 +11,8 @@
                 id = 1,
                 external = false,
                 style = '',
-                selected = false;
+                selected = false,
+                notab = false
 
     id = id;
 
@@ -56,7 +57,7 @@
         </Link>
     </div>
 {:else}
-    <a href={to} class="link clickable {style} {order} {onlyIcon} {select}" target="{target}" rel={rel}>
+    <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" target="{target}" rel={rel}>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}

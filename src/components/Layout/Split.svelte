@@ -11,7 +11,6 @@
 <style>
     .split {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
         gap: var(--gap-huge) var(--gap-large);
         margin: 0 auto;
     }
@@ -22,13 +21,22 @@
 
     .split-2 {
         max-width: 90rem;
+        grid-template-columns: 1fr;
     }
 
-    @media (max-width: 53.75em) {
+    @media (min-width: 53.75em) {
+        .split-3 {
+            grid-template-columns: repeat(2, 40rem);
+        }
 
+        .split-2 {
+            grid-template-columns: repeat(2, 40rem);
+        }
     }
 
-    @media (max-width: 73.438em) {
-
+    @media (min-width: 73.438em) {
+        .split-3 {
+            grid-template-columns: repeat(3, 35rem);
+        }
     }
 </style>

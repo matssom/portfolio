@@ -36,6 +36,10 @@
 	--link-color-hover: 	#00438b;
 	--link-color-active: 	#003268;
 
+	--expert-color: 		#fffdec;
+	--proficient-color: 	#dfd4e4;
+	--familiar-color:		#7befb2;
+
 	--card-color: var(--back-color-2);
 	--card-color-2: var(--back-color);
 
@@ -43,6 +47,7 @@
 	--icon-color-2: var(--text-color-2);
 	--icon-color-3: var(--text-color-3);
 
+	--gap-section: 8.5rem;
 	--gap-huge: 5.5rem;
 	--gap-large: 2.8rem;
 	--gap-medium: 1.4rem;
