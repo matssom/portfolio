@@ -8,6 +8,8 @@ import Card from '../components/Layout/Card.svelte'
 import H3 from '../components/Type/H3.svelte'
 import H1 from '../components/Type/H1.svelte'
 import Clickable from '../components/Feature/Clickable.svelte'
+import Ul from '../components/Type/Ul.svelte'
+import Li from '../components/Type/Li.svelte';
 </script>
 
 <!-- <Section size="larger">
@@ -47,12 +49,12 @@ import Clickable from '../components/Feature/Clickable.svelte'
                         <H3>Judo Coach | Ippon Judo Club</H3>
                         <Sub small>2016-Present</Sub>
                         <P>Ever since I was a kid I have practiced Judo. That has transated into a Coaching job that I have had for the last 4 years. My tasks as a judo coach are:</P>
-                        <ul>
-                            <li>Coaching kids (age 6 - 14) in the art of Judo and all its values. (respect, friendship, courage, self-control, sincerity, and courtesy)</li>
-                            <li>Developing kids' motor skills.</li>
-                            <li>Coaching adults age 14 - 60</li>
-                            <li>Traveling to competitions with kids and coaching them along the way.</li>
-                        </ul>
+                        <Ul>
+                            <Li>Coaching kids (age 6 - 14) in the art of Judo and all its values. (respect, friendship, courage, self-control, sincerity, and courtesy)</Li>
+                            <Li>Developing kids' motor skills.</Li>
+                            <Li>Coaching adults age 14 - 60</Li>
+                            <Li>Traveling to competitions with kids and coaching them along the way.</Li>
+                        </Ul>
                     </Stack>
                 </Container>
             </Card>
