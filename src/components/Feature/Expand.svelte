@@ -9,30 +9,27 @@
 
     let expanded = false
     let height
-    let expand, base, area
-    let listener, focusListener, blurListener
+    let expand, base, area, hidden
     let focus = false
 
     onMount(() => {
         expand.style.height = "40px"
-        listener = area.addEventListener('keydown', (event) => {
-            if (event.keyCode === 13) {
-                toggleExpand()
-            }
-        })
-        focusListener = area.addEventListener('focus', (event) => {
-            doExpand()
-        })
-        focusListener = area.addEventListener('blur', (event) => {
-            doClose()
-        })
+        area.addEventListener('keydown', handleKeydown)
+        area.addEventListener('focus', doExpand)
+        area.addEventListener('blur', doClose)
     })
 
     onDestroy(() => {
-        area.removeEventListener(listener)
-        area.removeEventListener(focusListener)
-        area.removeEventListener(blurListener)
+        area.removeEventListener('keydown', handleKeydown)
+        area.removeEventListener('focus', doExpand)
+        area.removeEventListener('blur', doClose)
     })
+
+    const handleKeydown = (event) => {
+        if (event.keyCode === 13) {
+            toggleExpand()
+        }
+    }
 
     const doExpand = () => {
         focus = true
@@ -46,7 +43,6 @@
         expand.style.height = `${base}px`
         expand.setAttribute('area-hidden', "true")
         setTimeout(() => expanded = false, 200)
-
     }
 
     const unfocus = (event) => {
@@ -54,21 +50,25 @@
         let moved = false
         const dragDistanceThreshhold = 20
 
-        let moveListener = window.addEventListener('mousemove', (event) => {
+        const drag = (event) => {
             if (Math.sqrt(Math.pow(origin.y - event.clientY, 2) + Math.pow(origin.x - event.clientX, 2)) > dragDistanceThreshhold) {
                 moved = true
             }
-        })
-        let upListener = window.addEventListener('mouseup', () => {
+        }
+
+        window.addEventListener('mousemove', drag)
+
+        const up = () => {
+            window.removeEventListener('mousemove', drag)
+            window.removeEventListener('mouseup', up)
             if (moved !== true) {
                 if (expanded) {
                     area.blur()
-                    doClose()
                 }
             }
-            window.removeEventListener(moveListener)
-            window.removeEventListener(upListener)
-        })
+        }
+
+        window.addEventListener('mouseup', up)
     }
 
 </script>
@@ -86,7 +86,7 @@
                                 <Icon name="expand"/>
                             </div>
                         </div>
-                        <div area-hidden="true">
+                        <div area-hidden="true" bind:this={hidden}>
                             <slot />
                         </div>
                     </Stack>

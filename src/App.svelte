@@ -84,6 +84,8 @@
 		--icon-color-2: var(--text-color-2);
 		--icon-color-3: var(--text-color-3);
 
+		--proficient-color: 	#4e4a50;
+
 		--gap-huge: 5.5rem;
 		--gap-large: 2.8rem;
 		--gap-medium: 1.4rem;

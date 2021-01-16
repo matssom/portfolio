@@ -52,7 +52,7 @@ import Expand from "../components/Feature/Expand.svelte";
                     <Expand title="Svelte" image="https://raw.githubusercontent.com/github/explore/42198dc9113595ddd22cc12771bb719c8cf08b67/topics/svelte/svelte.png" alt="javascript logo">
                         <Stack>
                             <P>Svelte is a lesser known frontend framework similar to vue or the react library. The key difference with svelte is that it's a compiler. In other words, it doesn't bundle the entire framework when shipping code. It looks at your code and compiles it down to plain html, css and js. This results in faster download speeds, less boilerplate and some really powerfull built-in features that are generally too large for other frameworks to include.</P>
-                            <P>Svelte is my favourite frontend framework. Here is a link to a keynote by the creator: <Clickable to="https://www.youtube.com/watch?v=gJ2P6hGwcgo" text="Rethinking Reactivity - Rich Harris" /></P>
+                            <P>Svelte is my favourite frontend framework. Here is a link to a keynote by the creator: <Clickable notab to="https://www.youtube.com/watch?v=gJ2P6hGwcgo" text="Rethinking Reactivity - Rich Harris" /></P>
                         </Stack>
                     </Expand>
                     <Expand title="Typescript" image="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png" alt="typescript logo">
