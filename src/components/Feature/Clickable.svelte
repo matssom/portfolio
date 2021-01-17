@@ -23,10 +23,10 @@
     let target = external ? '_blank' : '';
     let rel = external ? 'noopener noreferrer' : '';
     let onlyIcon = text && icon ? '' : 'only-icon';
-    let dropdownOpen
+    let dropdownOpen, dropdownCard
     
     $: currentlyOpen = dropdownOpen
-    $: currentlySelected = selected;
+    $: currentlySelected = selected || dropdownOpen;
     $: currentPath = false;
     $: select = currentlySelected || currentPath ? 'selected' : '';
 
@@ -50,16 +50,28 @@
         }
     }
 
+    const handleHover = () => {
+        dropdownOpen = true
+    }
+
+    const handleDehover = () => {
+        dropdownOpen = false
+    }
+
     onMount(() => {
         element.addEventListener('focusin', addSelect)
         element.addEventListener('focusout', removeSelect)
         element.addEventListener('keydown', handleKeydown)
+        element.addEventListener('mouseover', handleHover)
+        element.addEventListener('mouseout', handleDehover)
     })
 
     onDestroy(() => {
         element.removeEventListener('keydown', handleKeydown)
         element.removeEventListener('focusout', removeSelect)
         element.removeEventListener('focusin', addSelect)
+        element.removeEventListener('mouseover', handleHover)
+        element.removeEventListener('mouseout', handleDehover)
     })
 
     const updatePath = ({ location }) => {
@@ -109,7 +121,7 @@
     </a>
 {/if}
 {#if dropdown}
-    <div class="dropdown-card {currentlyOpen ? 'dropdown-open' : ''}">
+    <div class="dropdown-card {currentlyOpen ? 'dropdown-open' : ''}" bind:this={dropdownCard}>
         <Card padding size="small" shadow >
             <slot />
         </Card>
@@ -359,7 +371,7 @@
         transition: all .2s ease-out;
     }
 
-    .element:hover > .dropdown-card,
+    /* .element:hover > .dropdown-card, */
     .dropdown-open  {
         visibility: visible;
         opacity: 1;

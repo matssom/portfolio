@@ -32,13 +32,6 @@ export const elements = [
                     to: '/certifications'
                 },
                 {
-                    id: 3,
-                    text: 'Volunteering',
-                    icon: 'handshake',
-                    type: 'route',
-                    to: '/voulenteering'
-                },
-                {
                     id: 2,
                     text: 'Company',
                     icon: 'logo',
@@ -66,7 +59,7 @@ export const elements = [
                 },
                 {
                     id: 1,
-                    text: 'Coness website',
+                    text: 'Coness.no',
                     icon: 'https://static.wixstatic.com/media/44db30_c75778a243164d40a8a3f80726c2fb97~mv2.png/v1/fill/w_241,h_100,al_c,q_85,usm_0.66_1.00_0.01/coness.webp',
                     type: 'route',
                     to: '/coness'
@@ -108,7 +101,7 @@ export const elements = [
             [
                 {
                     id: 1,
-                    text: 'Skills',
+                    text: 'Coding Skills',
                     icon: 'open-book',
                     type: 'route',
                     to: '/skills'
