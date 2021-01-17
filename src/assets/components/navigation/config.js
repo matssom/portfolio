@@ -101,7 +101,7 @@ export const elements = [
             [
                 {
                     id: 1,
-                    text: 'Coding Skills',
+                    text: 'Coding skills',
                     icon: 'open-book',
                     type: 'route',
                     to: '/skills'

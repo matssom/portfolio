@@ -13,6 +13,7 @@ import Clickable from "./Clickable.svelte";
                 style = '',
                 selected = false,
                 notab = false,
+                dropdown = true,
                 structure = [
                     [
                         {
@@ -25,6 +26,8 @@ import Clickable from "./Clickable.svelte";
                     ]
                 ]
 
+                dropdown = dropdown
+
 </script>
 
 <Clickable {action} {to} {type} {order} icon="arrow-down" {text} {id} {external} {style} {selected} {notab} dropdown>
@@ -34,7 +37,7 @@ import Clickable from "./Clickable.svelte";
                 <Stack size="small">
                     {#each col as element (element.id)}
                         <li>
-                            <Clickable expand type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
+                            <Clickable child expand type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
                         </li>
                     {/each}
                 </Stack>

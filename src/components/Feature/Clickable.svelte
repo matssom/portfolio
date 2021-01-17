@@ -2,8 +2,8 @@
     import { Link } from 'svelte-routing';
     import Icon from '../Feature/Icon.svelte';
     import Card from '../Layout/Card.svelte';
-    import Stack from '../Layout/Stack.svelte';
     import { onMount, onDestroy } from 'svelte';
+    import { currentDropdown } from '../../store/dropdown.js'
 
     export let  action = '',
                 to = '',
@@ -17,7 +17,8 @@
                 selected = false,
                 notab = false,
                 dropdown = false,
-                expand = false
+                expand = false,
+                child = false
 
     id = id;
     let element
@@ -26,16 +27,27 @@
     let onlyIcon = text && icon ? '' : 'only-icon';
     let dropdownOpen, dropdownCard
     
-    $: currentlyOpen = dropdownOpen
     $: currentlySelected = selected || dropdownOpen;
     $: currentPath = false;
     $: select = currentlySelected || currentPath ? 'selected' : '';
 
-    const addSelect = () => selected = true
+    const addSelect = (event) => {
+        event.stopPropagation()
+        updateStore()
+        selected = true
+    }
+
     const removeSelect = () => {
         selected = false
         dropdownOpen = false
     }
+
+    currentDropdown.subscribe(value => {
+        // console.log(text + " " + value)
+        value !== element
+        removeSelect()
+    })
+
     const handleKeydown = (event) => {
         if (event.keyCode === 40) {
             if (!dropdownOpen) {
@@ -52,6 +64,7 @@
     }
 
     const handleHover = () => {
+        updateStore()
         dropdownOpen = true
     }
 
@@ -59,20 +72,23 @@
         dropdownOpen = false
     }
 
+    const updateStore = () => {
+        console.log(text + " is a child? " + child)
+        if (!child) $currentDropdown = element
+    }
+
     onMount(() => {
         element.addEventListener('focusin', addSelect)
-        element.addEventListener('focusout', removeSelect)
         element.addEventListener('keydown', handleKeydown)
-        element.addEventListener('mouseover', handleHover)
-        element.addEventListener('mouseout', handleDehover)
+        element.addEventListener('mouseenter', handleHover)
+        element.addEventListener('mouseleave', handleDehover)
     })
 
     onDestroy(() => {
         element.removeEventListener('keydown', handleKeydown)
-        element.removeEventListener('focusout', removeSelect)
         element.removeEventListener('focusin', addSelect)
-        element.removeEventListener('mouseover', handleHover)
-        element.removeEventListener('mouseout', handleDehover)
+        element.removeEventListener('mouseenter', handleHover)
+        element.removeEventListener('mouseleave', handleDehover)
     })
 
     const updatePath = ({ location }) => {
@@ -122,7 +138,7 @@
     </a>
 {/if}
 {#if dropdown}
-    <div class="dropdown-card {currentlyOpen ? 'dropdown-open' : ''}" bind:this={dropdownCard}>
+    <div class="dropdown-card {dropdownOpen ? 'dropdown-open' : ''}" bind:this={dropdownCard}>
         <div class="dropdown-space">
             <div class="dropdown-arrow"></div>
         </div>
