@@ -34,7 +34,7 @@ import Clickable from "./Clickable.svelte";
                 <Stack size="small">
                     {#each col as element (element.id)}
                         <li>
-                            <Clickable type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
+                            <Clickable expand type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
                         </li>
                     {/each}
                 </Stack>

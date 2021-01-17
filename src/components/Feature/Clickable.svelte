@@ -16,7 +16,8 @@
                 style = '',
                 selected = false,
                 notab = false,
-                dropdown = false
+                dropdown = false,
+                expand = false
 
     id = id;
     let element
@@ -82,7 +83,7 @@
 
 <span class="element" bind:this={element}>
 {#if type === 'button'}
-    <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}">
+    <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}" class:expand>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}
@@ -94,7 +95,7 @@
         {/if}
     </button>
 {:else if type === 'route'}
-    <div class="route clickable {style} {order} {onlyIcon} {select}">
+    <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
         <Link to={to} getProps={updatePath}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
@@ -108,7 +109,7 @@
         </Link>
     </div>
 {:else}
-    <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" target="{target}" rel={rel}>
+    <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}
@@ -143,6 +144,11 @@
         align-items: center;
         height: 3.95rem;
         font-size: 1.6rem;
+    }
+
+    .expand,
+    .expand > :global(a) {
+        width: 100%;
     }
 
     .link.clickable {
