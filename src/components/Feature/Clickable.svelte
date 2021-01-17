@@ -43,7 +43,6 @@
     }
 
     currentDropdown.subscribe(value => {
-        // console.log(text + " " + value)
         value !== element
         removeSelect()
     })
