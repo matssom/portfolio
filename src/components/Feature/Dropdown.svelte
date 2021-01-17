@@ -30,13 +30,15 @@ import Clickable from "./Clickable.svelte";
 <Clickable {action} {to} {type} {order} icon="arrow-down" {text} {id} {external} {style} {selected} {notab} dropdown>
     <div class="container col-{structure.length}">
         {#each structure as col}
-            <div class="col">
+            <ul class="col">
                 <Stack size="small">
                     {#each col as element (element.id)}
-                        <Clickable type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
+                        <li>
+                            <Clickable type="{element.type}" style="invisible" icon="{element.icon}" text="{element.text}" to="{element.to}"/>
+                        </li>
                     {/each}
                 </Stack>
-            </div>
+            </ul>
         {/each}
     </div>
 </Clickable>
@@ -61,6 +63,8 @@ import Clickable from "./Clickable.svelte";
     }
 
     .col {
-        /* min-width: 15rem; */
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
     }
 </style>

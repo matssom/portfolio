@@ -122,6 +122,9 @@
 {/if}
 {#if dropdown}
     <div class="dropdown-card {currentlyOpen ? 'dropdown-open' : ''}" bind:this={dropdownCard}>
+        <div class="dropdown-space">
+            <div class="dropdown-arrow"></div>
+        </div>
         <Card padding size="small" shadow >
             <slot />
         </Card>
@@ -327,6 +330,10 @@
         outline: none;
     }
 
+    .clickable.link.selected:not(.invisible):not(.primary):not(.secondary) {
+        outline: 2px solid gray;   
+    }
+
     .clickable.link.secondary.selected,
     .clickable.route.secondary.selected > :global(a) 
     {
@@ -365,7 +372,7 @@
         top: 4rem;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 1000;
+        z-index: 100;
         visibility: hidden;
         opacity: 0;
         transition: all .2s ease-out;
@@ -375,6 +382,26 @@
     .dropdown-open  {
         visibility: visible;
         opacity: 1;
+        z-index: 1000;
+    }
+
+    .dropdown-space {
+        position: absolute;
+        top: -1.3rem;
+        height: 1.3rem;
+        width: 100%;
+    }
+
+    .dropdown-arrow {
+        position: absolute;
+        width: 1.5rem;
+        height: 1rem;
+        top: .3rem;
+        background-color: white;
+        box-shadow: var(--box-shadow);
+        left: 50%;
+        transform: translateX(-50%);
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
 
 </style>
