@@ -234,6 +234,12 @@
         outline: 2px solid gray;   
     }
 
+    .clickable.selected.link:not(.invisible):not(.primary):not(.secondary):hover, 
+    .clickable.selected.route:not(.invisible):not(.primary):not(.secondary) > :global(a:hover) {
+        text-decoration: underline;
+        outline: none;
+    }
+
     .clickable.link.secondary.selected,
     .clickable.route.secondary.selected > :global(a) 
     {
