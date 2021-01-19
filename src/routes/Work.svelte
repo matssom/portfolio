@@ -4,19 +4,14 @@
     import Stack from '../components/Layout/Stack.svelte'
     import Sub from '../components/Type/Sub.svelte'
     import P from '../components/Type/P.svelte'
-import Card from '../components/Layout/Card.svelte'
-import H3 from '../components/Type/H3.svelte'
-import H1 from '../components/Type/H1.svelte'
-import Clickable from '../components/Feature/Clickable.svelte'
-import Ul from '../components/Type/Ul.svelte'
-import Li from '../components/Type/Li.svelte';
+    import Card from '../components/Layout/Card.svelte'
+    import H3 from '../components/Type/H3.svelte'
+    import H1 from '../components/Type/H1.svelte'
+    import Clickable from '../components/Feature/Clickable.svelte'
+    import Ul from '../components/Type/Ul.svelte'
+    import Li from '../components/Type/Li.svelte'
 </script>
 
-<!-- <Section size="larger">
-    <Container padding horizontal narrow>
-        <H1 center icon="work">Work Experiences</H1>
-    </Container>
-</Section> -->
 <Section>
     <Container padding horizontal narrow>
         <Stack size="huge">

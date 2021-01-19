@@ -6,7 +6,7 @@
 	import Container from './components/Layout/Container.svelte';
 	import Home from './routes/Home.svelte';
 	import Work from './routes/Work.svelte';
-	import Projects from './routes/Projects.svelte';
+	import Education from './routes/Education.svelte';
 	import Developer from './routes/Developer.svelte';
 	import Footer from './components/Content/Footer.svelte';
 	import { theme } from './store/theme.js';
@@ -25,7 +25,7 @@
 		
 		<main>
 			<Route path="/work" component={ Work }/>
-			<Route path="/projects" component={ Projects }/>
+			<Route path="/education" component={ Education }/>
 			<Route path="/developer" component={ Developer }/>
 			<Route path="/"><Home /></Route>
 		</main>
