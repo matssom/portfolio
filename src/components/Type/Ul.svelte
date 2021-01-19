@@ -9,6 +9,7 @@
 <style>
     .list {
         color: var(--text-color-2);
-        padding-left: 3rem;
+        padding: 0 0 0 3rem;
+        margin: 0;
     }
 </style>
