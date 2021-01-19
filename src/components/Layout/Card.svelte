@@ -3,10 +3,11 @@
                 border = false,
                 padding = false,
                 focus = false,
-                background = '';
+                size = 'medium',
+                background = ''
 </script>
 
-<div class="card {background}" class:focus class:shadow class:border class:padding>
+<div class="card {background} {size}" class:focus class:shadow class:border class:padding>
     <slot />
 </div>
 
@@ -28,6 +29,10 @@
 
     .padding {
         padding: 1.4rem;
+    }
+
+    .small {
+        padding: .8rem;
     }
 
     .back-color-2 {

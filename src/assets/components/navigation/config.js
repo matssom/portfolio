@@ -1,24 +1,56 @@
 export const elements = [
     { 
         id: 1,
-        text: 'Work', 
-        type: 'route',
+        text: 'Experience', 
         style: 'invisible',
-        to: '/work'
-    },
-    { 
-        id: 2,
-        text: 'Projects', 
-        type: 'route',
-        style: 'invisible',
-        to: '/projects'
+        structure: [
+            [
+                {
+                    id: 1,
+                    text: 'Work',
+                    icon: 'work',
+                    type: 'route',
+                    to: '/work'
+                },
+                {
+                    id: 2,
+                    text: 'Education',
+                    icon: 'education',
+                    type: 'route',
+                    to: '/education'
+                }
+            ]
+        ]
     },
     { 
         id: 3,
         text: 'For developers', 
-        type: 'route',
         style: 'invisible',
-        to: '/developer'
+        structure: [
+            [
+                {
+                    id: 1,
+                    text: 'Coding skills',
+                    icon: 'open-book',
+                    type: 'route',
+                    to: '/skills'
+                },
+                {
+                    id: 2,
+                    text: 'Tools & Languages',
+                    icon: 'tools',
+                    type: 'route',
+                    to: '/tools'
+                },
+                {
+                    id: 3, 
+                    text: 'Npm packages',
+                    icon: 'npm',
+                    type: 'route',
+                    to: '/npm'
+                }
+            ]
+        ]
     },
     {
         id: 4,

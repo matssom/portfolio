@@ -1,37 +1,65 @@
 <script>
     import { Link } from 'svelte-routing';
     import Icon from '../Feature/Icon.svelte';
+    import { onMount, onDestroy } from 'svelte';
 
-    export let  action = '',
-                to = '',
-                type = 'link',
-                order = 'regular',
-                icon = '',
-                text = '',
-                id = 1,
-                external = false,
-                style = '',
-                selected = false,
-                notab = false
+    export let  action = '',                // Controls the action on click if type is button.
+                to = '',                    // Controls where the link goes if type is 'route' or 'link'. For routes, start with a '/'. For links, provide relative or static path.
+                type = 'link',              // Controls the clickable type: 'link', 'button', 'route'
+                order = 'regular',          // Spesifiec what is displayed first, text or icon (if icon or text is present)
+                icon = '',                  // Displays icon specified by title (uses Icon.svelte)
+                text = '',                  // Text value in the button
+                id = 1,                     // Id of the button in a list of buttons (not actually used by component)
+                style = '',                 // 4 different styles: 'primary', 'secondary', 'invisible' and leave blank for default (link)
+                external = false,           // Controls if links open in a new tab or not
+                selected = false,           // Controls if element is selected or not
+                notab = false,              // Controls if you are able to tab to element or not
+                expand = false,             // Let clickable expand to fill remaining horizontal space
+                inFocus = false             // Used to override focus
 
+
+    // Options
     id = id;
-
     let target = external ? '_blank' : '';
     let rel = external ? 'noopener noreferrer' : '';
     let onlyIcon = text && icon ? '' : 'only-icon';
+    
+    // DOM elements
+    let clickable
 
-    $: currentlySelected = selected;
-    $: currentPath = false;
-    $: select = currentlySelected || currentPath ? 'selected' : '';
+    // Reactive
 
+    let hovered, currentPath
+    $: currentlySelected = selected || inFocus || hovered || currentPath;
+    $: select = currentlySelected ? 'selected' : '';
+
+    // Handlers
+    let handleFocus, handleBlur, handleHover, handleDehover
+
+    onMount(() => { 
+        clickable.addEventListener('focusin', function handleFocus() { inFocus = true })
+        clickable.addEventListener('focusout', function handleBlur() { inFocus = false })
+        clickable.addEventListener('mouseenter', function handleHover() { hovered = true })
+        clickable.addEventListener('mouseleave', function handleDehover() { hovered = false })
+    })
+
+    onDestroy(() => {
+        clickable.removeEventListener('focusin', handleFocus)
+        clickable.removeEventListener('focusout', handleBlur)
+        clickable.removeEventListener('mouseenter', handleHover)
+        clickable.removeEventListener('mouseleave', handleDehover)
+    })
+
+    // Update current path
     const updatePath = ({ location }) => {
         currentPath = location.pathname === to;
     }
 
 </script>
 
-{#if type === 'button'}
-    <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}">
+<span bind:this={clickable}>
+    {#if type === 'button'}
+    <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}" class:expand>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
         {/if}
@@ -42,33 +70,34 @@
             <Icon name={icon}/>
         {/if}
     </button>
-{:else if type === 'route'}
-    <div class="route clickable {style} {order} {onlyIcon} {select}">
-        <Link to={to} getProps={updatePath}>
+    {:else if type === 'route'}
+        <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
+            <Link to={to} getProps={updatePath}>
+                {#if icon !== '' && order == 'regular'}
+                    <Icon name={icon}/>
+                {/if}
+                {#if text}
+                    <p>{text}</p>
+                {/if}
+                {#if icon !== '' && order == 'reverse'}
+                    <Icon name={icon}/>
+                {/if}
+            </Link>
+        </div>
+    {:else}
+        <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
             {/if}
             {#if text}
                 <p>{text}</p>
             {/if}
-            {#if icon !== '' && order == 'reverse'}
+            {#if icon !== '' && order === 'reverse'}
                 <Icon name={icon}/>
             {/if}
-        </Link>
-    </div>
-{:else}
-    <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" target="{target}" rel={rel}>
-        {#if icon !== '' && order == 'regular'}
-            <Icon name={icon}/>
-        {/if}
-        {#if text}
-            <p>{text}</p>
-        {/if}
-        {#if icon !== '' && order === 'reverse'}
-            <Icon name={icon}/>
-        {/if}
-    </a>
-{/if}
+        </a>
+    {/if}
+</span>
 
 <style>
 
@@ -81,6 +110,11 @@
         align-items: center;
         height: 3.95rem;
         font-size: 1.6rem;
+    }
+
+    .expand,
+    .expand > :global(a) {
+        width: 100%;
     }
 
     .link.clickable {
@@ -99,28 +133,10 @@
         color: var(--link-color);
     }
 
-    .button:hover {
-        background-color: var(--secondary-color-2);
-        color: var(--link-color-hover);
-    }
-
-    .button:active {
-        background-color: var(--secondary-color-3);
-        color: var(--link-color-active);
-    }
-
     .button.primary {
         background-color: var(--primary-color);
         color: var(--primary-button-text);
         border: none;
-    }
-
-    .button.primary:hover {
-        background-color: var(--primary-color-2);
-    }
-
-    .button.primary:active {
-        background-color: var(--primary-color-3);
     }
 
     .button.invisible {
@@ -129,15 +145,7 @@
         padding: 1rem;
         color: var(--text-color-3);
     }
-
-    .button.invisible:hover {
-        color: var(--link-color);
-        background-color: var(--shade);
-    }
-
-    .button.invisible:active {
-        background-color: var(--shade-2);
-    }
+    
 
     /* Link || Route ============================================= */
     .link:link, .route > :global(a:link) {
@@ -149,14 +157,6 @@
         color: var(--link-color);
     }
 
-    .link:hover, .route > :global(a:hover) {
-        text-decoration: underline;
-    }
-
-    .link:active, .route > :global(a:active) {
-        color: var(--link-color-3);
-    }
-
     .link.secondary, .route.secondary > :global(a) {
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
@@ -164,31 +164,11 @@
         color: var(--link-color);
     }
 
-    .link.secondary:hover, .route.secondary > :global(a:hover) {
-        background-color: var(--secondary-color-2);
-        color: var(--link-color-hover);
-        text-decoration: none;
-    }
-
-    .link.secondary:active, .route.secondary > :global(a:active) {
-        color: var(--link-color-active);
-        background-color: var(--secondary-color-3);
-    }
-
     .link.primary, .route.primary > :global(a) {
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
         background-color: var(--primary-color);
         color: var(--primary-button-text);
-    }
-
-    .link.primary:hover, .route.primary > :global(a:hover) {
-        background-color: var(--primary-color-2);
-        text-decoration: none;
-    }
-
-    .link.primary:active, .route.primary > :global(a:active) {
-        background-color: var(--primary-color-3);
     }
 
     .link.invisible:link , .route.invisible > :global(a:link) {
@@ -199,16 +179,6 @@
 
     .link.invisible:visited , .route.invisible > :global(a:visited) {
         color: var(--text-color-3);
-    }
-
-    .link.invisible:hover, .route.invisible > :global(a:hover) {
-        background-color: var(--shade);
-        text-decoration: none;
-        color: var(--link-color);
-    }
-
-    .link.invisible:active, .route.invisible > :global(a:active) {
-        background-color: var(--shade-2);
     }
 
     .clickable.regular:not(.only-icon) > :global(svg), .clickable.regular:not(.only-icon) > :global(a) > :global(svg) {
@@ -242,14 +212,6 @@
         margin: .2rem;
     }
 
-    .clickable.invisible:hover > :global(svg), .clickable.invisible:hover > :global(a) > :global(svg) {
-        fill: var(--link-color);
-    }
-
-    .clickable.only-icon:hover > :global(svg), .clickable.only-icon:hover > :global(a) > :global(svg) {
-        fill: var(--text-color-3);
-    }
-
     .clickable.primary > :global(svg), .clickable.primary > :global(a) > :global(svg) {
         fill: var(--icon-color);
         width: 1.1em;
@@ -258,12 +220,18 @@
 
     .clickable.button.selected {
         background-color: var(--secondary-color-2);
+        outline: none;
     }
 
     .clickable.link.selected,
     .clickable.route.selected > :global(a) 
     {
         color: var(--link-color-2);
+        outline: none;
+    }
+
+    .clickable.link.selected:not(.invisible):not(.primary):not(.secondary) {
+        outline: 2px solid gray;   
     }
 
     .clickable.link.secondary.selected,
@@ -294,4 +262,35 @@
         background-color: var(--primary-color-2);
         color: var(--primary-button-text);
     }
+
+    .clickable.button:active {
+        background-color: var(--secondary-color-3);
+        color: var(--link-color-active);
+    }
+
+    .clickable.button.primary:active {
+        background-color: var(--primary-color-3);
+    }
+
+    .clickable.button.invisible:active {
+        background-color: var(--shade-2);
+    }
+
+    .clickable.link:active, .route > :global(a:active) {
+        color: var(--link-color-3);
+    }
+
+    .clickable.link.secondary:active, .clickable.route.secondary > :global(a:active) {
+        color: var(--link-color-active);
+        background-color: var(--secondary-color-3);
+    }
+
+    .clickable.link.primary:active, .clickable.route.primary > :global(a:active) {
+        background-color: var(--primary-color-3);
+    }
+
+    .clickable.link.invisible:active, .clickable.route.invisible > :global(a:active) {
+        background-color: var(--shade-2);
+    }
+
 </style>

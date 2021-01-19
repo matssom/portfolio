@@ -1,7 +1,7 @@
 <script>
     import Icon from '../Feature/Icon.svelte';
 
-    export let center = false, oposite = false, icon;
+    export let center = false, oposite = false, icon = '';
 </script>
 
 <div class:center class="{icon ? 'show-icon' : ''}">
