@@ -34,7 +34,7 @@ import App from '../../App.svelte';
             <ul class="list" class:mobile>
                 {#each elements as element (element.id)}
                     <li class="item">
-                        {#if !element.dropdown}
+                        {#if !element.structure}
                             <Clickable {...element} />
                         {:else}
                             <Dropdown {...element} />
@@ -45,17 +45,6 @@ import App from '../../App.svelte';
         </nav>
     </div>
 </Card>
-
-<!-- 
-
-    <Stack size="small">
-                <svelte:self type="link" style="invisible" icon="github" text="dropdown" to="https://matssom.com"/>
-                <svelte:self type="link" style="invisible" icon="github" text="dropdown" to="https://matssom.com"/>
-                <svelte:self type="link" style="invisible" icon="github" text="dropdown" to="https://matssom.com"/>
-                <svelte:self type="link" style="invisible" icon="github" text="dropdown" to="https://matssom.com"/>
-            </Stack>
-
- -->
 
 <style>
 

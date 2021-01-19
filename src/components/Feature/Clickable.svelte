@@ -1,103 +1,64 @@
 <script>
     import { Link } from 'svelte-routing';
     import Icon from '../Feature/Icon.svelte';
-    import Card from '../Layout/Card.svelte';
     import { onMount, onDestroy } from 'svelte';
-    import { currentDropdown } from '../../store/dropdown.js'
 
-    export let  action = '',
-                to = '',
-                type = 'link',
-                order = 'regular',
-                icon = '',
-                text = '',
-                id = 1,
-                external = false,
-                style = '',
-                selected = false,
-                notab = false,
-                dropdown = false,
-                expand = false,
-                child = false
+    export let  action = '',                // Controls the action on click if type is button.
+                to = '',                    // Controls where the link goes if type is 'route' or 'link'. For routes, start with a '/'. For links, provide relative or static path.
+                type = 'link',              // Controls the clickable type: 'link', 'button', 'route'
+                order = 'regular',          // Spesifiec what is displayed first, text or icon (if icon or text is present)
+                icon = '',                  // Displays icon specified by title (uses Icon.svelte)
+                text = '',                  // Text value in the button
+                id = 1,                     // Id of the button in a list of buttons (not actually used by component)
+                style = '',                 // 4 different styles: 'primary', 'secondary', 'invisible' and leave blank for default (link)
+                external = false,           // Controls if links open in a new tab or not
+                selected = false,           // Controls if element is selected or not
+                notab = false,              // Controls if you are able to tab to element or not
+                expand = false,             // Let clickable expand to fill remaining horizontal space
+                inFocus = false             // Used to override focus
 
+
+    // Options
     id = id;
-    let element
     let target = external ? '_blank' : '';
     let rel = external ? 'noopener noreferrer' : '';
     let onlyIcon = text && icon ? '' : 'only-icon';
-    let dropdownOpen, dropdownCard
     
-    $: currentlySelected = selected || dropdownOpen;
-    $: currentPath = false;
-    $: select = currentlySelected || currentPath ? 'selected' : '';
+    // DOM elements
+    let clickable
 
-    const addSelect = (event) => {
-        event.stopPropagation()
-        updateStore()
-        selected = true
-    }
+    // Reactive
 
-    const removeSelect = () => {
-        selected = false
-        dropdownOpen = false
-    }
+    let hovered, currentPath
+    $: currentlySelected = selected || inFocus || hovered || currentPath;
+    $: select = currentlySelected ? 'selected' : '';
 
-    currentDropdown.subscribe(value => {
-        value !== element
-        removeSelect()
-    })
+    // Handlers
+    let handleFocus, handleBlur, handleHover, handleDehover
 
-    const handleKeydown = (event) => {
-        if (event.keyCode === 40) {
-            if (!dropdownOpen) {
-                event.preventDefault()
-                dropdownOpen = true
-            }
-        }
-        else if (event.keyCode === 38) {
-            if (dropdownOpen) {
-                event.preventDefault()
-                dropdownOpen = false
-            }
-        }
-    }
-
-    const handleHover = () => {
-        updateStore()
-        dropdownOpen = true
-    }
-
-    const handleDehover = () => {
-        dropdownOpen = false
-    }
-
-    const updateStore = () => {
-        console.log(text + " is a child? " + child)
-        if (!child) $currentDropdown = element
-    }
-
-    onMount(() => {
-        element.addEventListener('focusin', addSelect)
-        element.addEventListener('keydown', handleKeydown)
-        element.addEventListener('mouseenter', handleHover)
-        element.addEventListener('mouseleave', handleDehover)
+    onMount(() => { 
+        clickable.addEventListener('focusin', function handleFocus() { inFocus = true })
+        clickable.addEventListener('focusout', function handleBlur() { inFocus = false })
+        clickable.addEventListener('mouseenter', function handleHover() { hovered = true })
+        clickable.addEventListener('mouseleave', function handleDehover() { hovered = false })
     })
 
     onDestroy(() => {
-        element.removeEventListener('keydown', handleKeydown)
-        element.removeEventListener('focusin', addSelect)
-        element.removeEventListener('mouseenter', handleHover)
-        element.removeEventListener('mouseleave', handleDehover)
+        clickable.removeEventListener('focusin', handleFocus)
+        clickable.removeEventListener('focusout', handleBlur)
+        clickable.removeEventListener('mouseenter', handleHover)
+        clickable.removeEventListener('mouseleave', handleDehover)
     })
 
+    // Update current path
     const updatePath = ({ location }) => {
         currentPath = location.pathname === to;
     }
 
 </script>
 
-<span class="element" bind:this={element}>
-{#if type === 'button'}
+<span bind:this={clickable}>
+    {#if type === 'button'}
     <button on:click={action} class="button clickable {style} {order} {onlyIcon} {select}" class:expand>
         {#if icon !== '' && order == 'regular'}
             <Icon name={icon}/>
@@ -109,43 +70,33 @@
             <Icon name={icon}/>
         {/if}
     </button>
-{:else if type === 'route'}
-    <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
-        <Link to={to} getProps={updatePath}>
+    {:else if type === 'route'}
+        <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
+            <Link to={to} getProps={updatePath}>
+                {#if icon !== '' && order == 'regular'}
+                    <Icon name={icon}/>
+                {/if}
+                {#if text}
+                    <p>{text}</p>
+                {/if}
+                {#if icon !== '' && order == 'reverse'}
+                    <Icon name={icon}/>
+                {/if}
+            </Link>
+        </div>
+    {:else}
+        <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
             {/if}
             {#if text}
                 <p>{text}</p>
             {/if}
-            {#if icon !== '' && order == 'reverse'}
+            {#if icon !== '' && order === 'reverse'}
                 <Icon name={icon}/>
             {/if}
-        </Link>
-    </div>
-{:else}
-    <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
-        {#if icon !== '' && order == 'regular'}
-            <Icon name={icon}/>
-        {/if}
-        {#if text}
-            <p>{text}</p>
-        {/if}
-        {#if icon !== '' && order === 'reverse'}
-            <Icon name={icon}/>
-        {/if}
-    </a>
-{/if}
-{#if dropdown}
-    <div class="dropdown-card {dropdownOpen ? 'dropdown-open' : ''}" bind:this={dropdownCard}>
-        <div class="dropdown-space">
-            <div class="dropdown-arrow"></div>
-        </div>
-        <Card padding size="small" shadow >
-            <slot />
-        </Card>
-    </div>
-{/if}
+        </a>
+    {/if}
 </span>
 
 <style>
@@ -182,10 +133,10 @@
         color: var(--link-color);
     }
 
-    .button:hover {
+    /* .button:hover {
         background-color: var(--secondary-color-2);
         color: var(--link-color-hover);
-    }
+    } */
 
     .button:active {
         background-color: var(--secondary-color-3);
@@ -198,9 +149,9 @@
         border: none;
     }
 
-    .button.primary:hover {
+    /* .button.primary:hover {
         background-color: var(--primary-color-2);
-    }
+    } */
 
     .button.primary:active {
         background-color: var(--primary-color-3);
@@ -213,10 +164,10 @@
         color: var(--text-color-3);
     }
 
-    .button.invisible:hover {
+    /* .button.invisible:hover {
         color: var(--link-color);
         background-color: var(--shade);
-    }
+    } */
 
     .button.invisible:active {
         background-color: var(--shade-2);
@@ -232,9 +183,9 @@
         color: var(--link-color);
     }
 
-    .link:hover, .route > :global(a:hover) {
+    /* .link:hover, .route > :global(a:hover) {
         text-decoration: underline;
-    }
+    } */
 
     .link:active, .route > :global(a:active) {
         color: var(--link-color-3);
@@ -247,11 +198,11 @@
         color: var(--link-color);
     }
 
-    .link.secondary:hover, .route.secondary > :global(a:hover) {
+    /* .link.secondary:hover, .route.secondary > :global(a:hover) {
         background-color: var(--secondary-color-2);
         color: var(--link-color-hover);
         text-decoration: none;
-    }
+    } */
 
     .link.secondary:active, .route.secondary > :global(a:active) {
         color: var(--link-color-active);
@@ -265,10 +216,10 @@
         color: var(--primary-button-text);
     }
 
-    .link.primary:hover, .route.primary > :global(a:hover) {
+    /* .link.primary:hover, .route.primary > :global(a:hover) {
         background-color: var(--primary-color-2);
         text-decoration: none;
-    }
+    } */
 
     .link.primary:active, .route.primary > :global(a:active) {
         background-color: var(--primary-color-3);
@@ -284,11 +235,11 @@
         color: var(--text-color-3);
     }
 
-    .link.invisible:hover, .route.invisible > :global(a:hover) {
+    /* .link.invisible:hover, .route.invisible > :global(a:hover) {
         background-color: var(--shade);
         text-decoration: none;
         color: var(--link-color);
-    }
+    } */
 
     .link.invisible:active, .route.invisible > :global(a:active) {
         background-color: var(--shade-2);
@@ -325,13 +276,13 @@
         margin: .2rem;
     }
 
-    .clickable.invisible:hover > :global(svg), .clickable.invisible:hover > :global(a) > :global(svg) {
+    /* .clickable.invisible:hover > :global(svg), .clickable.invisible:hover > :global(a) > :global(svg) {
         fill: var(--link-color);
     }
 
     .clickable.only-icon:hover > :global(svg), .clickable.only-icon:hover > :global(a) > :global(svg) {
         fill: var(--text-color-3);
-    }
+    } */
 
     .clickable.primary > :global(svg), .clickable.primary > :global(a) > :global(svg) {
         fill: var(--icon-color);
@@ -382,47 +333,6 @@
     {
         background-color: var(--primary-color-2);
         color: var(--primary-button-text);
-    }
-
-    .element {
-        position: relative;
-    }
-
-    .dropdown-card {
-        position: absolute;
-        top: 4rem;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 100;
-        visibility: hidden;
-        opacity: 0;
-        transition: all .2s ease-out;
-    }
-
-    /* .element:hover > .dropdown-card, */
-    .dropdown-open  {
-        visibility: visible;
-        opacity: 1;
-        z-index: 1000;
-    }
-
-    .dropdown-space {
-        position: absolute;
-        top: -1.3rem;
-        height: 1.3rem;
-        width: 100%;
-    }
-
-    .dropdown-arrow {
-        position: absolute;
-        width: 1.5rem;
-        height: 1rem;
-        top: .3rem;
-        background-color: white;
-        box-shadow: var(--box-shadow);
-        left: 50%;
-        transform: translateX(-50%);
-        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
     }
 
 </style>

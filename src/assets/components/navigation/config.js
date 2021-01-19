@@ -2,10 +2,7 @@ export const elements = [
     { 
         id: 1,
         text: 'Experience', 
-        type: 'route',
         style: 'invisible',
-        to: '/experience',
-        dropdown: true,
         structure: [
             [
                 {
@@ -28,10 +25,7 @@ export const elements = [
     { 
         id: 3,
         text: 'For developers', 
-        type: 'route',
         style: 'invisible',
-        to: '/developer',
-        dropdown: true,
         structure: [
             [
                 {
