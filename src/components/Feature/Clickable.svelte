@@ -133,24 +133,11 @@
         color: var(--link-color);
     }
 
-    /* .button:hover {
-        background-color: var(--secondary-color-2);
-        color: var(--link-color-hover);
-    } */
-
-    
-
     .button.primary {
         background-color: var(--primary-color);
         color: var(--primary-button-text);
         border: none;
     }
-
-    /* .button.primary:hover {
-        background-color: var(--primary-color-2);
-    } */
-
-    
 
     .button.invisible {
         background-color: transparent;
@@ -158,12 +145,6 @@
         padding: 1rem;
         color: var(--text-color-3);
     }
-
-    /* .button.invisible:hover {
-        color: var(--link-color);
-        background-color: var(--shade);
-    } */
-
     
 
     /* Link || Route ============================================= */
@@ -176,12 +157,6 @@
         color: var(--link-color);
     }
 
-    /* .link:hover, .route > :global(a:hover) {
-        text-decoration: underline;
-    } */
-
-    
-
     .link.secondary, .route.secondary > :global(a) {
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
@@ -189,27 +164,12 @@
         color: var(--link-color);
     }
 
-    /* .link.secondary:hover, .route.secondary > :global(a:hover) {
-        background-color: var(--secondary-color-2);
-        color: var(--link-color-hover);
-        text-decoration: none;
-    } */
-
-    
-
     .link.primary, .route.primary > :global(a) {
         padding: 1rem 2rem;
         border-radius: var(--border-radius-button);
         background-color: var(--primary-color);
         color: var(--primary-button-text);
     }
-
-    /* .link.primary:hover, .route.primary > :global(a:hover) {
-        background-color: var(--primary-color-2);
-        text-decoration: none;
-    } */
-
-    
 
     .link.invisible:link , .route.invisible > :global(a:link) {
         padding: 1rem;
@@ -220,14 +180,6 @@
     .link.invisible:visited , .route.invisible > :global(a:visited) {
         color: var(--text-color-3);
     }
-
-    /* .link.invisible:hover, .route.invisible > :global(a:hover) {
-        background-color: var(--shade);
-        text-decoration: none;
-        color: var(--link-color);
-    } */
-
-    
 
     .clickable.regular:not(.only-icon) > :global(svg), .clickable.regular:not(.only-icon) > :global(a) > :global(svg) {
         margin-left: -.5rem;
@@ -259,14 +211,6 @@
         height: 1.1em;
         margin: .2rem;
     }
-
-    /* .clickable.invisible:hover > :global(svg), .clickable.invisible:hover > :global(a) > :global(svg) {
-        fill: var(--link-color);
-    }
-
-    .clickable.only-icon:hover > :global(svg), .clickable.only-icon:hover > :global(a) > :global(svg) {
-        fill: var(--text-color-3);
-    } */
 
     .clickable.primary > :global(svg), .clickable.primary > :global(a) > :global(svg) {
         fill: var(--icon-color);
@@ -323,7 +267,7 @@
         background-color: var(--secondary-color-3);
         color: var(--link-color-active);
     }
-    
+
     .clickable.button.primary:active {
         background-color: var(--primary-color-3);
     }
