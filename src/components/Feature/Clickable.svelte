@@ -162,6 +162,7 @@
         border-radius: var(--border-radius-button);
         background-color: var(--secondary-color);
         color: var(--link-color);
+        border: 1px solid var(--border-color);
     }
 
     .link.primary, .route.primary > :global(a) {
@@ -244,6 +245,7 @@
     .clickable.route.secondary.selected > :global(a) 
     {
         background-color: var(--secondary-color-2);
+        color: var(--link-color)
     }
 
     .clickable.link.invisible.selected,
