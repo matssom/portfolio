@@ -25,6 +25,7 @@
     import LifeBouy from '../../assets/icons/life-bouy.svelte';
     import Handshake from '../../assets/icons/handshake.svelte';
     import OslometLogo from '../../assets/icons/oslomet-logo.svelte';
+    import InsetLogo from '../../assets/icons/inset-logo.svelte';
 
     export let name = 'logo', alt = '';
 
@@ -34,6 +35,7 @@
         { name: 'linkedin',     component: Linkedin     },
         { name: 'twitter',      component: Twitter      },
         { name: 'logo',         component: Logo         },
+        { name: 'inset-logo',   component: InsetLogo    },
         { name: 'arrow-right',  component: ArrowRight   },
         { name: 'code',         component: Code         },
         { name: 'copyright',    component: Copyright    },

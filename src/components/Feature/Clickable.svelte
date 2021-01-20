@@ -71,7 +71,7 @@
         {/if}
     </button>
     {:else if type === 'route'}
-        <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
+        <div on:click={action} class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
             <Link to={to} getProps={updatePath}>
                 {#if icon !== '' && order == 'regular'}
                     <Icon name={icon}/>
@@ -85,7 +85,7 @@
             </Link>
         </div>
     {:else}
-        <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
+        <a on:click={action} href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
             {/if}
