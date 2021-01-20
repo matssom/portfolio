@@ -7,7 +7,8 @@
 	import Home from './routes/Home.svelte';
 	import Work from './routes/Work.svelte';
 	import Education from './routes/Education.svelte';
-	import Developer from './routes/Developer.svelte';
+	import Tools from './routes/Tools.svelte';
+	import Skills from './routes/Skills.svelte';
 	import Footer from './components/Content/Footer.svelte';
 	import { theme } from './store/theme.js';
 
@@ -26,7 +27,8 @@
 		<main>
 			<Route path="/work" component={ Work }/>
 			<Route path="/education" component={ Education }/>
-			<Route path="/developer" component={ Developer }/>
+			<Route path="/tools" component={ Tools }/>
+			<Route path="/skills" component={ Skills }/>
 			<Route path="/"><Home /></Route>
 		</main>
 		

@@ -2,7 +2,7 @@
     export let oposite = false, light = true;
     import { Link } from 'svelte-routing';
     import logo from '../../assets/components/logo/config.js';
-    import Icon from '../../assets/logo.svelte';
+    import Icon from '../../assets/icons/logo.svelte';
 
     export let text = true;
 
