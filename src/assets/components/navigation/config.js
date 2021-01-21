@@ -1,46 +1,58 @@
 export const elements = [
     { 
         id: 1,
-        text: 'Experience', 
+        text: 'Work', 
+        style: 'invisible',
+        to: 'work'
+    },
+    { 
+        id: 2,
+        text: 'Education', 
+        style: 'invisible',
+        to: '/education'
+    },
+    { 
+        id: 3,
+        text: 'Skills', 
         style: 'invisible',
         structure: [
             [
                 {
                     id: 1,
-                    text: 'Work',
-                    icon: 'work',
+                    text: 'Soft skills',
+                    icon: 'open-book',
                     type: 'route',
-                    to: '/work'
+                    to: '/soft-skills'
                 },
                 {
                     id: 2,
-                    text: 'Education',
-                    icon: 'education',
+                    text: 'Hard skills',
+                    icon: 'tools',
                     type: 'route',
-                    to: '/education'
+                    to: '/tools'
+                },
+                {
+                    id: 3,
+                    text: 'Concepts',
+                    type: 'route',
+                    icon: 'api',
+                    to: '/concepts'
                 }
             ]
         ]
     },
     { 
-        id: 3,
+        id: 4,
         text: 'For developers', 
         style: 'invisible',
         structure: [
             [
                 {
-                    id: 1,
-                    text: 'Coding skills',
-                    icon: 'open-book',
-                    type: 'route',
-                    to: '/skills'
-                },
-                {
                     id: 2,
-                    text: 'Tools & Languages',
-                    icon: 'tools',
+                    text: 'Github',
+                    icon: 'github',
                     type: 'route',
-                    to: '/tools'
+                    to: '/github'
                 },
                 {
                     id: 3, 
@@ -53,21 +65,21 @@ export const elements = [
         ]
     },
     {
-        id: 4,
+        id: 5,
         type: 'link',
         style: 'invisible',
         to: 'https://github.com/matssom',
         icon: 'github'
     },
     {
-        id: 5,
+        id: 6,
         type: 'link',
         style: 'invisible',
         to: 'https://linkedin.com/in/mats-sommervold',
         icon: 'linkedin'
     },
     {
-        id: 6,
+        id: 7,
         type: 'link',
         style: 'invisible',
         to: 'https://twitter.com/matssommer',

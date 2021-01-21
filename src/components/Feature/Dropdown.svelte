@@ -31,7 +31,7 @@
     let open, inFocus
 
     // Handlers
-    const handleClick = (event) => {
+    const handleClick = () => {
         open = !open
         if (!open) inFocus = false
     }
@@ -53,7 +53,7 @@
                         <Stack size="small">
                             {#each col as clickable (clickable.id)}
                                 <li>
-                                    <Clickable expand type="{clickable.type}" style="invisible" icon="{clickable.icon}" text="{clickable.text}" to="{clickable.to}"/>
+                                    <Clickable action={handleClick} expand type="{clickable.type}" style="invisible" icon="{clickable.icon}" text="{clickable.text}" to="{clickable.to}"/>
                                 </li>
                             {/each}
                         </Stack>

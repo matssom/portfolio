@@ -6,9 +6,7 @@
     import { elements } from '../../assets/components/navigation/config.js'
 
     import { watchResize } from 'svelte-watch-resize';
-import { element } from 'svelte/internal';
-import Dropdown from '../Feature/Dropdown.svelte';
-import App from '../../App.svelte';
+    import Dropdown from '../Feature/Dropdown.svelte';
 
     let mobile = false;
     let nav;

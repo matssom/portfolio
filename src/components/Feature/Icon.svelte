@@ -25,6 +25,8 @@
     import LifeBouy from '../../assets/icons/life-bouy.svelte';
     import Handshake from '../../assets/icons/handshake.svelte';
     import OslometLogo from '../../assets/icons/oslomet-logo.svelte';
+    import InsetLogo from '../../assets/icons/inset-logo.svelte';
+    import Api from '../../assets/icons/api.svelte';
 
     export let name = 'logo', alt = '';
 
@@ -34,6 +36,7 @@
         { name: 'linkedin',     component: Linkedin     },
         { name: 'twitter',      component: Twitter      },
         { name: 'logo',         component: Logo         },
+        { name: 'inset-logo',   component: InsetLogo    },
         { name: 'arrow-right',  component: ArrowRight   },
         { name: 'code',         component: Code         },
         { name: 'copyright',    component: Copyright    },
@@ -53,7 +56,8 @@
         { name: 'book',         component: Book         },
         { name: 'life-bouy',    component: LifeBouy     },
         { name: 'handshake',    component: Handshake    },
-        { name: 'oslomet-logo', component: OslometLogo  }
+        { name: 'oslomet-logo', component: OslometLogo  },
+        { name: 'api',          component: Api          }
     ];
 
     $: selected = icons.find(icon => icon.name === name);

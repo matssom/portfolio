@@ -71,7 +71,7 @@
         {/if}
     </button>
     {:else if type === 'route'}
-        <div class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
+        <div on:click={action} class="route clickable {style} {order} {onlyIcon} {select}" class:expand>
             <Link to={to} getProps={updatePath}>
                 {#if icon !== '' && order == 'regular'}
                     <Icon name={icon}/>
@@ -85,7 +85,7 @@
             </Link>
         </div>
     {:else}
-        <a href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
+        <a on:click={action} href={to} tabindex="{notab ? -1 : 0}" class="link clickable {style} {order} {onlyIcon} {select}" class:expand target="{target}" rel={rel}>
             {#if icon !== '' && order == 'regular'}
                 <Icon name={icon}/>
             {/if}
@@ -162,6 +162,7 @@
         border-radius: var(--border-radius-button);
         background-color: var(--secondary-color);
         color: var(--link-color);
+        border: 1px solid var(--border-color);
     }
 
     .link.primary, .route.primary > :global(a) {
@@ -244,6 +245,7 @@
     .clickable.route.secondary.selected > :global(a) 
     {
         background-color: var(--secondary-color-2);
+        color: var(--link-color)
     }
 
     .clickable.link.invisible.selected,

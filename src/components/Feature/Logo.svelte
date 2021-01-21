@@ -1,8 +1,8 @@
 <script>
-    export let oposite = false, light = false;
+    export let oposite = false, light = true;
     import { Link } from 'svelte-routing';
     import logo from '../../assets/components/logo/config.js';
-    import Icon from '../../assets/icons/logo.svelte'
+    import Icon from '../../assets/icons/logo.svelte';
 
     export let text = true;
 
@@ -11,7 +11,7 @@
 
 <div class="logo" class:oposite>
     <Link to="/">
-        <Icon style="{iconStyle}" />
+        <Icon  style={iconStyle}/>
         {#if text}
             <h1 class="headline" class:light>{logo.headline}</h1>
         {/if}
@@ -28,19 +28,19 @@
     }
 
     .logo > :global(a:link) {
-        color: var(--text-color-3);
+        color: var(--text-color-2);
     }
 
     .logo > :global(a:visited) {
-        color: var(--text-color-3);
+        color: var(--text-color-2);
     }
 
     .logo:hover > :global(a) {
-        color: var(--text-color-3);
+        color: var(--text-color-2);
+        text-decoration: underline;
     }
 
     .logo > :global(a) > :global(svg) {
-        /* fill: ; */
         height: 2.5em;
         width: 2.5em;
         transition: var(--transition);

@@ -1,4 +1,4 @@
 export default {
-    headline: 'mats sommervold',
+    headline: 'Mats Sommervold',
     tagline: 'data engineer student'
 }
