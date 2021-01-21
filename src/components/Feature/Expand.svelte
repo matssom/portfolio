@@ -5,35 +5,39 @@
     import Stack from "../Layout/Stack.svelte";
     import { onMount, onDestroy } from 'svelte'
 
-    export let title = 'expand', image = '#', alt = 'image'
+    export let  title = 'expand', 
+                image = '#', 
+                alt = 'image'
 
-    let expanded = false
-    let height
+    //DOM elements
     let expand, base, area, hidden
+
+    // Reactive
+    let expanded = false
     let focus = false
+    let height
 
     onMount(() => {
         expand.style.height = "40px"
-        area.addEventListener('keydown', handleKeydown)
-        area.addEventListener('focus', doExpand)
+        // area.addEventListener('keydown', handleKeydown)
+        area.addEventListener('focusin', doExpand)
         area.addEventListener('blur', doClose)
     })
 
     onDestroy(() => {
-        area.removeEventListener('keydown', handleKeydown)
-        area.removeEventListener('focus', doExpand)
+        // area.removeEventListener('keydown', handleKeydown)
+        area.removeEventListener('focusin', doExpand)
         area.removeEventListener('blur', doClose)
     })
 
-    const handleKeydown = (event) => {
-        if (event.keyCode === 13) {
-            toggleExpand()
-        }
-    }
+    // const handleKeydown = (event) => {
+    //     if (event.keyCode === 13) {
+    //         toggleExpand()
+    //     }
+    // }
 
     const handleResize = () => {
         if (expanded) {
-            console.log(height)
             expand.style.height = `${height}px`
         }
     }

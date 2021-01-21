@@ -9,6 +9,7 @@
 	import Education from './routes/Education.svelte';
 	import Tools from './routes/Tools.svelte';
 	import Skills from './routes/Skills.svelte';
+	import Npm from './routes/Npm.svelte';
 	import Footer from './components/Content/Footer.svelte';
 	import { theme } from './store/theme.js';
 
@@ -28,7 +29,8 @@
 			<Route path="/work" component={ Work }/>
 			<Route path="/education" component={ Education }/>
 			<Route path="/tools" component={ Tools }/>
-			<Route path="/skills" component={ Skills }/>
+			<Route path="/soft-skills" component={ Skills }/>
+			<Route path="/npm" component={ Npm }/>
 			<Route path="/"><Home /></Route>
 		</main>
 		

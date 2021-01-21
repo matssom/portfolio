@@ -4,14 +4,14 @@ export const lang = {
             actions: [
                 {
                     index: 0,
-                    path: '/experience',
+                    path: '/soft-skills',
                     icon: 'arrow-right',
                     style: 'primary'
                 },
                 {
                     index: 1,
-                    path: '/tools',
-                    icon: 'code',
+                    path: '/contact',
+                    icon: 'send',
                     style: 'secondary'
                 }
             ]
@@ -23,10 +23,10 @@ export const lang = {
             tagline: 'I am a data engineer student based in Oslo, Norway. I spend my time creating software experiences.',
             actions: [
                 {
-                    text: 'Experience',
+                    text: 'Skills',
                 },
                 {
-                    text: 'Technologies',
+                    text: 'Contact',
                 }
             ]
         }
@@ -37,10 +37,10 @@ export const lang = {
             tagline: 'Jeg er en dataingeniør student basert i Oslo, Norge. Jeg bruker tiden min på å skape programmvare opplevelser.',
             actions: [
                 {
-                    text: 'Erfaring'
+                    text: 'Ferdigheter'
                 },
                 {
-                    text: 'Teknologier'
+                    text: 'Kontakt'
                 }
             ]
         }
