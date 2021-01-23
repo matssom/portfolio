@@ -31,4 +31,10 @@
     .section {
         gap: var(--gap-section);
     }
+
+    @media (max-width: 53.75em) {
+        .section {
+            gap: 2rem;
+        }
+    }
 </style>

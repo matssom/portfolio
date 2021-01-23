@@ -61,7 +61,7 @@
             <Card padding>
                 <div use:watchResize={handleResize}>
                     <div class:mobile class="footer" bind:this={nav}>
-                        <p class="legal"><Icon name="copyright"/> Mats Sommervold, 2020</p>
+                        <p class="legal"><Icon name="copyright"/> Mats Sommervold, 2021</p>
                         <div class="footer">
                             <ThemeControl />
                             <LanguageControl />

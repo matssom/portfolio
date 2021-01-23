@@ -14,7 +14,22 @@
 	<link rel='stylesheet' href='/global.css'>
 	<link rel='stylesheet' href='/build/bundle.css'>
 	
-
+	<!-- <script src="sw.js"></script>
+	<script>
+		if ('serviceWorker' in navigator) {  
+			window.addEventListener('load', function() {    
+				navigator.serviceWorker.register('/sw.js')
+				.then(function(registration) {      
+					// Registration was successful      
+					console.log('ServiceWorker registration successful with scope: ', registration.scope);    
+				}, 
+				function(err) {      
+					// registration failed 
+					console.log('ServiceWorker registration failed: ', err);    
+				});  
+			});
+		}
+	</script> -->
 	<script defer src='/build/bundle.js'></script>
 </head>
 

@@ -51,6 +51,14 @@
         background: var(--back-color-5);
     }
 
+    .primary-color-2 {
+        background-color: var(--primary-color-2);
+    }
+
+    .expert-color {
+        background-color: var(--expert-color);
+    }
+
     .focus {
         background-color: var(--proficient-color);
     }
