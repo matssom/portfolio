@@ -13,25 +13,25 @@ import Quote from "../assets/icons/quote.svelte";
 
 </script>
 
-<Section size="large">
-    <Stack size="section">
-        <Container padding horizontal narrow>
-            <Stack size="large">
-                <H1 icon="tools">Tools & Languages</H1>
-                <Split col="2">
-                    <P>The software engineers' tools & languages are like the artists' brushes & paint. The computer is the canvas, and the product is the art.</P>
-                    <div class="image-holder">
-                        <img class="coding-image" src="assets/routes/tools/developer.svg" alt="">
-                    </div>
-                </Split>
-            </Stack>
-        </Container>
-        <Container>
-            <TagManager {tags} />
-        </Container>
-    </Stack>
+<Section>
+    <Container padding horizontal narrow>
+        <Stack size="large">
+            <H1 icon="tools">Tools & Languages</H1>
+            <Split col="2">
+                <P>The software engineers' tools & languages are like the artists' brushes & paint. The computer is the canvas, and theproduct is the art.</P>
+                <div class="image-holder">
+                    <img class="coding-image" src="assets/routes/tools/developer.svg" alt="">
+                </div>
+            </Split>
+        </Stack>
+    </Container>
 </Section>
-<Section size="tiny">
+<Section>
+    <Container padding horizontal narrow>
+        <TagManager {tags} />
+    </Container>
+</Section>
+<Section>
     <Container padding horizontal narrow>
         <H3>Stacks I am familiar with:</H3>
     </Container>

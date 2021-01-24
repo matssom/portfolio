@@ -1,10 +1,10 @@
 <script>
-    export let col = 3, free = false;
+    export let col = 3, free = false, noheading = false;
 
     let split = `split-${col}`;
 </script>
 
-<div class="split {split}" class:free>
+<div class="split {split}" class:free class:noheading>
     <slot />
 </div>
 
@@ -14,6 +14,10 @@
         gap: var(--gap-huge) var(--gap-large);
         margin: 0 auto;
         justify-content: center;
+    }
+
+    .noheading {
+        gap: var(--gap-medium) var(--gap-large);
     }
 
     .split-3 {

@@ -47,18 +47,18 @@
                             {/each}
                         </Flow>
                         <Divider />
-                        <div class="side-by-side">
+                        <div class="side-by-side properties">
                             <div class="side-by-side">
                                 <Icon name={$tag.icon} size="large" color=""/>
-                                <P><span class="bold">{$tag.title}:</span></P>
+                                <H3><span class="bold">{$tag.title}</span></H3>
                             </div>
-                            <Flow>
+                            <Flow center>
                                 {#each $tag.keywords as key ($tag.keywords.indexOf(key))}
                                     <Tag title={key} color={{tag: '#8b3e6f', text: 'white'}} disabled />
                                 {/each}
                             </Flow>
                         </div>
-                        <Split col="2" free>
+                        <Split col="2" free noheading>
                             <Container padding horizontal>
                                 <Stack>
                                     <P>{$tag.description[0] ? $tag.description[0] : ''}</P>
@@ -86,5 +86,12 @@
 
     .bold {
         font-weight: 700;
+    }
+
+    @media (max-width: 53.75em) {
+        .properties {
+            flex-direction: column;
+            gap: 2rem;
+        }
     }
 </style>
