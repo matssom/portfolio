@@ -3,12 +3,14 @@ export const elements = [
         id: 1,
         text: 'Work', 
         style: 'invisible',
+        type: 'route',
         to: 'work'
     },
     { 
         id: 2,
         text: 'Education', 
         style: 'invisible',
+        type: 'route',
         to: '/education'
     },
     { 

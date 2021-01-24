@@ -61,12 +61,12 @@
                         <Split col="2" free noheading>
                             <Container padding horizontal>
                                 <Stack>
-                                    <P>{$tag.description[0] ? $tag.description[0] : ''}</P>
+                                    <P placeholder={$tag.description ? false : 4}>{$tag.description[0] ? $tag.description[0] : ''}</P>
                                 </Stack>
                             </Container>
                             <Container padding horizontal>
                                 <Stack>
-                                    <P>{$tag.description[1] ? $tag.description[1] : ''}</P>
+                                    <P placeholder={$tag.description ? false : 3}>{$tag.description[1] ? $tag.description[1] : ''}</P>
                                 </Stack>
                             </Container>
                         </Split>

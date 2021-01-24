@@ -21,7 +21,7 @@
 	<Router url={url}>
 		<header>
 			<Container padding>
-				<Navigation/>
+				<Navigation />
 			</Container>
 		</header>
 		

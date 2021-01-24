@@ -94,7 +94,7 @@ export const tags = [
     },
     {
         title: 'Npm',
-        description: ['Npm is the most popular package manager for Javascript developers. Almost anything you need, you can find on Npm. It is also a part of NodeJS.',""],
+        description: ['Npm is the most popular package manager for Javascript developers. Almost anything you need, you can find on Npm. It is also a part of NodeJS.',"Npm makes it easy to use other packages and publish your own, which I have been loving doing this past year."],
         icon: 'assets/routes/tools/npm.png',
         keywords: ['proficient', 'package manager', '4 years experience'],
         color: {
@@ -103,54 +103,54 @@ export const tags = [
     },
     {
         title: 'Java',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["Java is part of the curriculum of many of my courses at OsloMet. Although it's an older language, it is still very much in use on a global scale.","It is also a great first language to learn as it has strong typing and object orientation, which every programmer needs to know."],
         icon: 'assets/routes/tools/java.png',
-        color: 'proficient-color',
-        data: {
-            proficiency: 'proficient'
+        keywords: ['proficient', 'language', '2 years experience'],
+        color: {
+            brand: '#E97F1D'
         },
         plate: true
     },
     {
         title: 'Intellij',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["Intellij is an IDE mainly used for Java programming. It is created and maintained by JetBrains.","Intellij is my favorite IDE to use for Java development as it has practical tools for efficient development."],
         icon: 'assets/routes/tools/intellij.svg',
-        color: 'proficient-color',
-        data: {
-            proficiency: 'proficient'
+        keywords: ['proficient', 'IDE', '2 years experience'],
+        color: {
+            brand: '#FE315D'
         }
     },
     {
         title: 'Typescript',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["Typescript is a strict superset of Javascript that adds a robust type system to the language. Something that has been missed by many developers over the years.", "As javascript is my go-to language, Typescript is a natural extension to that. It took a few years before I tried it out, but I love it now."],
         icon: 'assets/routes/tools/typescript.png',
-        color: 'proficient-color',
-        data: {
-            proficiency: 'proficient'
+        keywords: ['proficient', 'language', '2 years experience'],
+        color: {
+            brand: '#007BCD'
         }
     },
     {
         title: 'Git',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["Git is the most popular version control system out there. You have to know git to be a developer today. ","Without it, we could not do continuous integration and deployment, which has become essential to many firms today."],
         icon: 'assets/routes/tools/git.png',
-        color: 'proficient-color',
-        data: {
-            proficiency: 'proficient'
+        keywords: ['proficient', 'version control', '2 years experience'],
+        color: {
+            brand: '#007BCD'
         },
         plate: true
     },
     {
         title: 'GitHub',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["GitHub is a version control hosting platform for software development projects. It hosts many popular open-source projects.","GitHub is also a popular place to host the code for packages you post on package managers like Npm. Even documentation can live there in the readme file."],
         icon: 'assets/routes/tools/github.png',
-        color: 'proficient-color',
-        data: {
-            proficiency: 'proficient'
-        }
+        keywords: ['proficient', 'software hosting platform', '2 years experience'],
+        color: {
+            brand: '#007BCD'
+        },
     },
     {
         title: 'Vs code',
-        description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci perspiciatis hic nihil tenetur nam amet alias corrupti impedit, molestias facilis veritatis nisi dicta saepe aperiam facere consequuntur officia, totam veniam.',
+        description: ["",""],
         icon: 'assets/routes/tools/vscode.png',
         color: 'proficient-color',
         data: {

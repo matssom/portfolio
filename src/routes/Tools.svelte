@@ -31,11 +31,6 @@ import Quote from "../assets/icons/quote.svelte";
         <TagManager {tags} />
     </Container>
 </Section>
-<Section>
-    <Container padding horizontal narrow>
-        <H3>Stacks I am familiar with:</H3>
-    </Container>
-</Section>
 
 <style>
     .image-holder {
