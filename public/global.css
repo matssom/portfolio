@@ -36,9 +36,23 @@
 	--link-color-hover: 	#00438b;
 	--link-color-active: 	#003268;
 
-	--expert-color: 		#fffdec;
-	--proficient-color: 	#dfd4e4;
-	--familiar-color:		#7befb2;
+	--tag-color:			var(--back-color-2);
+
+	--expert-color: 		#8b3e6f;
+	--proficient-color: 	#E8963A;
+	--familiar-color:		#3FC8B4;
+
+	/* --expert-color: 		#ffb5ed;
+	--proficient-color: 	#ffe3b5;
+	--familiar-color:		#5ccbff; */
+
+	--expert-color-strong: 		#ff1755;
+	--proficient-color-strong:	#f8d90f;
+	--familiar-color-strong:	#1793ff;
+
+	/* --expert-color: 		#ff8488;
+	--proficient-color: 	#f5d364;
+	--familiar-color:		#7befb2; */
 
 	--card-color: var(--back-color-2);
 	--card-color-2: var(--back-color);

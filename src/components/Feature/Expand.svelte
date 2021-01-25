@@ -4,6 +4,9 @@
     import Container from '../Layout/Container.svelte';
     import Stack from "../Layout/Stack.svelte";
     import { onMount, onDestroy } from 'svelte'
+    import { createEventDispatcher } from 'svelte'
+
+    const dispatch = createEventDispatcher()
 
     export let  title = 'expand', 
                 image = '#', 
@@ -19,22 +22,7 @@
 
     onMount(() => {
         expand.style.height = "40px"
-        // area.addEventListener('keydown', handleKeydown)
-        area.addEventListener('focusin', doExpand)
-        area.addEventListener('blur', doClose)
     })
-
-    onDestroy(() => {
-        // area.removeEventListener('keydown', handleKeydown)
-        area.removeEventListener('focusin', doExpand)
-        area.removeEventListener('blur', doClose)
-    })
-
-    // const handleKeydown = (event) => {
-    //     if (event.keyCode === 13) {
-    //         toggleExpand()
-    //     }
-    // }
 
     const handleResize = () => {
         if (expanded) {
@@ -57,6 +45,10 @@
     }
 
     const unfocus = (event) => {
+        dispatch('click', {
+			text: 'Hello!'
+		});
+
         let origin = { x: event.clientX, y: event.clientY }
         let moved = false
         const dragDistanceThreshhold = 20

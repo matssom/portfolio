@@ -1,4 +1,5 @@
 <script>
+    import { onMount } from 'svelte'
 
     import Github from '../../assets/icons/github.svelte';
     import Instagram from '../../assets/icons/instagram.svelte';
@@ -27,8 +28,10 @@
     import OslometLogo from '../../assets/icons/oslomet-logo.svelte';
     import InsetLogo from '../../assets/icons/inset-logo.svelte';
     import Api from '../../assets/icons/api.svelte';
+    import Tag from '../../assets/icons/tag.svelte';
+    import Hashtag from '../../assets/icons/hashtag.svelte';
 
-    export let name = 'logo', alt = '';
+    export let name = 'logo', alt = '', size = 'small';
 
     const icons = [
         { name: 'github',       component: Github       },
@@ -57,16 +60,18 @@
         { name: 'life-bouy',    component: LifeBouy     },
         { name: 'handshake',    component: Handshake    },
         { name: 'oslomet-logo', component: OslometLogo  },
-        { name: 'api',          component: Api          }
+        { name: 'api',          component: Api          },
+        { name: 'tag',          component: Tag          },
+        { name: 'hashtag',      component: Hashtag      }
     ];
 
     $: selected = icons.find(icon => icon.name === name);
 </script>
 
 {#if selected && selected.component}
-    <svelte:component this={selected.component} />
+    <svelte:component {size} this={selected.component}/>
 {:else}
-    <img src="{name}" alt={alt}>
+    <img class={size} src="{name}" alt={alt}>
 {/if}
 
 <style>
@@ -74,4 +79,19 @@
         display: inline-block;
         height: 1.1em;
     }
+
+    .medium {
+        height: 2.2rem;
+    }
+
+    .medium :global(svg) {
+        height: 2.2rem;
+    }
+
+    .large {
+        height: 4rem;
+    }
+    
+
 </style>
+

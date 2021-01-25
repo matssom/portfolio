@@ -1,10 +1,19 @@
 <script>
-    export let oposite = false, center = false, size = 'medium';
+    export let oposite = false, center = false, size = 'medium', placeholder = false
+
+    $: lines = placeholder
+
 </script>
 
-<p class:oposite class:center class="{size}">
-    <slot />
-</p>
+{#if placeholder === false}
+    <p class:oposite class:center class="{size}">
+        <slot />
+    </p>
+{:else}
+    {#each Array(lines) as _, i}
+        <div class="placeholder-line"></div>
+    {/each}
+{/if}
 
 <style>
     p {
@@ -31,5 +40,13 @@
 
     .center {
         text-align: center;
+    }
+
+    .placeholder-line {
+        background-color: var(--back-color-2);
+        min-width: 35rem;
+        width: 100%;
+        height: 1.8rem;
+        border-radius: var(--border-radius-button);
     }
 </style>
