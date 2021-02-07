@@ -7,6 +7,8 @@
     import H1 from "../components/Type/H1.svelte";
     import H3 from "../components/Type/H3.svelte";
     import P from "../components/Type/P.svelte";
+    import Flow from '../components/Layout/Flow.svelte';
+import Card from "../components/Layout/Card.svelte";
 
 
 </script>
@@ -72,6 +74,22 @@
                 </Container>
             </Split>
         </Stack>
+    </Container>
+</Section>
+
+<Section>
+    <Container padding horizontal narrow>
+        <Card padding horizontal background="back-color-2">
+            <Container padding size="large">
+                <Stack>
+                    <H3>Related sections:</H3>
+                    <Flow size="large">
+                        <Clickable style="link" to="/soft-skills" type="route" text="Soft Skills" icon="open-book"/>
+                        <Clickable style="link" to="/tools" type="route" text="Hard Skills" icon="tools"/>
+                    </Flow>
+                </Stack>
+            </Container>
+        </Card>
     </Container>
 </Section>
 
