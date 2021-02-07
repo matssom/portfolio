@@ -42,26 +42,20 @@
                 </Container>
                 <Container padding horizontal>
                     <Stack>
-                        <H3>Lifelong Learner</H3>
-                        <P>The joy of learning is the single most important reason for why I started programming. I have allways wanted to learn new ways to create human-centric experiences.</P>
-                    </Stack>
-                </Container>
-                <Container padding horizontal>
-                    <Stack>
-                        <H3>Bussiness mindedness</H3>
-                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
-                    </Stack>
-                </Container>
-                <Container padding horizontal>
-                    <Stack>
-                        <H3>Curiosity</H3>
-                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                        <H3>Bussiness minded</H3>
+                        <P>Business and development are a powerful combination. Having someone who can propose solutions to business problems and bring those solutions to life through code is extremely valuable to a company or customer. I have business experience through my coaching firm,<Clickable to="https://w2.brreg.no/enhet/sok/detalj.jsp;?orgnr=922195269" text="MATS SOMMERVOLD ENK" />.</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
                         <H3>Interpersonal skills</H3>
-                        <P>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, mollitia expedita ipsum tempore doloribus tenetur impedit magnam sunt accusantium perspiciatis suscipit provident dignissimos repellendus cumque?</P>
+                        <P>Interpersonal skills are vital in an agile team where you communicate across sub-teams and with the client much more than with plan driven development. My interpersonal skills have developed much over the last year due to my teacher assistant job. I have also drasticly improved my public speaking skills by teaching new topics in front of over 300 students.</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Lifelong Learner</H3>
+                        <P>The joy of learning is the single most important reason for why I started programming. I have allways wanted to learn new ways to create human-centric experiences.</P>
                     </Stack>
                 </Container>
             </Split>
