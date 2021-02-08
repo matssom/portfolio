@@ -33,43 +33,37 @@ import Card from "../components/Layout/Card.svelte";
                 <Container padding horizontal>
                     <Stack>
                         <H3>Api development</H3>
-                        <P>According to the <Clickable to="https://stateofagile.com/" text="state of agile 2020"/> report, agile is here to stay. It has become vital to be adaptable and flexable in todays society where requirements change faster than ever.I have agile background from the System Development course at OsloMet.</P>
+                        <P>As more businesses move online, api development becomes more and more important. Should you go with a code-first approach or create the api interface before any core functionallity is implemented? I have experience creating RESTful api's and I am currently learning about GraphQL.</P>
+                    </Stack>
+                </Container>
+                <Container padding horizontal>
+                    <Stack>
+                        <H3>Continous Integration (CI/CD)</H3>
+                        <P>Managing smaller or even larger applications has become a lot easier this past decade because of the giants like Amazon, Goolge and Microsoft making deployment to cloud as easy as one click. My CI/CD knowledge is based from Circle CI, Github Actions, Heroku and Digital ocean. For smaller static projects, I also enjoy using Netlify and Vercel.</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
                         <H3>Algorithms & Datastructures</H3>
-                        <P>What does it mean to be professional? In some sense, a professional is just someone who takes responsibility for their choices. Testing is, by all means, a hard skill. But it is also a way to be able to trust that you are delivering quality code.</P>
-                    </Stack>
-                </Container>
-                <Container padding horizontal>
-                    <Stack>
-                        <H3>Paradigms (OOP and FP)</H3>
-                        <P>Business and development are a powerful combination. Having someone who can propose solutions to business problems and bring those solutions to life through code is extremely valuable to a company or customer. I have business experience through my coaching firm,<Clickable to="https://w2.brreg.no/enhet/sok/detalj.jsp;?orgnr=922195269" text="MATS SOMMERVOLD ENK" />.</P>
+                        <P>Algorithms and datastructures are the core of software development. I have a good foundation in this field from the course, <Clickable to="https://student.oslomet.no/en/studier/-/studieinfo/emne/DATS2300/2020/H%C3%98ST" text="AlgDat"/> at OsloMet.</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
                         <H3>Networking and cloud</H3>
-                        <P>Business and development are a powerful combination. Having someone who can propose solutions to business problems and bring those solutions to life through code is extremely valuable to a company or customer. I have business experience through my coaching firm,<Clickable to="https://w2.brreg.no/enhet/sok/detalj.jsp;?orgnr=922195269" text="MATS SOMMERVOLD ENK" />.</P>
+                        <P>I am currently enduring a course in <Clickable to="https://student.oslomet.no/en/studier/-/studieinfo/emne/DATA2410/2020/H%C3%98ST" text="Newtworking and cloud computing" />. Learning the basics of the IP stack and and how networks really work has been some of the most fun I have had programming so far. I look forward to learning more.</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
-                        <H3>Continous Integration/Deployment (CI/CD)</H3>
-                        <P>Business and development are a powerful combination. Having someone who can propose solutions to business problems and bring those solutions to life through code is extremely valuable to a company or customer. I have business experience through my coaching firm,<Clickable to="https://w2.brreg.no/enhet/sok/detalj.jsp;?orgnr=922195269" text="MATS SOMMERVOLD ENK" />.</P>
+                        <H3>Paradigms (OOP and FP)</H3>
+                        <P>The two programming paradigms I am most familiar with are probably also the two most popular. I have a profound understanding of object oriented programming because most of the programming lectures at my university are in Java. Functional programming is something I have picked up myself on the side. I try to write javascript as functionally as possible and I am looking into learning a proper functional language like Clojure.</P>
                     </Stack>
                 </Container>
                 <Container padding horizontal>
                     <Stack>
-                        <H3>User interface design (UI)</H3>
-                        <P>Interpersonal skills are vital in an agile team where you communicate across sub-teams and with the client much more than with plan driven development. My interpersonal skills have developed much over the last year due to my teacher assistant job. I have also drasticly improved my public speaking skills by teaching new topics in front of over 300 students.</P>
-                    </Stack>
-                </Container>
-                <Container padding horizontal>
-                    <Stack>
-                        <H3>User experience design (UX)</H3>
-                        <P>The joy of learning is the single most important reason for why I started programming. I have allways wanted to learn new ways to create human-centric experiences.</P>
+                        <H3>Design (UX & UI)</H3>
+                        <P>Even though I am not a designer, I have a keen eye for user interface and user experiece design. I believe that helps me invisioning how a potential product may feel before even starting the development. Universal design and accesibility are also incredibly important topics for a programmer. I have been incredibly lucky to colaborate closely with world leading <Clickable to="https://dranthony.design" text="Dr. Anthony Giannoumis"/> in this field.</P>
                     </Stack>
                 </Container>
             </Split>
