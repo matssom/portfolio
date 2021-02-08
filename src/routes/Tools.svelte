@@ -9,7 +9,8 @@ import H3 from '../components/Type/H3.svelte';
 import P from '../components/Type/P.svelte';
 import { tags } from '../assets/routes/tools/tools.js'
 import Split from "../components/Layout/Split.svelte";
-import Quote from "../assets/icons/quote.svelte";
+import Card from "../components/Layout/Card.svelte";
+import Clickable from "../components/Feature/Clickable.svelte";
 
 </script>
 
@@ -26,9 +27,26 @@ import Quote from "../assets/icons/quote.svelte";
         </Stack>
     </Container>
 </Section>
+
 <Section>
     <Container padding horizontal narrow>
         <TagManager {tags} />
+    </Container>
+</Section>
+
+<Section>
+    <Container padding horizontal narrow>
+        <Card padding horizontal background="back-color-2">
+            <Container padding size="large">
+                <Stack>
+                    <H3>Related sections:</H3>
+                    <Flow size="large">
+                        <Clickable style="link" to="/soft-skills" type="route" text="Soft Skills" icon="open-book"/>
+                        <Clickable style="link" to="/concepts" type="route" text="Programming Concepts" icon="api"/>
+                    </Flow>
+                </Stack>
+            </Container>
+        </Card>
     </Container>
 </Section>
 
