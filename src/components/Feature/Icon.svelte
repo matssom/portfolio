@@ -30,6 +30,7 @@
     import Api from '../../assets/icons/api.svelte';
     import Tag from '../../assets/icons/tag.svelte';
     import Hashtag from '../../assets/icons/hashtag.svelte';
+import Menu from '../../assets/icons/menu.svelte';
 
     export let name = 'logo', alt = '', size = 'small';
 
@@ -62,7 +63,8 @@
         { name: 'oslomet-logo', component: OslometLogo  },
         { name: 'api',          component: Api          },
         { name: 'tag',          component: Tag          },
-        { name: 'hashtag',      component: Hashtag      }
+        { name: 'hashtag',      component: Hashtag      },
+        { name: 'menu',         component: Menu         }
     ];
 
     $: selected = icons.find(icon => icon.name === name);
@@ -91,7 +93,5 @@
     .large {
         height: 4rem;
     }
-    
-
 </style>
 
